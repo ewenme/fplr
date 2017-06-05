@@ -13,6 +13,6 @@ getPlayerHistory(player_id)
 Returns a tibble containing historical seasons data for a player in the current FPL season.
 }
 \examples{
-getPlayersHistory()
+getPlayerHistory()
 }
-\keyword{players}
+\keyword{player}

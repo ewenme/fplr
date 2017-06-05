@@ -1,11 +1,11 @@
-#' getPlayersDetailed
+#' getPlayerDetailed
 #'
 #' Returns a tibble containing round-by-round data for a player in the current FPL season.
 #' @param player_id Player ID.
-#' @keywords players
+#' @keywords player
 #' @export
 #' @examples
-#' getPlayersDetailed()
+#' getPlayerDetailed()
 
 getPlayerDetailed <- function(player_id) {
 

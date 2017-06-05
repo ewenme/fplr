@@ -2,10 +2,10 @@
 #'
 #' Returns a tibble containing historical seasons data for a player in the current FPL season.
 #' @param player_id Player ID.
-#' @keywords players
+#' @keywords player
 #' @export
 #' @examples
-#' getPlayersHistory()
+#' getPlayerHistory()
 
 getPlayerHistory <- function(player_id) {
 

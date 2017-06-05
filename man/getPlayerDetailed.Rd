@@ -2,7 +2,7 @@
 % Please edit documentation in R/getPlayerDetailed.R
 \name{getPlayerDetailed}
 \alias{getPlayerDetailed}
-\title{getPlayersDetailed}
+\title{getPlayerDetailed}
 \usage{
 getPlayerDetailed(player_id)
 }
@@ -13,6 +13,6 @@ getPlayerDetailed(player_id)
 Returns a tibble containing round-by-round data for a player in the current FPL season.
 }
 \examples{
-getPlayersDetailed()
+getPlayerDetailed()
 }
-\keyword{players}
+\keyword{player}
