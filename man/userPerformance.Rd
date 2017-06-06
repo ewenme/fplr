@@ -7,11 +7,15 @@
 userPerformance(user_id, type = "classic")
 }
 \arguments{
-\item{user_id}{FPL user ID (retrieve from the corresponding user's fantasy.premierleague.com team page URL).}
+\item{user_id}{FPL user ID (retrieve from the corresponding user's \link{fantasy.premierleague.com} team page URL).}
 
-\item{type}{"classic", "h2h" (head-to-head) or "cup". Defaults to "classic".}
+\item{type}{FPL competition type. Choose one of "classic", "h2h" (head-to-head) or "cup". Defaults to "classic".}
 }
 \description{
 Gives a tibble containing performance info for a given user in the current FPL season.
+}
+\examples{
+userPerformance(user_id = 123)
+userPerformance(user_id = 123, type = "h2h")
 }
 \keyword{user}

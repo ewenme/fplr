@@ -7,7 +7,7 @@
 getPlayerSeasons(player_id)
 }
 \arguments{
-\item{player_id}{\code{id} field from \code{getPlayers()} tibble for a desired player.}
+\item{player_id}{\code{id} field from \code{\link{getPlayers}} tibble for a desired player.}
 }
 \description{
 Returns a tibble containing a season history overview for a given player in the current FPL season.

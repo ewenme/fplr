@@ -1,7 +1,7 @@
 #' getPlayerSeasons
 #'
 #' Returns a tibble containing a season history overview for a given player in the current FPL season.
-#' @param player_id \code{id} field from \code{getPlayers()} tibble for a desired player.
+#' @param player_id \code{id} field from \code{\link{getPlayers}} tibble for a desired player.
 #' @keywords player
 #' @export
 #' @examples

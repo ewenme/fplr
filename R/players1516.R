@@ -5,7 +5,6 @@
 #' @usage data(players1516)
 #' @format An object of class \code{tibble}.
 #' @keywords datasets
-#' @export
 #' @examples
 #' data(players1516)
 "players1516"
