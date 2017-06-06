@@ -7,7 +7,7 @@
 teamNames()
 }
 \description{
-Lists the team names used in package.
+Lists the team names used in the package.
 }
 \examples{
 teamNames()

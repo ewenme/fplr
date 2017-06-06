@@ -1,6 +1,6 @@
 #' teamNames
 #'
-#' Lists the team names used in package.
+#' Lists the team names used in the package.
 #' @keywords teams
 #' @export
 #' @examples
