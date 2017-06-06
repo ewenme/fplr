@@ -17,23 +17,23 @@ getPlayerId <- function(player_name, team_name) {
   if (!is.character(team_name))
     stop("team_name isn't character format.")
 
-  #look-up table of teams
-  teams <- data.frame(id=c(1, 3, 6, 8, 11, 13, 14, 20, 21, 25, 31, 35, 43, 56, 57, 80, 88, 90, 91,
-                           110),
-                      team_name=c("Manchester United", "Arsenal", "Tottenham Hotspur", "Chelsea",
-                                  "Everton", "Leicester City", "Liverpool", "Southampton",
-                                  "West Ham", "Middlesbrough", "Crystal Palace",
-                                  "West Bromwich Albion", "Manchester City", "Sunderland",
-                                  "Watford", "Swansea City", "Hull City", "Burnley",
-                                  "Bournemouth", "Stoke City"))
+  #read in json player data, simplify vectors to make easy transfer to dataframe
+  extract <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static",
+                                 simplifyVector = TRUE)
+
+  # #look-up table of teams
+  # teams <- data.frame(id=c(1, 3, 6, 8, 11, 13, 14, 20, 21, 25, 31, 35, 43, 56, 57, 80, 88, 90, 91,
+  #                          110),
+  #                     team_name=c("Manchester United", "Arsenal", "Tottenham Hotspur", "Chelsea",
+  #                                 "Everton", "Leicester City", "Liverpool", "Southampton",
+  #                                 "West Ham", "Middlesbrough", "Crystal Palace",
+  #                                 "West Bromwich Albion", "Manchester City", "Sunderland",
+  #                                 "Watford", "Swansea City", "Hull City", "Burnley",
+  #                                 "Bournemouth", "Stoke City"))
 
   #check the team name is in the list
-  if (!team_name %in% teams$team_name)
+  if (!team_name %in% extract$teams$name)
     stop("team_name not found.")
-
-  #read in json player data, simplify vectors to make easy transfer to dataframe
-  data <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static",
-                              simplifyVector = TRUE)
 
   #extract player data ONLY
   data <- data$elements
@@ -48,7 +48,7 @@ getPlayerId <- function(player_name, team_name) {
   inputs <- data.frame(name=player_name, team=team_name)
 
   #replace codes with matching values
-  data$team_name <- with(teams, team_name[match(data$team_code, id)])
+  data$team_name <- with(extract$teams, name[match(data$team_code, code)])
 
   #match inputs with corresponding player in fpl list
   player_match <- data$id[match(interaction(data$player_name, data$team_name),
@@ -57,3 +57,5 @@ getPlayerId <- function(player_name, team_name) {
   return(data$id[which(player_match == 1)])
 
 }
+
+test <- getPlayerId("Calum Chambers", "Arsenal")

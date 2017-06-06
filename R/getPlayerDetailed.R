@@ -22,15 +22,6 @@ getPlayerDetailed <- function(player_id) {
   if (!player_id %in% 1:length(players$elements$id))
     stop("player_id not found.")
 
-  #look-up table of teams
-  teams <- data.frame(id=1:20,
-                      team_name=c( "Arsenal", "Bournemouth", "Burnley", "Chelsea", "Crystal Palace",
-                                   "Everton", "Hull City", "Leicester City", "Liverpool",
-                                   "Manchester City", "Manchester United", "Middlesbrough",
-                                   "Southampton", "Stoke City", "Sunderland", "Swansea City",
-                                   "Tottenham Hotspur", "Watford", "West Bromwich Albion",
-                                   "West Ham"))
-
   #read in json player data, simplify vectors to make easy transfer to dataframe
   data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/element-summary/",
                                      player_id),
@@ -40,7 +31,7 @@ getPlayerDetailed <- function(player_id) {
   data <- tibble::as.tibble(data$history)
 
   #replace codes with matching values
-  data$opponent_team <- with(teams, team_name[match(data$opponent_team, teams$id)])
+  data$opponent_team <- with(players$teams, name[match(data$opponent_team, id)])
 
   #convert var types
   data$influence <- as.numeric(data$influence)
