@@ -8,6 +8,11 @@ Source: CRAN
 Version: 1.62.0-1
 Hash: 14dfb3e8ffe20996118306ff4de1fab2
 
+Package: DBI
+Source: CRAN
+Version: 0.6-1
+Hash: 4aef5bda70897c1663d5b8bae2f4419a
+
 Package: R6
 Source: CRAN
 Version: 2.2.1
@@ -66,6 +71,12 @@ Source: CRAN
 Version: 0.6.12
 Hash: e53fb8c58673df868183697e39a6a4d6
 
+Package: dplyr
+Source: CRAN
+Version: 0.5.0
+Hash: 09fc57f582c74ffa20a57e0a48b27150
+Requires: BH, DBI, R6, Rcpp, assertthat, lazyeval, magrittr, tibble
+
 Package: git2r
 Source: CRAN
 Version: 0.18.0
@@ -81,6 +92,11 @@ Package: jsonlite
 Source: CRAN
 Version: 1.5
 Hash: 9c51936d8dd00b2f1d4fe9d10499694c
+
+Package: lazyeval
+Source: CRAN
+Version: 0.2.0
+Hash: 3d6e7608e65bbf5cb170dab1e3c9ed8b
 
 Package: magrittr
 Source: CRAN

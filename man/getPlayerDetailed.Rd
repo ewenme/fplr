@@ -13,7 +13,7 @@ getPlayerDetailed(player_id)
 Returns a tibble containing round-by-round data for a given player in the current FPL season.
 }
 \examples{
-getPlayerDetailed(1)
-getPlayerDetailed(54)
+getPlayerDetailed(player_id = 1)
+getPlayerDetailed(player_id = 54)
 }
 \keyword{player}

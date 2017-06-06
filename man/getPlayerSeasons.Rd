@@ -13,7 +13,7 @@ getPlayerSeasons(player_id)
 Returns a tibble containing a historical season overview for a given player in the current FPL season.
 }
 \examples{
-getPlayerSeasons(1)
-getPlayerSeasons(54)
+getPlayerSeasons(player_id = 1)
+getPlayerSeasons(player_id = 54)
 }
 \keyword{player}

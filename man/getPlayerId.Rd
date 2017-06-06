@@ -15,6 +15,6 @@ getPlayerId(player_name, team_name)
 Returns the player_id for a given FPL player in the current FPL season. This is used in calls to other functions (see \code{getPlayerDetailed} and \code{getPlayerSeasons}).
 }
 \examples{
-getPlayerId("Petr Cech", "Arsenal")
+getPlayerId(player_name = "Petr Cech", team_name = "Arsenal")
 }
 \keyword{player}

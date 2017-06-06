@@ -1,7 +1,7 @@
 #' getPlayerDetailed
 #'
 #' Returns a tibble containing round-by-round data for a given player in the current FPL season.
-#' @param player_id Player ID. Also see \code{getPlayerId} function.
+#' @param player_id \code{id} field from \code{getPlayers()} tibble for a desired player.
 #' @keywords player
 #' @export
 #' @examples
@@ -33,6 +33,9 @@ getPlayerDetailed <- function(player_id) {
   #replace codes with matching values
   data$opponent_team <- with(players$teams, name[match(data$opponent_team, id)])
 
+  #convert values to fpl-familiar style
+  data$price <- data$value / 10
+
   #convert var types
   data$influence <- as.numeric(data$influence)
   data$creativity <- as.numeric(data$creativity)
@@ -42,7 +45,7 @@ getPlayerDetailed <- function(player_id) {
   #append player id
   data$player_id <- data$element
 
-  data <- subset(data, select=-element)
+  data <- subset(data, select= -c(element, value))
 
   return(data)
 
