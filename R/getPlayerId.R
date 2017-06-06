@@ -6,7 +6,7 @@
 #' @keywords player
 #' @export
 #' @examples
-#' getPlayerId("Petr Cech", "Arsenal")
+#' getPlayerId(player_name = "Petr Cech", team_name = "Arsenal")
 
 getPlayerId <- function(player_name, team_name) {
 

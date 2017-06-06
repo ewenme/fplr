@@ -5,8 +5,8 @@
 #' @keywords player
 #' @export
 #' @examples
-#' getPlayerSeasons(1)
-#' getPlayerSeasons(54)
+#' getPlayerSeasons(player_id = 1)
+#' getPlayerSeasons(player_id = 54)
 
 getPlayerSeasons <- function(player_id) {
 

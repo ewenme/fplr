@@ -31,6 +31,6 @@ playerNames <- function() {
   #replace codes with matching values
   data$team_name <- with(teams, team_name[match(data$team_code, id)])
 
-  data <- subset(data, select=c(player_name, team_name, squad_number))
+  data <- tibble::as.tibble(subset(data, select=c(player_name, team_name, squad_number)))
 
 }

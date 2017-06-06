@@ -5,8 +5,8 @@
 #' @keywords player
 #' @export
 #' @examples
-#' getPlayerDetailed(1)
-#' getPlayerDetailed(54)
+#' getPlayerDetailed(player_id = 1)
+#' getPlayerDetailed(player_id = 54)
 
 getPlayerDetailed <- function(player_id) {
 
