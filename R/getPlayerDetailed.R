@@ -1,13 +1,26 @@
 #' getPlayerDetailed
 #'
-#' Returns a tibble containing round-by-round data for a player in the current FPL season.
-#' @param player_id Player ID.
+#' Returns a tibble containing round-by-round data for a given player in the current FPL season.
+#' @param player_id Player ID. Also see \code{getPlayerId} function.
 #' @keywords player
 #' @export
 #' @examples
-#' getPlayerDetailed()
+#' getPlayerDetailed(1)
+#' getPlayerDetailed(54)
 
 getPlayerDetailed <- function(player_id) {
+
+  #check the input is numeric, stop if not
+  if (!is.numeric(player_id))
+    stop("player_id isn't numeric format.")
+
+  #get player list
+  players <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static",
+                              simplifyVector = TRUE)
+
+  #check the input is in range, stop if not
+  if (!player_id %in% 1:length(players$elements$id))
+    stop("player_id not found.")
 
   #look-up table of teams
   teams <- data.frame(id=1:20,

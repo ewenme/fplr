@@ -1,13 +1,26 @@
-#' getPlayerHistory
+#' getPlayerSeasons
 #'
-#' Returns a tibble containing historical seasons data for a player in the current FPL season.
-#' @param player_id Player ID.
+#' Returns a tibble containing a historical season overview for a given player in the current FPL season.
+#' @param player_id Player ID. Also see \code{getPlayerId} function.
 #' @keywords player
 #' @export
 #' @examples
-#' getPlayerHistory()
+#' getPlayerSeasons(1)
+#' getPlayerSeasons(54)
 
-getPlayerHistory <- function(player_id) {
+getPlayerSeasons <- function(player_id) {
+
+  #check the input is numeric, stop if not
+  if (!is.numeric(player_id))
+    stop("player_id isn't numeric format.")
+
+  #get player list
+  players <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static",
+                                 simplifyVector = TRUE)
+
+  #check the input is in range, stop if not
+  if (!player_id %in% 1:length(players$elements$id))
+    stop("player_id not found.")
 
   #read in json player data, simplify vectors to make easy transfer to dataframe
   data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/element-summary/",

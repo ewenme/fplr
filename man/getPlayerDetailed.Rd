@@ -7,12 +7,13 @@
 getPlayerDetailed(player_id)
 }
 \arguments{
-\item{player_id}{Player ID.}
+\item{player_id}{Player ID. Also see \code{getPlayerId} function.}
 }
 \description{
-Returns a tibble containing round-by-round data for a player in the current FPL season.
+Returns a tibble containing round-by-round data for a given player in the current FPL season.
 }
 \examples{
-getPlayerDetailed()
+getPlayerDetailed(1)
+getPlayerDetailed(54)
 }
 \keyword{player}

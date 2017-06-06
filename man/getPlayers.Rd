@@ -7,7 +7,7 @@
 getPlayers()
 }
 \description{
-Returns a tibble containing the FPL player data for the current FPL season.
+Gives a tibble containing summary data for all players in the current FPL season.
 }
 \examples{
 getPlayers()

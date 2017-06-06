@@ -12,9 +12,9 @@ getPlayerId(player_name, team_name)
 \item{team_name}{Name of team.}
 }
 \description{
-Returns the player ID for an FPL player in the current FPL season.
+Returns the player_id for a given FPL player in the current FPL season. This is used in calls to other functions (see \code{getPlayerDetailed} and \code{getPlayerSeasons}).
 }
 \examples{
-getPlayerId()
+getPlayerId("Petr Cech", "Arsenal")
 }
 \keyword{player}
