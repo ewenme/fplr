@@ -17,7 +17,7 @@ getPlayers <- function() {
                     simplifyVector = TRUE)
 
   #extract player data ONLY, convert to tibble format
-  data <- tibble::as.tibble(data$elements)
+  data <- tibble::as.tibble(extract$elements)
 
   #replace codes with matching values
   data$team_name <- with(extract$teams, name[match(data$team_code, code)])
@@ -63,3 +63,5 @@ getPlayers <- function() {
   return(data)
 
 }
+
+test <- getPlayers()
