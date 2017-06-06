@@ -8,3 +8,4 @@
 #' @export
 #' @examples
 #' data(players1516)
+"players1516"
