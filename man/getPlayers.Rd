@@ -12,4 +12,3 @@ Gives a tibble containing summary data for all players in the current FPL season
 \examples{
 getPlayers()
 }
-\keyword{players}

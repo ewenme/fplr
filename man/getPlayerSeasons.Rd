@@ -16,4 +16,3 @@ Returns a tibble containing a season history overview for a given player in the 
 getPlayerSeasons(player_id = 1)
 getPlayerSeasons(player_id = 54)
 }
-\keyword{player}

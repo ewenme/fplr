@@ -15,4 +15,3 @@ Gives a tibble containing summary info for a given user in the current FPL seaso
 \examples{
 userInfo(user_id = 123)
 }
-\keyword{user}

@@ -1,7 +1,6 @@
 #' getTeams
 #'
 #' Gives a tibble containing summary data for all teams in the current FPL season.
-#' @keywords teams
 #' @export
 #' @examples
 #' getTeams()

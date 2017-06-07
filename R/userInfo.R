@@ -2,7 +2,6 @@
 #'
 #' Gives a tibble containing summary info for a given user in the current FPL season.
 #' @param user_id FPL user ID (retrieve from the corresponding user's \url{https://fantasy.premierleague.com} team page URL).
-#' @keywords user
 #' @export
 #' @examples
 #' userInfo(user_id = 123)

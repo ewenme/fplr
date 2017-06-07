@@ -18,4 +18,3 @@ Gives a tibble containing performance info for a given user in the current FPL s
 userPerformance(user_id = 123)
 userPerformance(user_id = 123, type = "h2h")
 }
-\keyword{user}

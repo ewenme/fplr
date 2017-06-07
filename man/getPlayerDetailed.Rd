@@ -16,4 +16,3 @@ Returns a tibble containing round-by-round data for a given player in the curren
 getPlayerDetailed(player_id = 1)
 getPlayerDetailed(player_id = 54)
 }
-\keyword{player}
