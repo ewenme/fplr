@@ -2,7 +2,7 @@ Package: fplR
 Title: Tools for Working with Fantasy Premier League (FPL) data in R
 Version: 0.0.0.9000
 Authors@R: person("Ewen", "Henderson", email = "ewenhenderson@gmail.com", role = c("aut", "cre"))
-Description: A set of functions to make it easier for FPL (see <https://fantasy.premierleague.com> for info) users to work with FPL data in R. This package enables users to retrieve player data for both current and historic (currently 2016/17 only) seasons, as well as FPL users' performance data (current season only).
+Description: A set of functions to make it easier for FPL (see <https://fantasy.premierleague.com> for info) users to work with FPL data in R. This package enables users to retrieve player data for both current and previous FPL seasons, as well as FPL users' performance data (current season only).
 Depends: R (>= 3.4.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
