@@ -1,8 +1,8 @@
 #' Summary player data for the 2016/17 FPL season
 #'
 #' Summary data for all players in the 2016/17 FPL season.
-#' @source \url{https://fantasy.premierleague.com/drf/bootstrap-static}, downloaded 2017-06-06
-#' @format A tibble with columns:
+#' @source \url{https://fantasy.premierleague.com/drf/bootstrap-static/}, downloaded 2017-06-06
+#' @format A tibble with columns
 #' \describe{
 #'  \item{id}{unique player id}
 #'  \item{code}{FPL player code}
