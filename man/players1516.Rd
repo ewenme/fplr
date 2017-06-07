@@ -4,7 +4,7 @@
 \name{players1516}
 \alias{players1516}
 \title{players1516}
-\format{An object of class \code{tibble}.}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 683 rows and 34 columns.}
 \source{
 \url{https://fantasy.premierleague.com/drf/bootstrap-static}, downloaded 2017-06-06
 }

@@ -65,4 +65,4 @@ players1516 <- getPlayers() %>%
          -value_form, -in_dreamteam, -form, -transfers_out_round, -transfers_in_round,
          -round_points, -ep_this, -ep_next, -news)
 
-use_data(players1516)
+use_data(players1516, overwrite = TRUE)
