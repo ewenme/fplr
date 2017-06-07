@@ -27,7 +27,7 @@
 #'  \item{penalties_saved}{no. of penalties saved over the season}
 #'  \item{penalties_missed}{no. of penalties missed over the season}
 #'  \item{yellow_cards}{no. of yellow cards received over the season}
-#'  \item{rec_cards}{no. of red cards received over the season}
+#'  \item{red_cards}{no. of red cards received over the season}
 #'  \item{saves}{no. of saves made over the season}
 #'  \item{bonus}{no. of bonus points recieved over the season}
 #'  \item{bps}{bonus points system, BPS, total over the season}
