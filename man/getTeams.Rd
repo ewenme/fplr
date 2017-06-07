@@ -2,7 +2,7 @@
 % Please edit documentation in R/getTeams.R
 \name{getTeams}
 \alias{getTeams}
-\title{getTeams}
+\title{Summary data for teams in the current FPL season}
 \usage{
 getTeams()
 }

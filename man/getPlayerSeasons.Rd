@@ -2,7 +2,7 @@
 % Please edit documentation in R/getPlayerSeasons.R
 \name{getPlayerSeasons}
 \alias{getPlayerSeasons}
-\title{getPlayerSeasons}
+\title{Historic FPL seasons overview for a player in the current season}
 \usage{
 getPlayerSeasons(player_id)
 }

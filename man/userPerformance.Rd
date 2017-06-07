@@ -2,7 +2,7 @@
 % Please edit documentation in R/userPerformance.R
 \name{userPerformance}
 \alias{userPerformance}
-\title{userPerformance}
+\title{Get performance data for an FPL user}
 \usage{
 userPerformance(user_id, type = "classic")
 }

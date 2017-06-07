@@ -2,7 +2,7 @@
 % Please edit documentation in R/userInfo.R
 \name{userInfo}
 \alias{userInfo}
-\title{userInfo}
+\title{Get information on an FPL user}
 \usage{
 userInfo(user_id)
 }

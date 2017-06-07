@@ -2,7 +2,7 @@
 % Please edit documentation in R/getPlayerDetailed.R
 \name{getPlayerDetailed}
 \alias{getPlayerDetailed}
-\title{getPlayerDetailed}
+\title{Detailed data for a player in the current FPL season}
 \usage{
 getPlayerDetailed(player_id)
 }

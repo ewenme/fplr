@@ -2,7 +2,7 @@
 % Please edit documentation in R/getPlayers.R
 \name{getPlayers}
 \alias{getPlayers}
-\title{getPlayers}
+\title{Summary player data for the current FPL season}
 \usage{
 getPlayers()
 }
