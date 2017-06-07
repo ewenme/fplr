@@ -33,10 +33,26 @@ Source: CRAN
 Version: 1.1.0
 Hash: 3f754426ca2b7dbbf63951fe5075373b
 
+Package: base64enc
+Source: CRAN
+Version: 0.1-3
+Hash: c590d29e555926af053055e23ee79efb
+
+Package: bitops
+Source: CRAN
+Version: 1.0-6
+Hash: 67d0775189fd0041d95abca618c5c07e
+
 Package: brew
 Source: CRAN
 Version: 1.0-6
 Hash: 931f9972deae0f205e1c78a51f33149b
+
+Package: caTools
+Source: CRAN
+Version: 1.17.1
+Hash: 97cb6f6293cd18d17df77a6383cc6763
+Requires: bitops
 
 Package: commonmark
 Source: CRAN
@@ -77,10 +93,27 @@ Version: 0.5.0
 Hash: 09fc57f582c74ffa20a57e0a48b27150
 Requires: BH, DBI, R6, Rcpp, assertthat, lazyeval, magrittr, tibble
 
+Package: evaluate
+Source: CRAN
+Version: 0.10
+Hash: c3601a10c987d439e0c63ec635234a76
+Requires: stringr
+
 Package: git2r
 Source: CRAN
 Version: 0.18.0
 Hash: 9dfaafbcca68be29b89ef7783dc1dac0
+
+Package: highr
+Source: CRAN
+Version: 0.6
+Hash: aa3d5b7912b5fed4b546ed5cd2a1760b
+
+Package: htmltools
+Source: CRAN
+Version: 0.3.6
+Hash: eeba9fb36d4cb6cc66f060187102be41
+Requires: Rcpp, digest
 
 Package: httr
 Source: CRAN
@@ -93,6 +126,12 @@ Source: CRAN
 Version: 1.5
 Hash: 9c51936d8dd00b2f1d4fe9d10499694c
 
+Package: knitr
+Source: CRAN
+Version: 1.16
+Hash: 3b8dc00d51027c6d041d56bc92136452
+Requires: digest, evaluate, highr, markdown, stringr, yaml
+
 Package: lazyeval
 Source: CRAN
 Version: 0.2.0
@@ -102,6 +141,12 @@ Package: magrittr
 Source: CRAN
 Version: 1.5
 Hash: bdc4d48c3135e8f3b399536ddf160df4
+
+Package: markdown
+Source: CRAN
+Version: 0.8
+Hash: 045d7c594d503b41f1c28946d076c8aa
+Requires: mime
 
 Package: memoise
 Source: CRAN
@@ -128,6 +173,13 @@ Package: rlang
 Source: CRAN
 Version: 0.1.1
 Hash: 86c53487ce7f82f0a7cc11c816060910
+
+Package: rmarkdown
+Source: CRAN
+Version: 1.5
+Hash: b37fc27c2604de97b4981eeae7a00879
+Requires: base64enc, caTools, evaluate, htmltools, jsonlite, knitr,
+    rprojroot, yaml
 
 Package: roxygen2
 Source: CRAN
@@ -179,3 +231,8 @@ Source: CRAN
 Version: 1.1.1
 Hash: 35dbee121bb8d76347677290ba1c6a06
 Requires: BH, Rcpp
+
+Package: yaml
+Source: CRAN
+Version: 2.1.14
+Hash: c81230c3a7d9ba20607ad6b4331173d1
