@@ -1,4 +1,4 @@
-#' userPerformance
+#' Get performance data for an FPL user
 #'
 #' Gives a tibble containing performance info for a given user in the current FPL season.
 #' @param user_id FPL user ID (retrieve from the corresponding user's \url{https://fantasy.premierleague.com} team page URL).

@@ -1,4 +1,4 @@
-#' players1617
+#' Summary player data for the 2016/17 FPL season
 #'
 #' Summary data for all players in the 2016/17 FPL season.
 #' @source \url{https://fantasy.premierleague.com/drf/bootstrap-static}, downloaded 2017-06-06

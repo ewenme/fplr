@@ -1,4 +1,4 @@
-#' getTeams
+#' Summary data for teams in the current FPL season
 #'
 #' Gives a tibble containing summary data for all teams in the current FPL season.
 #' @export
