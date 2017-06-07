@@ -7,7 +7,7 @@
 userInfo(user_id)
 }
 \arguments{
-\item{user_id}{FPL user ID (retrieve from the corresponding user's \link{fantasy.premierleague.com} team page URL).}
+\item{user_id}{FPL user ID (retrieve from the corresponding user's \url{https://fantasy.premierleague.com} team page URL).}
 }
 \description{
 Gives a tibble containing summary info for a given user in the current FPL season.

@@ -1,7 +1,7 @@
 #' userPerformance
 #'
 #' Gives a tibble containing performance info for a given user in the current FPL season.
-#' @param user_id FPL user ID (retrieve from the corresponding user's \link{fantasy.premierleague.com} team page URL).
+#' @param user_id FPL user ID (retrieve from the corresponding user's \url{https://fantasy.premierleague.com} team page URL).
 #' @param type FPL competition type. Choose one of "classic", "h2h" (head-to-head) or "cup". Defaults to "classic".
 #' @keywords user
 #' @export

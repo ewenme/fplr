@@ -7,7 +7,7 @@
 userPerformance(user_id, type = "classic")
 }
 \arguments{
-\item{user_id}{FPL user ID (retrieve from the corresponding user's \link{fantasy.premierleague.com} team page URL).}
+\item{user_id}{FPL user ID (retrieve from the corresponding user's \url{https://fantasy.premierleague.com} team page URL).}
 
 \item{type}{FPL competition type. Choose one of "classic", "h2h" (head-to-head) or "cup". Defaults to "classic".}
 }

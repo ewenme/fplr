@@ -1,10 +1,6 @@
-#' getPlayers
-#'
-#' Gives a tibble containing summary data for all players in the current FPL season.
-#' @keywords players
-#' @export
-#' @examples
-#' getPlayers()
+library(dplyr)
+library(jsonlite)
+library(tibble)
 
 getPlayers <- function() {
 
@@ -14,7 +10,7 @@ getPlayers <- function() {
 
   #read in json player data, simplify vectors to make easy transfer to dataframe
   extract <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static",
-                    simplifyVector = TRUE)
+                                 simplifyVector = TRUE)
 
   #extract player data ONLY, convert to tibble format
   data <- tibble::as.tibble(extract$elements)
@@ -63,3 +59,10 @@ getPlayers <- function() {
   return(data)
 
 }
+
+players1516 <- getPlayers() %>%
+  select(-status, -price_change_round, -chance_of_playing_this_round, -chance_of_playing_next_round,
+         -value_form, -in_dreamteam, -form, -transfers_out_round, -transfers_in_round,
+         -round_points, -ep_this, -ep_next, -news)
+
+use_data(players1516)
