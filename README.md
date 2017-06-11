@@ -15,8 +15,8 @@ Get the development version from GitHub (CRAN submission should follow after com
 devtools::install_github("ewenme/fplR")
 ```
 
-Usage
------
+Usage examples
+--------------
 
 ### Get summary data on all players in the current FPL season
 
