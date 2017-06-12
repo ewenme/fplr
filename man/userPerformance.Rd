@@ -2,19 +2,16 @@
 % Please edit documentation in R/userPerformance.R
 \name{userPerformance}
 \alias{userPerformance}
-\title{Get performance data for an FPL user}
+\title{Detailed user performance data for the current FPL season.}
 \usage{
 userPerformance(user_id, type = "classic")
 }
 \arguments{
 \item{user_id}{FPL user ID (retrieve from the corresponding user's \url{https://fantasy.premierleague.com} team page URL).}
-
-\item{type}{FPL competition type. Choose one of "classic", "h2h" (head-to-head) or "cup". Defaults to "classic".}
 }
 \description{
-Gives a tibble containing performance info for a given user in the current FPL season.
+Returns a tibble containing round-by-round performance info for a given user in the current FPL season.
 }
 \examples{
 userPerformance(user_id = 123)
-userPerformance(user_id = 123, type = "h2h")
 }
