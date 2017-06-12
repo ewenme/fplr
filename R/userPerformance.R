@@ -6,7 +6,7 @@
 #' @examples
 #' userPerformance(user_id = 123)
 
-userPerformance <- function(user_id, type="classic") {
+userPerformance <- function(user_id) {
 
   #check the input is numeric, stop if not
   if (!is.numeric(user_id))

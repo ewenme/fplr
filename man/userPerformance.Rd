@@ -4,7 +4,7 @@
 \alias{userPerformance}
 \title{Detailed user performance data for the current FPL season.}
 \usage{
-userPerformance(user_id, type = "classic")
+userPerformance(user_id)
 }
 \arguments{
 \item{user_id}{FPL user ID (retrieve from the corresponding user's \url{https://fantasy.premierleague.com} team page URL).}
