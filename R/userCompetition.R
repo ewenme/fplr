@@ -24,12 +24,12 @@ userCompetition <- function(user_id, type="classic") {
                               simplifyVector = TRUE)
 
   if(type == "classic")
-    return(data$leagues$classic)
+    return(tibble::as.tibble(data$leagues$classic))
 
   else if(type == "h2h")
-    return(data$leagues$h2h)
+    return(tibble::as.tibble(data$leagues$h2h))
 
   else if(type == "cup")
-    return(data$leagues$cup)
+    return(tibble::as.tibble(data$leagues$cup))
 
 }

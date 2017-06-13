@@ -17,6 +17,6 @@ userHistory <- function(user_id) {
                                      user_id, "/history"),
                               simplifyVector = TRUE)
 
-  return(data$season)
+  return(tibble::as.tibble(data$season))
 
 }
