@@ -20,9 +20,11 @@ Get the development version from GitHub (CRAN submission should follow after com
 devtools::install_github("ewenme/fplR")
 ```
 
-## Usage examples
+## Usage
 
-### Get summary data on all players in the current FPL season
+### Player data examples
+
+#### Get summary data on all players in the current FPL season
 
 ```{r, eval = FALSE}
 library(fplR)
@@ -33,29 +35,26 @@ getPlayers()
 
 ```
 
-### Get detailed data (round-by-round) on a player in the current FPL season
+#### Get detailed data (gameweek-level) on a player in the current FPL season (still 2016/17, currently)
 
 ```{r, eval = FALSE}
 library(fplR)
 
-# Round-by-round data for Alexis Sanchez in the current FPL season (note: this will update to 2017/18 season once underway):
+# Gameweek-level data for Alexis Sanchez in the current FPL season (note: this will update to 2017/18 season once underway):
 getPlayerDetailed(player_id = 12)
 ?getPlayerDetailed
 
 ```
 
-### Data for 2016/17 FPL season
+### User data examples
+
+#### Get data on a user's player picks for a gameweek in the current FPL season
 
 ```{r, eval = FALSE}
 library(fplR)
 
-# fpl 2016/17 season data set (note that data is lazy loaded so one can also just access `players1617` without running `data(players1617)`):
-data(players1617)
-head(players1617)
-?players1617
-
-# If using RStudio:
-View(players1617)
+# player data for current FPL season (note: this will update to 2017/18 season once underway):
+userPicks(user_id = 123, gameweek = 10)
+?userPicks
 
 ```
-

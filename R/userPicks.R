@@ -1,6 +1,6 @@
 #' Detailed data for a user's player picks for a gameweek in the current FPL season
 #'
-#' Returns a tibble containing player data for a given user's selection in a gameweek during the current FPL season.
+#' Returns a tibble containing player data for a given user's selection for a gameweek during the current FPL season.
 #' @param user_id FPL user ID (retrieve from the corresponding user's \url{https://fantasy.premierleague.com} team page URL).
 #' @param gameweek FPL competition gameweek (1-38).
 #' @export
