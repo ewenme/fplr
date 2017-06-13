@@ -4,7 +4,11 @@ fplR
 
 [![Build Status](https://travis-ci.org/ewenme/fplR.png)](https://travis-ci.org/ewenme/fplR)
 
-An R package that provides tools for working with [Fantasy Premier League](https://fantasy.premierleague.com) (FPL) data in R.
+![](Qul9n6x.jpg)
+
+> Never again (probably). fplR to the rescue...
+
+An R package that provides a compendium of tools for working with [Fantasy Premier League](https://fantasy.premierleague.com) (FPL) data in R.
 
 Installation
 ------------
