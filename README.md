@@ -30,8 +30,8 @@ Usage
 library(fplR)
 
 # player data for current FPL season (note: this will update to 2017/18 season once underway):
-getPlayers()
-?getPlayers
+players()
+?players
 ```
 
 #### Get detailed data (gameweek-level) on a player in the current FPL season (still 2016/17, currently)
@@ -40,8 +40,8 @@ getPlayers()
 library(fplR)
 
 # Gameweek-level data for Alexis Sanchez in the current FPL season (note: this will update to 2017/18 season once underway):
-getPlayerDetailed(player_id = 12)
-?getPlayerDetailed
+playerDetailed(player_id = 12)
+?playerDetailed
 ```
 
 ### User data examples
