@@ -60,9 +60,6 @@ getPlayers <- function() {
 
 }
 
-players1617 <- getPlayers() %>%
-  select(-status, -price_change_round, -chance_of_playing_this_round, -chance_of_playing_next_round,
-         -value_form, -in_dreamteam, -form, -transfers_out_round, -transfers_in_round,
-         -round_points, -ep_this, -ep_next, -news)
+players1617 <- getPlayers()
 
 devtools::use_data(players1617, overwrite = TRUE)

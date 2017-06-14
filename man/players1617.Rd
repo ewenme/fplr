@@ -4,7 +4,7 @@
 \name{players1617}
 \alias{players1617}
 \title{Summary player data for the 2016/17 FPL season}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 683 rows and 34 columns.}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 683 rows and 47 columns.}
 \source{
 \url{https://fantasy.premierleague.com/drf/bootstrap-static/}, downloaded 2017-06-06
 }
