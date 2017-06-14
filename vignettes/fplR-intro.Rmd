@@ -116,7 +116,7 @@ str(myHistory)
 * `getTeams`: Summary data for teams in the current FPL season
 
 ```{r}
-teams <- getTeams()
+teams <- teams()
 str(teams)
 ```
 
