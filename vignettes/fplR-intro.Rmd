@@ -1,0 +1,129 @@
+---
+title: "Introduction to `fplR`"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{fplR intro}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+require(fplR)
+
+knitr::opts_chunk$set(
+  comment = "#",
+    error = FALSE,
+     tidy = FALSE,
+    cache = FALSE,
+ collapse = TRUE)
+```
+
+This vignette is an introduction to the principles and functions of the fplR package.
+
+## Basics {#basics-1}
+
+### What is Fantasy Premier League?
+
+[Fantasy Premier League](https://fantasy.premierleague.com) (FPL) is the official fantasy football game of the [Premier League](https://www.premierleague.com/), the top competitive football division in England. FPL players compete to score the most points come the end of the season (following [these rules](https://fantasy.premierleague.com/a/help)).
+
+### What is fplR?
+
+*fplR* is an R package that provides a set of **tools for working with FPL data in R**. It contains functions for interfacing with FPL user (referred to herein as "users") and footballer (referred to herein as "players") data, in both current and previous seasons of the game. 
+
+N.B. The package retrieves this data from the FPL site, and must respond reactively to any game alterations that affect the data structure (there is no formal developer support offered by FPL, at time of writing).
+
+## Player data {#player-2}
+
+Functions in the [player data](#player-2) family primarily return information about players in the game, and are mostly for exploring data in the *current* season (note - when a new season of the game begins, data from these functions are overwritten).
+
+### Current FPL season
+
+* `players`: Aggregate (season-level) data for players in the current FPL season
+
+```{r}
+players <- players()
+str(players)
+```
+
+* `getPlayerDetailed`: Disaggregate (Gameweek-level) data for a player in the current FPL season. Note that the `player_id` argument is available in the `id` field from the tibble returned by the `getPlayers` function
+
+```{r}
+SanchezDetailed <- playerDetailed(player_id = 12)
+str(SanchezDetailed)
+```
+
+### Previous FPL seasons
+
+* `getPlayerSeasons`: Aggregate data from previous seasons for a player in the current FPL season
+
+```{r}
+CechSeasons <- playerSeasons(player_id = 2)
+str(CechSeasons)
+```
+
+* `players1617`: Aggregate (season-level) data for players in the 2016/17 FPL season
+
+```{r}
+str(players1617)
+```
+
+## User data {#user-3}
+
+Functions in the [user data](#user-3) family primarily return information about FPL users, and like [players](#player-2), are mostly for exploring data in the *current* season (note - when a new season of the game begins, data from these functions are overwritten).
+
+### Current FPL season
+
+* `userInfo`: Metadata for a user in the current FPL season
+
+```{r}
+myInfo <- userInfo(user_id = 137633)
+str(myInfo)
+```
+
+* `userPicks`: Player-level data for a user's picks during a gameweek in the current FPL season
+
+```{r}
+myPicks <- userPicks(user_id = 137633, gameweek = 1)
+str(myPicks)
+```
+
+* `userPerformance`: Disaggregate (gameweek-level) performance data for a user in the current FPL season
+
+```{r}
+myPerformance <- userPerformance(user_id = 137633)
+str(myPerformance)
+```
+
+* `userCompetition`: Aggregate performance data for a user in a type of competition in the current FPL season
+
+```{r}
+myCompetitions <- userCompetition(user_id = 137633, type = "classic")
+str(myCompetitions)
+```
+
+### Previous FPL seasons
+
+* `userHistory`: Aggregate performance data for a user in previous FPL seasons
+
+```{r}
+myHistory <- userHistory(user_id = 137633)
+str(myHistory)
+```
+
+## Teams
+
+* `getTeams`: Summary data for teams in the current FPL season
+
+```{r}
+teams <- getTeams()
+str(teams)
+```
+
+## Fixtures
+
+* `fixtures1617`: Summary data for fixtures in the 2016/17 FPL season
+
+```{r}
+str(fixtures1617)
+```

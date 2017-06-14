@@ -3,9 +3,9 @@
 #' Gives a tibble containing summary data for all players in the current FPL season.
 #' @export
 #' @examples
-#' getPlayers()
+#' players()
 
-getPlayers <- function() {
+players <- function() {
 
   #look-up table of player statuses
   status <- data.frame(id=c("a", "d", "i", "s", "u"),
