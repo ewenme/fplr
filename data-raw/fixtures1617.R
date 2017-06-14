@@ -21,11 +21,11 @@ teams <- getTeams()
 #get 2016/17 fixtures data
 fixtures1617 <- jsonlite::read_json("https://fantasy.premierleague.com/drf/fixtures/",
                             simplifyVector = TRUE) %>%
-  select(-stats, -provisional_start_time, -finished_provisional, -minutes, -finished, -started,
-         -deadline_time, -deadline_time_formatted, -kickoff_time_formatted)
+  select(-provisional_start_time, -finished_provisional, -started,
+         -deadline_time, -deadline_time_formatted)
 
 #replace codes with matching values
 fixtures1617$team_a <- with(teams, name[match(fixtures1617$team_a, id)])
 fixtures1617$team_h <- with(teams, name[match(fixtures1617$team_h, id)])
 
-use_data(fixtures1617, overwrite = TRUE)
+devtools::use_data(fixtures1617, overwrite = TRUE)
