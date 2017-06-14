@@ -46,7 +46,8 @@ players <- players()
 str(players)
 ```
 
-* `getPlayerDetailed`: Disaggregate (Gameweek-level) data for a player in the current FPL season. Note that the `player_id` argument is available in the `id` field from the tibble returned by the `getPlayers` function
+<br>
+* `playerDetailed`: Disaggregate (Gameweek-level) data for a player in the current FPL season. Note that the `player_id` argument is available in the `id` field from the tibble returned by the `players` function
 
 ```{r}
 SanchezDetailed <- playerDetailed(player_id = 12)
@@ -55,13 +56,14 @@ str(SanchezDetailed)
 
 ### Previous FPL seasons
 
-* `getPlayerSeasons`: Aggregate data from previous seasons for a player in the current FPL season
+* `playerSeasons`: Aggregate data from previous seasons for a player in the current FPL season
 
 ```{r}
 CechSeasons <- playerSeasons(player_id = 2)
 str(CechSeasons)
 ```
 
+<br>
 * `players1617`: Aggregate (season-level) data for players in the 2016/17 FPL season
 
 ```{r}
@@ -81,6 +83,7 @@ myInfo <- userInfo(user_id = 137633)
 str(myInfo)
 ```
 
+<br>
 * `userPicks`: Player-level data for a user's picks during a gameweek in the current FPL season
 
 ```{r}
@@ -88,6 +91,7 @@ myPicks <- userPicks(user_id = 137633, gameweek = 1)
 str(myPicks)
 ```
 
+<br>
 * `userPerformance`: Disaggregate (gameweek-level) performance data for a user in the current FPL season
 
 ```{r}
@@ -95,6 +99,7 @@ myPerformance <- userPerformance(user_id = 137633)
 str(myPerformance)
 ```
 
+<br>
 * `userCompetition`: Aggregate performance data for a user in a type of competition in the current FPL season
 
 ```{r}
