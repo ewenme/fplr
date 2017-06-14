@@ -20,9 +20,9 @@
 #'  \item{chance_of_playing_next_round}{chance of playing in the next round}
 #'  \item{value_form}{recent player points per million price}
 #'  \item{value_season}{total player points per million price}
-#'  \item{in_dreamteam}{logical if in latest gameweek's dreamteam}
+#'  \item{in_dreamteam}{logical if in latest gameweek dreamteam}
 #'  \item{dreamteam_count}{no. times player in dream team of the week}
-#'  \item{selected_by_percent}{% of FPL teams player selected by}
+#'  \item{selected_by_percent}{percentage of FPL teams player selected by}
 #'  \item{form}{recent points per game}
 #'  \item{transfers_out}{no. of FPL transfers out over season}
 #'  \item{transfers_in}{no. of FPL transfers in over season}
@@ -49,7 +49,7 @@
 #'  \item{influence}{FPL influence score}
 #'  \item{creativity}{FPL creativity score}
 #'  \item{threat}{FPL threat score}
-#'  \item{ict_index}{FPL influence/creativity/threat index}
+#'  \item{ict_index}{FPL influence-creativity-threat index}
 #'  \item{ea_index}{EA index}
 #' }
 #' @examples
