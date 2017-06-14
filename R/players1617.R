@@ -11,15 +11,28 @@
 #'  \item{web_name}{player name displayed on FPL team pages}
 #'  \item{team_name}{team name of player}
 #'  \item{position}{player position}
+#'  \item{status}{player status}
+#'  \item{news}{player news}
 #'  \item{price}{player price, millions}
-#'  \item{price_change_abs}{player price change, millions, over the season}
-#'  \item{value_season}{player points per million price}
+#'  \item{price_change_abs}{player price change (millions) over the season}
+#'  \item{price_change_round}{player price change (millions) in the latest round}
+#'  \item{chance_of_playing_this_round}{chance of playing in this round}
+#'  \item{chance_of_playing_next_round}{chance of playing in the next round}
+#'  \item{value_form}{recent player points per million price}
+#'  \item{value_season}{total player points per million price}
+#'  \item{in_dreamteam}{logical if in latest gameweek's dreamteam}
 #'  \item{dreamteam_count}{no. times player in dream team of the week}
 #'  \item{selected_by_percent}{% of FPL teams player selected by}
-#'  \item{transfers_out}{no. of FPL transfers out}
-#'  \item{transfers_in}{no. of FPL transfers in}
-#'  \item{total_points}{no. of FPL points}
+#'  \item{form}{recent points per game}
+#'  \item{transfers_out}{no. of FPL transfers out over season}
+#'  \item{transfers_in}{no. of FPL transfers in over season}
+#'  \item{transfers_out_round}{no. of FPL transfers out this gameweek}
+#'  \item{transfers_in_round}{no. of FPL transfers in this gameweek}
+#'  \item{total_points}{total no. of FPL points}
+#'  \item{round_points}{no. of FPL points this gameweek}
 #'  \item{points_per_game}{average no. of points per game}
+#'  \item{ep_this}{expected points in this gameweek}
+#'  \item{ep_next}{expected points in the next gameweek}
 #'  \item{minutes}{no. of minutes played}
 #'  \item{goals_scored}{no. of goals scored}
 #'  \item{assists}{no. of assists provided}
