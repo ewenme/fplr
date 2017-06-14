@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 This vignette is an introduction to the principles and functions of the fplR package.
 
-## Basics {#basics-1}
+## 1. Basics {#basics-1}
 
 ### What is Fantasy Premier League?
 
@@ -33,7 +33,7 @@ This vignette is an introduction to the principles and functions of the fplR pac
 
 N.B. The package retrieves this data from the FPL site, and must respond reactively to any game alterations that affect the data structure (there is no formal developer support offered by FPL, at time of writing).
 
-## Player data {#player-2}
+## 2. Players {#player-2}
 
 Functions in the [player data](#player-2) family primarily return information about players in the game, and are mostly for exploring data in the *current* season (note - when a new season of the game begins, data from these functions are overwritten).
 
@@ -47,6 +47,7 @@ str(players)
 ```
 
 <br>
+
 * `playerDetailed`: Disaggregate (Gameweek-level) data for a player in the current FPL season. Note that the `player_id` argument is available in the `id` field from the tibble returned by the `players` function
 
 ```{r}
@@ -64,13 +65,14 @@ str(CechSeasons)
 ```
 
 <br>
+
 * `players1617`: Aggregate (season-level) data for players in the 2016/17 FPL season
 
 ```{r}
 str(players1617)
 ```
 
-## User data {#user-3}
+## 3. Users {#user-3}
 
 Functions in the [user data](#user-3) family primarily return information about FPL users, and like [players](#player-2), are mostly for exploring data in the *current* season (note - when a new season of the game begins, data from these functions are overwritten).
 
@@ -84,6 +86,7 @@ str(myInfo)
 ```
 
 <br>
+
 * `userPicks`: Player-level data for a user's picks during a gameweek in the current FPL season
 
 ```{r}
@@ -92,6 +95,7 @@ str(myPicks)
 ```
 
 <br>
+
 * `userPerformance`: Disaggregate (gameweek-level) performance data for a user in the current FPL season
 
 ```{r}
@@ -100,6 +104,7 @@ str(myPerformance)
 ```
 
 <br>
+
 * `userCompetition`: Aggregate performance data for a user in a type of competition in the current FPL season
 
 ```{r}
@@ -116,7 +121,7 @@ myHistory <- userHistory(user_id = 137633)
 str(myHistory)
 ```
 
-## Teams
+## 4. Teams {#team-4}
 
 * `getTeams`: Summary data for teams in the current FPL season
 
@@ -125,7 +130,7 @@ teams <- teams()
 str(teams)
 ```
 
-## Fixtures
+## 5. Fixtures {#fixture-5}
 
 * `fixtures1617`: Summary data for fixtures in the 2016/17 FPL season
 
