@@ -32,13 +32,14 @@ First, install and load the `fplR` package, along with a couple of *tidyverse* h
 devtools::install_github("ewenme/fplR")
 install.packages("ggplot2")
 install.packages("dplyr")
+```
 
+```{r, message=FALSE, warning=FALSE}
 #load
 library(fplR)
 library(dplyr)
 library(ggplot2)
 ```
-
 ## What does my FPL performance history look like?
 
 ```{r}
