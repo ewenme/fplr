@@ -26,6 +26,16 @@ devtools::install_github("ewenme/fplR", build_vignettes = TRUE)
 
 ## Usage
 
+### Data Analysis / Usage Examples in Vignettes
+
+There are a couple of vignettes, introducing the packages principles and functionality, as well as some data analysis use cases. 
+
+For a complete list of vignettes run:
+
+```{r, eval = FALSE}
+browseVignettes(package = "fplR")
+```
+
 ### Player data examples
 
 #### Get summary data on all players in the current FPL season
@@ -62,3 +72,11 @@ userPicks(user_id = 123, gameweek = 10)
 ?userPicks
 
 ```
+
+## Collaborators
+
+If you want to contribute to the package:
+
+* I followed the principles in Hadley Wickham's [R packages book](http://r-pkgs.had.co.nz/)
+* Follow the GitHub fork/pull request [model](https://guides.github.com/introduction/flow/), or contact me directly
+
