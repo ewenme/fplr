@@ -16,6 +16,10 @@ Installation
 Get the development version from GitHub (CRAN submission should follow after commencement of the 2017/18 FPL season).
 
 ``` r
+# If you haven't installed devtools yet, do so
+install.packages("devtools")
+
+# install package from github
 devtools::install_github("ewenme/fplR", build_vignettes = TRUE)
 ```
 
