@@ -21,7 +21,7 @@ An R package that provides a compendium of tools for working with [Fantasy Premi
 Get the development version from GitHub (CRAN submission should follow after commencement of the 2017/18 FPL season). 
 
 ```{r, eval = FALSE}
-devtools::install_github("ewenme/fplR")
+devtools::install_github("ewenme/fplR", build_vignettes = TRUE)
 ```
 
 ## Usage

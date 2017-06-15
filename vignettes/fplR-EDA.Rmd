@@ -19,7 +19,8 @@ knitr::opts_chunk$set(
     error = FALSE,
      tidy = FALSE,
     cache = FALSE,
- collapse = TRUE)
+ collapse = TRUE,
+ fig.width = 5)
 ```
 
 This vignette gives some potential use cases for the fplR package, intended as pointers in the right direction rather than a comprehensive demo. Familiarity with the [*tidyverse*](http://tidyverse.org/) ([`dplyr`](http://dplyr.tidyverse.org/) and [`ggplot2`](http://ggplot2.tidyverse.org/), particularly) is useful, but not essential to follow this vignette.
