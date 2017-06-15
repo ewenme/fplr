@@ -25,21 +25,15 @@ knitr::opts_chunk$set(
 
 This vignette gives some potential use cases for the fplR package, intended as pointers in the right direction rather than a comprehensive demo. Familiarity with the [*tidyverse*](http://tidyverse.org/) ([`dplyr`](http://dplyr.tidyverse.org/) and [`ggplot2`](http://ggplot2.tidyverse.org/), particularly) is useful, but not essential to follow this vignette.
 
-First, install and load the `fplR` package, along with a couple of *tidyverse* helpers. Then, we're ready to explore a few things.
-
-```{r, eval = FALSE, message=FALSE, warning=FALSE}
-# install
-devtools::install_github("ewenme/fplR")
-install.packages("ggplot2")
-install.packages("dplyr")
-```
+First, load the `fplR` package, along with a couple of *tidyverse* helpers. Then, we're ready to explore a few things.
 
 ```{r, message=FALSE, warning=FALSE}
-#load
+# load packages
 library(fplR)
 library(dplyr)
 library(ggplot2)
 ```
+
 ## What does my FPL performance history look like?
 
 ```{r}
