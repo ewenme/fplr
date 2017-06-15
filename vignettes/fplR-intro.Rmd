@@ -48,7 +48,7 @@ str(players)
 
 <br>
 
-* `playerDetailed`: Disaggregate (Gameweek-level) data for a player in the current FPL season. Note that the `player_id` argument is available in the `id` field from the tibble returned by the `players` function
+* `playerDetailed`: Dis-aggregate (Gameweek-level) data for a player in the current FPL season. Note that the `player_id` argument is available in the `id` field from the tibble returned by the `players` function
 
 ```{r}
 SanchezDetailed <- playerDetailed(player_id = 12)
@@ -96,7 +96,7 @@ str(myPicks)
 
 <br>
 
-* `userPerformance`: Disaggregate (gameweek-level) performance data for a user in the current FPL season
+* `userPerformance`: Dis-aggregate (gameweek-level) performance data for a user in the current FPL season
 
 ```{r}
 myPerformance <- userPerformance(user_id = 137633)

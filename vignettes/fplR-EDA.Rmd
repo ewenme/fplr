@@ -8,50 +8,98 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+```{r, echo = FALSE, message = FALSE}
+require(fplR)
+require(dplyr)
+require(ggplot2)
+require(tidyr)
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
-
-## Vignette Info
-
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
-
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+knitr::opts_chunk$set(
+  comment = "#",
+    error = FALSE,
+     tidy = FALSE,
+    cache = FALSE,
+ collapse = TRUE)
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+This vignette gives some potential use cases for the fplR package, intended as pointers in the right direction rather than a comprehensive demo. Familiarity with the [*tidyverse*](http://tidyverse.org/) ([`dplyr`](http://dplyr.tidyverse.org/) and [`ggplot2`](http://ggplot2.tidyverse.org/), particularly) is useful, but not essential to follow this vignette.
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+First, install and load the `fplR` package, along with a couple of *tidyverse* helpers. Then, we're ready to explore a few things.
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+```{r, eval = FALSE, message=FALSE, warning=FALSE}
+# install
+devtools::install_github("ewenme/fplR")
+install.packages("ggplot2")
+install.packages("dplyr")
 
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+#load
+library(fplR)
+library(dplyr)
+library(ggplot2)
 ```
 
-Also a quote using `>`:
+## What does my FPL performance history look like?
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+```{r}
+# get my fpl season performance
+myPerformance <- userPerformance(137633)
+
+# plot my overall rank by gameweek
+ggplot(data = myPerformance, aes(x=event, y=overall_rank, group=1)) +
+  geom_line() +
+  scale_y_reverse()
+
+```
+
+
+## Who's scored the most goals per 90 this season?
+
+```{r}
+# get player list from current season, filter out players < 300 minutes, calculate 'goals per 90 mins' metric and get top 10
+goals <- players() %>%
+  filter(minutes >= 300) %>%
+  mutate(goals_per90 = goals_scored / minutes * 90) %>%
+  top_n(n = 10, wt = goals_per90)
+
+# quick plot of the top 10 'per90 scorers'
+ggplot(data = goals, aes(x=reorder(web_name, -goals_per90), y=goals_per90)) +
+  geom_col() +
+  theme(axis.text.x=element_text(angle=45,hjust=1))
+```
+
+## How did the top 5 "per90 scorers" perform on key underlying offense stats?
+
+```{r}
+# now choose the top 5 'per90 scorers'
+topPer90 <- top_n(goals, n = 5, wt=goals_per90)
+
+# create empty list to append gameweek-level data to
+topPer90Detailed <- list()
+  
+# loop through player ids in topPer90
+  for (i in topPer90$id) {
+    # get detailed data for player
+    data <- playerDetailed(player_id = i)
+    # append player name to dataframe
+    data$name <- topPer90$web_name[topPer90$id == i]
+    # append dataframe as item in list
+    topPer90Detailed[[i]] <- data
+
+  }
+
+# bind dataframes
+topPer90Detailed <- bind_rows(topPer90Detailed)
+
+# calculate some other 'per90' metrics and plot them
+topPer90Detailed %>%
+  group_by(name) %>%
+  summarise(goals_per90 = sum(goals_scored) / sum(minutes) * 90,
+            bigChancesCreated_per90 = sum(big_chances_created) / sum(minutes) * 90,
+         bigChancesMissed_per90 = sum(big_chances_missed) / sum(minutes) * 90,
+         keyPasses_per90 = sum(key_passes) / sum(minutes) * 90) %>%
+  gather(key=var, value=value, -name) %>%
+  ggplot(aes(x=name, y=value)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap( ~ var)
+```
