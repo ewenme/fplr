@@ -157,6 +157,12 @@ Version: 1.2.1
 Hash: 7de1f8f760441881804af7c1ff324340
 Requires: R6, curl, jsonlite, mime, openssl
 
+Package: hunspell
+Source: CRAN
+Version: 2.5
+Hash: 20750f28d9b4d8ef54fca335ad529c8d
+Requires: Rcpp, digest
+
 Package: jsonlite
 Source: CRAN
 Version: 1.5

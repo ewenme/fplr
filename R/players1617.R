@@ -44,7 +44,7 @@
 #'  \item{yellow_cards}{no. of yellow cards received}
 #'  \item{red_cards}{no. of red cards received}
 #'  \item{saves}{no. of saves made}
-#'  \item{bonus}{no. of bonus points recieved}
+#'  \item{bonus}{no. of bonus points received}
 #'  \item{bps}{bonus points system total}
 #'  \item{influence}{FPL influence score}
 #'  \item{creativity}{FPL creativity score}
