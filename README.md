@@ -1,6 +1,6 @@
 
-fplR
-====
+fplR <img src="fplHex.png" align="right" height="200" />
+========================================================
 
 [![Build Status](https://travis-ci.org/ewenme/fplR.png)](https://travis-ci.org/ewenme/fplR)
 
