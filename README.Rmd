@@ -25,7 +25,7 @@ Get the development version from GitHub (CRAN submission should follow after com
 install.packages("devtools")
 
 # install package from github
-devtools::install_github("ewenme/fplR", build_vignettes = TRUE)
+devtools::install_github("ewenme/fplR")
 ```
 
 ## Usage
