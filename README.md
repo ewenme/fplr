@@ -4,10 +4,6 @@ fplR <img src="fplHex.png" align="right" height="200" />
 
 [![Build Status](https://travis-ci.org/ewenme/fplR.png)](https://travis-ci.org/ewenme/fplR)
 
-![](Qul9n6x.jpg)
-
-> Never again (probably). fplR to the rescue...
-
 An R package that provides a compendium of tools for working with [Fantasy Premier League](https://fantasy.premierleague.com) (FPL) data in R.
 
 Installation
@@ -20,7 +16,7 @@ Get the development version from GitHub (CRAN submission should follow after com
 install.packages("devtools")
 
 # install package from github
-devtools::install_github("ewenme/fplR", build_vignettes = TRUE)
+devtools::install_github("ewenme/fplR")
 ```
 
 Usage

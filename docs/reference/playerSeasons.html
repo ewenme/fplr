@@ -92,22 +92,24 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>playerSeasons</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; # A tibble: 2 x 26
+    <pre class="examples"><div class='input'><span class='fu'>playerSeasons</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 26
 #&gt;      id season_name element_code total_points minutes goals_scored assists
 #&gt;   &lt;int&gt;       &lt;chr&gt;        &lt;int&gt;        &lt;int&gt;   &lt;int&gt;        &lt;int&gt;   &lt;int&gt;
 #&gt; 1  5424     2014/15        48844           76    1620            0       0
 #&gt; 2  6096     2015/16        48844           20     360            0       0
+#&gt; 3  6818     2016/17        48844            2     143            0       0
 #&gt; # ... with 19 more variables: clean_sheets &lt;int&gt;, goals_conceded &lt;int&gt;,
 #&gt; #   own_goals &lt;int&gt;, penalties_saved &lt;int&gt;, penalties_missed &lt;int&gt;,
 #&gt; #   yellow_cards &lt;int&gt;, red_cards &lt;int&gt;, saves &lt;int&gt;, bonus &lt;int&gt;, bps &lt;int&gt;,
 #&gt; #   influence &lt;dbl&gt;, creativity &lt;dbl&gt;, threat &lt;dbl&gt;, ict_index &lt;dbl&gt;,
 #&gt; #   ea_index &lt;int&gt;, season &lt;int&gt;, start_price &lt;dbl&gt;, end_price &lt;dbl&gt;,
-#&gt; #   player_id &lt;dbl&gt;</div><div class='input'><span class='fu'>playerSeasons</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>54</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 26
+#&gt; #   player_id &lt;dbl&gt;</div><div class='input'><span class='fu'>playerSeasons</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>54</span>)</div><div class='output co'>#&gt; # A tibble: 4 x 26
 #&gt;      id season_name element_code total_points minutes goals_scored assists
 #&gt;   &lt;int&gt;       &lt;chr&gt;        &lt;int&gt;        &lt;int&gt;   &lt;int&gt;        &lt;int&gt;   &lt;int&gt;
 #&gt; 1   547     2006/07        21205            0       0            0       0
 #&gt; 2  1005     2007/08        21205            0       0            0       0
 #&gt; 3  5387     2014/15        21205          150    3420            0       0
+#&gt; 4  6822     2016/17        21205          149    3150            0       0
 #&gt; # ... with 19 more variables: clean_sheets &lt;int&gt;, goals_conceded &lt;int&gt;,
 #&gt; #   own_goals &lt;int&gt;, penalties_saved &lt;int&gt;, penalties_missed &lt;int&gt;,
 #&gt; #   yellow_cards &lt;int&gt;, red_cards &lt;int&gt;, saves &lt;int&gt;, bonus &lt;int&gt;, bps &lt;int&gt;,
