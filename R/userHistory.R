@@ -7,16 +7,13 @@
 #' userHistory(user_id = 123)
 
 userHistory <- function(user_id) {
-
-  #check the input is numeric, stop if not
-  if (!is.numeric(user_id))
-    stop("user_id isn't numeric format.")
-
-  #get data
-  data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/entry/",
-                                     user_id, "/history"),
-                              simplifyVector = TRUE)
-
-  return(tibble::as.tibble(data$season))
-
+    
+    # make the input numeric
+    user_id <- as.numeric(user_id)
+    
+    # get data
+    data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/entry/", user_id, "/history"), simplifyVector = TRUE)
+    
+    return(tibble::as.tibble(data$season))
+    
 }

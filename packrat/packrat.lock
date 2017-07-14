@@ -1,7 +1,11 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.8.1
 RVersion: 3.4.0
-Repos: CRAN=https://cran.rstudio.com/
+Repos: BioCsoft=https://bioconductor.org/packages/3.5/bioc,
+    BioCann=https://bioconductor.org/packages/3.5/data/annotation,
+    BioCexp=https://bioconductor.org/packages/3.5/data/experiment,
+    BioCextra=https://bioconductor.org/packages/3.5/extra,
+    CRAN=https://cran.rstudio.com/
 
 Package: BH
 Source: CRAN
@@ -67,9 +71,14 @@ Hash: 97cb6f6293cd18d17df77a6383cc6763
 Requires: bitops
 
 Package: callr
-Source: CRAN
-Version: 1.0.0
-Hash: f4152aceab8fa4f45b5bbde0dc118559
+Source: github
+Version: 1.0.0.9000
+Hash: f8ae8b31d9f4d2f4632fccbf9179be87
+Requires: R6, processx
+GithubRepo: callr
+GithubUsername: r-pkgs
+GithubRef: HEAD
+GithubSha1: ddd24a3869e89bf535f304a25f868968c2440fe9
 
 Package: clisymbols
 Source: github
@@ -120,6 +129,12 @@ Package: data.table
 Source: CRAN
 Version: 1.10.4
 Hash: 2c7c47ccb40d01c7b214c8eff818108d
+
+Package: debugme
+Source: CRAN
+Version: 1.0.2
+Hash: 28d8f97402746afa3bf2ce392173c957
+Requires: crayon
 
 Package: desc
 Source: CRAN
@@ -178,6 +193,16 @@ Source: CRAN
 Version: 2.2.1
 Hash: 46e5cb78836848aa44655e577433f54b
 Requires: digest, gtable, lazyeval, plyr, reshape2, scales, tibble
+
+Package: gh
+Source: github
+Version: 1.0.0
+Hash: f941009cf31f082230bdb22fb12e8955
+Requires: httr, ini, jsonlite
+GithubRepo: gh
+GithubUsername: r-pkgs
+GithubRef: master
+GithubSha1: 7c62b7a7f856bb3b3119443bc10834a40ab91e28
 
 Package: git2r
 Source: CRAN
@@ -238,6 +263,11 @@ Source: CRAN
 Version: 1.0.1
 Hash: 26ac36402e881905359daabfd9ba4057
 Requires: NMF, irlba, magrittr
+
+Package: ini
+Source: CRAN
+Version: 0.2
+Hash: 12df248cc384eb68545a617da2730c8e
 
 Package: irlba
 Source: CRAN
@@ -315,6 +345,37 @@ Source: CRAN
 Version: 0.4.8-1
 Hash: 6ad605ba7b4b476d84be6632393f5765
 
+Package: pkgbuild
+Source: github
+Version: 0.0.0.9000
+Hash: 0240738ba54f63281313d51faee40fc2
+Requires: callr, desc, rprojroot, withr
+GithubRepo: pkgbuild
+GithubUsername: r-pkgs
+GithubRef: master
+GithubSha1: 8aab60b03bb09212881e3544e332d60defc52fd6
+
+Package: pkgdown
+Source: github
+Version: 0.1.0.9000
+Hash: 48cde3e34b924994a9c74aa478b2d126
+Requires: callr, desc, digest, evaluate, highlight, magrittr, pkgload,
+    purrr, rmarkdown, roxygen2, tibble, usethis, whisker, xml2, yaml
+GithubRepo: pkgdown
+GithubUsername: hadley
+GithubRef: master
+GithubSha1: 8f06abd18a8e4995b6d0c45d1a0b912abad3a5b7
+
+Package: pkgload
+Source: github
+Version: 0.0.0.9000
+Hash: 8dbbe64b0174aa71740459bed47680f4
+Requires: bitops, pkgbuild, rlang, rstudioapi, withr
+GithubRepo: pkgload
+GithubUsername: r-pkgs
+GithubRef: master
+GithubSha1: 119cf9a667abc97c6f4a19148ce7b324e8de676d
+
 Package: pkgmaker
 Source: CRAN
 Version: 0.22
@@ -331,6 +392,16 @@ Package: praise
 Source: CRAN
 Version: 1.0.0
 Hash: 77da8f1df873a4b91e5c4a68fe2fb1b6
+
+Package: processx
+Source: github
+Version: 2.0.1
+Hash: f8f8d6ee8c2a0a441af44598af104059
+Requires: R6, assertthat, crayon, debugme
+GithubRepo: processx
+GithubUsername: r-lib
+GithubRef: master
+GithubSha1: 4bf780ff168cef0086b89251b6348722b4f9ff67
 
 Package: purrr
 Source: CRAN
@@ -367,9 +438,13 @@ Hash: 69e208c6283398d235e507a658ba8079
 Requires: lazyeval, magrittr
 
 Package: rlang
-Source: CRAN
-Version: 0.1.1
-Hash: 86c53487ce7f82f0a7cc11c816060910
+Source: github
+Version: 0.1.1.9000
+Hash: 6168dedcf8198845025cf7e356d883e8
+GithubRepo: rlang
+GithubUsername: hadley
+GithubRef: master
+GithubSha1: 7f53e56a5cc429cf6f784937cb90a2580512c85d
 
 Package: rmarkdown
 Source: CRAN
@@ -441,6 +516,17 @@ Source: CRAN
 Version: 0.6.3
 Hash: 6fbf7116f2a9604db53b9c11a44d3cfc
 Requires: Rcpp, dplyr, lazyeval, magrittr, stringi, tibble
+
+Package: usethis
+Source: github
+Version: 0.0.0.9000
+Hash: 38295e64d932ce6d8cd769ee9e13fa42
+Requires: desc, digest, gh, git2r, httr, jsonlite, rmarkdown,
+    rstudioapi, whisker
+GithubRepo: usethis
+GithubUsername: r-pkgs
+GithubRef: master
+GithubSha1: 6dca914f22b3fef6da108dbf5ba48d34b2ef7e8d
 
 Package: whisker
 Source: CRAN

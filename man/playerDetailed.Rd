@@ -10,7 +10,7 @@ playerDetailed(player_id)
 \item{player_id}{\code{id} field from \code{\link{players}} tibble for a desired player.}
 }
 \description{
-Returns a tibble containing gameweek-level data for a given player in the current FPL season.
+Returns a tibble containing gameweek-level data for a given player in the current FPL season (season has to be in-play).
 }
 \examples{
 playerDetailed(player_id = 1)

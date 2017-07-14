@@ -12,7 +12,7 @@ userPicks(user_id, gameweek)
 \item{gameweek}{FPL competition gameweek (1-38).}
 }
 \description{
-Returns a tibble containing player data for a given user's selection for a gameweek during the current FPL season.
+Returns a tibble containing player data for a given user's selection for a gameweek during the current FPL season (season has to be in-play).
 }
 \examples{
 userPicks(user_id = 123, gameweek = 10)

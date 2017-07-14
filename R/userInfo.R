@@ -7,16 +7,14 @@
 #' userInfo(user_id = 123)
 
 userInfo <- function(user_id) {
-
-  #check the input is numeric, stop if not
-  if (!is.numeric(user_id))
-    stop("user_id isn't numeric format.")
-
-  #get data
-  data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/entry/",
-                                     user_id),
-                              simplifyVector = TRUE)
-
-  return(data$entry)
-
+    
+    # check the input is numeric, stop if not
+    if (!is.numeric(user_id)) 
+        stop("user_id isn't numeric format.")
+    
+    # get data
+    data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/entry/", user_id), simplifyVector = TRUE)
+    
+    return(data$entry)
+    
 }

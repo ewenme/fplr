@@ -7,16 +7,16 @@
 #' userPerformance(user_id = 123)
 
 userPerformance <- function(user_id) {
-
-  #check the input is numeric, stop if not
-  if (!is.numeric(user_id))
-    stop("user_id isn't numeric format.")
-
-  #get data
-  data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/entry/",
-                                     user_id, "/history"),
-                              simplifyVector = TRUE)
-
-  return(data$history)
-
+    
+    # make the input numeric
+    user_id <- as.numeric(user_id)
+    
+    # get data
+    data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/entry/", user_id, "/history"), simplifyVector = TRUE)
+    
+    if (length(data$history) < 1) 
+        stop("No user performance data for this season, yet")
+    
+    return(data$history)
+    
 }
