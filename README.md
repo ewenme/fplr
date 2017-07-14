@@ -22,6 +22,10 @@ devtools::install_github("ewenme/fplR")
 Usage
 -----
 
+### Example analysis
+
+[FPL Mythbusting with fplR](http://ewenme.rbind.io/blog/2017-06-25-fpl_mythbusting/)
+
 ### Data Analysis / Usage Examples in Vignettes
 
 There are a couple of vignettes, introducing the packages principles and functionality, as well as some data analysis use cases.
@@ -44,7 +48,7 @@ players()
 ?players
 ```
 
-#### Get detailed data (gameweek-level) on a player in the current FPL season (still 2016/17, currently)
+#### Get detailed data (gameweek-level) on a player in the current FPL season (season has to be underway)
 
 ``` r
 library(fplR)
@@ -56,7 +60,7 @@ playerDetailed(player_id = 12)
 
 ### User data examples
 
-#### Get data on a user's player picks for a gameweek in the current FPL season
+#### Get data on a user's player picks for a gameweek in the current FPL season (season has to be underway)
 
 ``` r
 library(fplR)
