@@ -9,7 +9,7 @@ An R package that provides a compendium of tools for working with [Fantasy Premi
 Installation
 ------------
 
-Get the development version from GitHub (CRAN submission should follow after commencement of the 2017/18 FPL season).
+Get the development version from GitHub. Because of the lack of dev support from FPL, I am unlikely to submit this to CRAN in the near future.
 
 ``` r
 # If you haven't installed devtools yet, do so
@@ -26,16 +26,6 @@ Usage
 
 [FPL Mythbusting with fplR](http://ewenme.rbind.io/blog/2017-06-25-fpl_mythbusting/)
 
-### Data Analysis / Usage Examples in Vignettes
-
-There are a couple of vignettes, introducing the packages principles and functionality, as well as some data analysis use cases.
-
-For a complete list of vignettes run:
-
-``` r
-browseVignettes(package = "fplR")
-```
-
 ### Player data examples
 
 #### Get summary data on all players in the current FPL season
@@ -43,7 +33,7 @@ browseVignettes(package = "fplR")
 ``` r
 library(fplR)
 
-# player data for current FPL season (note: this will update to 2017/18 season once underway):
+# player data for current FPL season:
 players()
 ?players
 ```
@@ -53,7 +43,7 @@ players()
 ``` r
 library(fplR)
 
-# Gameweek-level data for Alexis Sanchez in the current FPL season (note: this will update to 2017/18 season once underway):
+# Gameweek-level data for a player in the current FPL season:
 playerDetailed(player_id = 12)
 ?playerDetailed
 ```
@@ -65,7 +55,7 @@ playerDetailed(player_id = 12)
 ``` r
 library(fplR)
 
-# player data for current FPL season (note: this will update to 2017/18 season once underway):
+# player data for current FPL season:
 userPicks(user_id = 123, gameweek = 10)
 ?userPicks
 ```
