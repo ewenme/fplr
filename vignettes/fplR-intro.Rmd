@@ -42,31 +42,29 @@ Functions in the [player data](#player-2) family primarily return information ab
 * `players`: Aggregate (season-level) data for players in the current FPL season
 
 ```{r}
-players <- players()
-str(players)
+str(players())
 ```
 
 <br>
 
-* `playerDetailed`: Dis-aggregate (Gameweek-level) data for a player in the current FPL season. Note that the `player_id` argument is available in the `id` field from the tibble returned by the `players` function
+* `playerDetailed`: Detailed (Gameweek-level) data for a player in the current FPL season. Note that the `player_id` argument is available in the `id` field from the tibble returned by the `players` function
 
 ```{r}
-SanchezDetailed <- playerDetailed(player_id = 12)
-str(SanchezDetailed)
+str(playerDetailed(player_id = 12))
+
 ```
 
 ### Previous FPL seasons
 
-* `playerSeasons`: Aggregate data from previous seasons for a player in the current FPL season
+* `playerSeasons`: Summary data from previous seasons for a player in the current FPL season
 
 ```{r}
-CechSeasons <- playerSeasons(player_id = 2)
-str(CechSeasons)
+str(playerSeasons(player_id = 2))
 ```
 
 <br>
 
-* `players1617`: Aggregate (season-level) data for players in the 2016/17 FPL season
+* `players1617`: Summary (season-level) data for players in the 2016/17 FPL season
 
 ```{r}
 str(players1617)
@@ -81,8 +79,7 @@ Functions in the [user data](#user-3) family primarily return information about 
 * `userInfo`: Metadata for a user in the current FPL season
 
 ```{r}
-myInfo <- userInfo(user_id = 137633)
-str(myInfo)
+str(userInfo(user_id = 137633))
 ```
 
 <br>
@@ -90,8 +87,7 @@ str(myInfo)
 * `userPicks`: Player-level data for a user's picks during a gameweek in the current FPL season
 
 ```{r}
-myPicks <- userPicks(user_id = 137633, gameweek = 1)
-str(myPicks)
+str(userPicks(user_id = 137633, gameweek = 1))
 ```
 
 <br>
@@ -99,8 +95,7 @@ str(myPicks)
 * `userPerformance`: Dis-aggregate (gameweek-level) performance data for a user in the current FPL season
 
 ```{r}
-myPerformance <- userPerformance(user_id = 137633)
-str(myPerformance)
+str(userPerformance(user_id = 137633))
 ```
 
 <br>
@@ -108,8 +103,7 @@ str(myPerformance)
 * `userCompetition`: Aggregate performance data for a user in a type of competition in the current FPL season
 
 ```{r}
-myCompetitions <- userCompetition(user_id = 137633, type = "classic")
-str(myCompetitions)
+str(userCompetition(user_id = 137633, type = "classic"))
 ```
 
 ### Previous FPL seasons
@@ -117,8 +111,7 @@ str(myCompetitions)
 * `userHistory`: Aggregate performance data for a user in previous FPL seasons
 
 ```{r}
-myHistory <- userHistory(user_id = 137633)
-str(myHistory)
+str(userHistory(user_id = 137633))
 ```
 
 ## 4. Teams {#team-4}
@@ -126,8 +119,7 @@ str(myHistory)
 * `getTeams`: Summary data for teams in the current FPL season
 
 ```{r}
-teams <- teams()
-str(teams)
+head(teams())
 ```
 
 ## 5. Fixtures {#fixture-5}
@@ -135,5 +127,5 @@ str(teams)
 * `fixtures1617`: Summary data for fixtures in the 2016/17 FPL season
 
 ```{r}
-str(fixtures1617)
+head(fixtures1617)
 ```
