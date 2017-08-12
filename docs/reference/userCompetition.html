@@ -90,37 +90,35 @@
     </tr>
     <tr>
       <th>type</th>
-      <td><p>FPL competition type. Choose one of "classic", "h2h" (head-to-head) or "cup". Defaults to "classic".</p></td>
+      <td><p>FPL competition type. Choose one of 'classic', 'h2h' (head-to-head) or 'cup'. Defaults to 'classic'.</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>userCompetition</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>123</span>)</div><div class='output co'>#&gt; # A tibble: 9 x 23
+    <pre class="examples"><div class='input'><span class='fu'>userCompetition</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>123</span>)</div><div class='output co'>#&gt; # A tibble: 7 x 23
 #&gt;       id entry_rank entry_last_rank entry_movement entry_change entry_can_leave
-#&gt; *  &lt;int&gt;      &lt;int&gt;           &lt;int&gt;          &lt;chr&gt;        &lt;int&gt;           &lt;lgl&gt;
-#&gt; 1     11      25238           32055             up         6817           FALSE
-#&gt; 2    261      48100           62432             up        14332           FALSE
-#&gt; 3    275     121290          156083             up        34793           FALSE
-#&gt; 4    313     122610          157965             up        35355           FALSE
-#&gt; 5    354          2               2           same           NA           FALSE
-#&gt; 6 216287          1               1           same           NA            TRUE
-#&gt; 7 230271          1               1           same           NA            TRUE
-#&gt; 8 329155          1               1           same           NA            TRUE
-#&gt; 9 438914          1               1           same           NA            TRUE
+#&gt; *  &lt;int&gt;      &lt;int&gt;           &lt;int&gt;          &lt;chr&gt;        &lt;lgl&gt;           &lt;lgl&gt;
+#&gt; 1     12      95385               0            new           NA           FALSE
+#&gt; 2    261     303726               0            new           NA           FALSE
+#&gt; 3    275     830886               0            new           NA           FALSE
+#&gt; 4    313     828938               0            new           NA           FALSE
+#&gt; 5  26799       3404               0            new           NA            TRUE
+#&gt; 6 171556          2               0            new           NA           FALSE
+#&gt; 7 462264          3               0            new           NA            TRUE
 #&gt; # ... with 17 more variables: entry_can_admin &lt;lgl&gt;, entry_can_invite &lt;lgl&gt;,
 #&gt; #   entry_can_forum &lt;lgl&gt;, entry_code &lt;chr&gt;, name &lt;chr&gt;, short_name &lt;chr&gt;,
 #&gt; #   created &lt;chr&gt;, closed &lt;lgl&gt;, forum_disabled &lt;lgl&gt;, make_code_public &lt;lgl&gt;,
 #&gt; #   rank &lt;lgl&gt;, size &lt;lgl&gt;, league_type &lt;chr&gt;, `_scoring` &lt;chr&gt;,
-#&gt; #   reprocess_standings &lt;lgl&gt;, admin_entry &lt;int&gt;, start_event &lt;int&gt;</div><div class='input'><span class='fu'>userCompetition</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>123</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"h2h"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 24
-#&gt;      id entry_rank entry_last_rank entry_movement entry_change entry_can_leave
-#&gt; * &lt;int&gt;      &lt;lgl&gt;           &lt;lgl&gt;          &lt;lgl&gt;        &lt;lgl&gt;           &lt;lgl&gt;
-#&gt; 1   314         NA              NA             NA           NA           FALSE
+#&gt; #   reprocess_standings &lt;lgl&gt;, admin_entry &lt;int&gt;, start_event &lt;int&gt;</div><div class='input'><span class='fu'>userCompetition</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>123</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'h2h'</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 24
+#&gt;       id entry_rank entry_last_rank entry_movement entry_change entry_can_leave
+#&gt; *  &lt;int&gt;      &lt;int&gt;           &lt;int&gt;          &lt;chr&gt;        &lt;lgl&gt;           &lt;lgl&gt;
+#&gt; 1 821396          1               0            new           NA           FALSE
 #&gt; # ... with 18 more variables: entry_can_admin &lt;lgl&gt;, entry_can_invite &lt;lgl&gt;,
-#&gt; #   entry_can_forum &lt;lgl&gt;, entry_code &lt;lgl&gt;, name &lt;chr&gt;, is_cup &lt;lgl&gt;,
-#&gt; #   short_name &lt;chr&gt;, created &lt;chr&gt;, closed &lt;lgl&gt;, forum_disabled &lt;lgl&gt;,
-#&gt; #   make_code_public &lt;lgl&gt;, rank &lt;lgl&gt;, size &lt;lgl&gt;, league_type &lt;chr&gt;,
-#&gt; #   `_scoring` &lt;chr&gt;, ko_rounds &lt;int&gt;, admin_entry &lt;lgl&gt;, start_event &lt;int&gt;</div></pre>
+#&gt; #   entry_can_forum &lt;lgl&gt;, entry_code &lt;chr&gt;, name &lt;chr&gt;, is_cup &lt;lgl&gt;,
+#&gt; #   short_name &lt;lgl&gt;, created &lt;chr&gt;, closed &lt;lgl&gt;, forum_disabled &lt;lgl&gt;,
+#&gt; #   make_code_public &lt;lgl&gt;, rank &lt;lgl&gt;, size &lt;int&gt;, league_type &lt;chr&gt;,
+#&gt; #   `_scoring` &lt;chr&gt;, ko_rounds &lt;int&gt;, admin_entry &lt;int&gt;, start_event &lt;int&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

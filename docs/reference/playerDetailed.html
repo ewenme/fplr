@@ -76,7 +76,7 @@
     </div>
 
     
-    <p>Returns a tibble containing gameweek-level data for a given player in the current FPL season.</p>
+    <p>Returns a tibble containing gameweek-level data for a given player in the current FPL season (season has to be in-play).</p>
     
 
     <pre class="usage"><span class='fu'>playerDetailed</span>(<span class='no'>player_id</span>)</pre>
@@ -92,23 +92,14 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>playerDetailed</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; # A tibble: 38 x 54
-#&gt;       id         kickoff_time kickoff_time_formatted team_h_score team_a_score
-#&gt;    &lt;int&gt;                &lt;chr&gt;                  &lt;chr&gt;        &lt;int&gt;        &lt;int&gt;
-#&gt;  1     1 2016-08-14T15:00:00Z           14 Aug 16:00            3            4
-#&gt;  2   526 2016-08-20T16:30:00Z           20 Aug 17:30            0            0
-#&gt;  3  1066 2016-08-27T14:00:00Z           27 Aug 15:00            1            3
-#&gt;  4  1616 2016-09-10T14:00:00Z           10 Sep 15:00            2            1
-#&gt;  5  2197 2016-09-17T14:00:00Z           17 Sep 15:00            1            4
-#&gt;  6  2781 2016-09-24T16:30:00Z           24 Sep 17:30            3            0
-#&gt;  7  3367 2016-10-02T15:30:00Z           02 Oct 16:30            0            1
-#&gt;  8  3956 2016-10-15T14:00:00Z           15 Oct 15:00            3            2
-#&gt;  9  4548 2016-10-22T14:00:00Z           22 Oct 15:00            0            0
-#&gt; 10  5142 2016-10-29T11:30:00Z           29 Oct 12:30            1            4
-#&gt; # ... with 28 more rows, and 49 more variables: was_home &lt;lgl&gt;, round &lt;int&gt;,
-#&gt; #   total_points &lt;int&gt;, transfers_balance &lt;int&gt;, selected &lt;int&gt;,
-#&gt; #   transfers_in &lt;int&gt;, transfers_out &lt;int&gt;, loaned_in &lt;int&gt;, loaned_out &lt;int&gt;,
-#&gt; #   minutes &lt;int&gt;, goals_scored &lt;int&gt;, assists &lt;int&gt;, clean_sheets &lt;int&gt;,
+    <pre class="examples"><div class='input'><span class='fu'>playerDetailed</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 54
+#&gt;      id         kickoff_time kickoff_time_formatted team_h_score team_a_score
+#&gt;   &lt;int&gt;                &lt;chr&gt;                  &lt;chr&gt;        &lt;int&gt;        &lt;int&gt;
+#&gt; 1     1 2017-08-11T18:45:00Z           11 Aug 19:45            4            3
+#&gt; # ... with 49 more variables: was_home &lt;lgl&gt;, round &lt;int&gt;, total_points &lt;int&gt;,
+#&gt; #   transfers_balance &lt;int&gt;, selected &lt;int&gt;, transfers_in &lt;int&gt;,
+#&gt; #   transfers_out &lt;int&gt;, loaned_in &lt;int&gt;, loaned_out &lt;int&gt;, minutes &lt;int&gt;,
+#&gt; #   goals_scored &lt;int&gt;, assists &lt;int&gt;, clean_sheets &lt;int&gt;,
 #&gt; #   goals_conceded &lt;int&gt;, own_goals &lt;int&gt;, penalties_saved &lt;int&gt;,
 #&gt; #   penalties_missed &lt;int&gt;, yellow_cards &lt;int&gt;, red_cards &lt;int&gt;, saves &lt;int&gt;,
 #&gt; #   bonus &lt;int&gt;, bps &lt;int&gt;, influence &lt;dbl&gt;, creativity &lt;dbl&gt;, threat &lt;dbl&gt;,
@@ -119,23 +110,14 @@
 #&gt; #   big_chances_missed &lt;int&gt;, errors_leading_to_goal &lt;int&gt;,
 #&gt; #   errors_leading_to_goal_attempt &lt;int&gt;, tackled &lt;int&gt;, offside &lt;int&gt;,
 #&gt; #   target_missed &lt;int&gt;, fouls &lt;int&gt;, dribbles &lt;int&gt;, fixture &lt;int&gt;,
-#&gt; #   opponent_team &lt;chr&gt;, price &lt;dbl&gt;, player_id &lt;int&gt;</div><div class='input'><span class='fu'>playerDetailed</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>54</span>)</div><div class='output co'>#&gt; # A tibble: 38 x 54
-#&gt;       id         kickoff_time kickoff_time_formatted team_h_score team_a_score
-#&gt;    &lt;int&gt;                &lt;chr&gt;                  &lt;chr&gt;        &lt;int&gt;        &lt;int&gt;
-#&gt;  1    54 2016-08-13T14:00:00Z           13 Aug 15:00            0            1
-#&gt;  2   579 2016-08-20T14:00:00Z           20 Aug 15:00            2            0
-#&gt;  3  1119 2016-08-27T14:00:00Z           27 Aug 15:00            3            0
-#&gt;  4  1669 2016-09-10T14:00:00Z           10 Sep 15:00            1            1
-#&gt;  5  2250 2016-09-17T14:00:00Z           17 Sep 15:00            3            0
-#&gt;  6  2834 2016-09-26T19:00:00Z           26 Sep 20:00            2            0
-#&gt;  7  3420 2016-10-02T15:30:00Z           02 Oct 16:30            0            1
-#&gt;  8  4009 2016-10-16T15:00:00Z           16 Oct 16:00            3            1
-#&gt;  9  4601 2016-10-22T14:00:00Z           22 Oct 15:00            2            1
-#&gt; 10  5195 2016-10-29T14:00:00Z           29 Oct 15:00            0            0
-#&gt; # ... with 28 more rows, and 49 more variables: was_home &lt;lgl&gt;, round &lt;int&gt;,
-#&gt; #   total_points &lt;int&gt;, transfers_balance &lt;int&gt;, selected &lt;int&gt;,
-#&gt; #   transfers_in &lt;int&gt;, transfers_out &lt;int&gt;, loaned_in &lt;int&gt;, loaned_out &lt;int&gt;,
-#&gt; #   minutes &lt;int&gt;, goals_scored &lt;int&gt;, assists &lt;int&gt;, clean_sheets &lt;int&gt;,
+#&gt; #   opponent_team &lt;chr&gt;, price &lt;dbl&gt;, player_id &lt;int&gt;</div><div class='input'><span class='fu'>playerDetailed</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>54</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 54
+#&gt;      id         kickoff_time kickoff_time_formatted team_h_score team_a_score
+#&gt;   &lt;int&gt;                &lt;chr&gt;                  &lt;chr&gt;        &lt;int&gt;        &lt;int&gt;
+#&gt; 1    54 2017-08-12T16:30:00Z           12 Aug 17:30            0            2
+#&gt; # ... with 49 more variables: was_home &lt;lgl&gt;, round &lt;int&gt;, total_points &lt;int&gt;,
+#&gt; #   transfers_balance &lt;int&gt;, selected &lt;int&gt;, transfers_in &lt;int&gt;,
+#&gt; #   transfers_out &lt;int&gt;, loaned_in &lt;int&gt;, loaned_out &lt;int&gt;, minutes &lt;int&gt;,
+#&gt; #   goals_scored &lt;int&gt;, assists &lt;int&gt;, clean_sheets &lt;int&gt;,
 #&gt; #   goals_conceded &lt;int&gt;, own_goals &lt;int&gt;, penalties_saved &lt;int&gt;,
 #&gt; #   penalties_missed &lt;int&gt;, yellow_cards &lt;int&gt;, red_cards &lt;int&gt;, saves &lt;int&gt;,
 #&gt; #   bonus &lt;int&gt;, bps &lt;int&gt;, influence &lt;dbl&gt;, creativity &lt;dbl&gt;, threat &lt;dbl&gt;,

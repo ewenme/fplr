@@ -60,7 +60,7 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>Get the development version from GitHub (CRAN submission should follow after commencement of the 2017/18 FPL season).</p>
+<p>Get the development version from GitHub. Because of the lack of dev support from FPL, I am unlikely to submit this to CRAN in the near future.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># If you haven't installed devtools yet, do so</span>
 <span class="kw">install.packages</span>(<span class="st">"devtools"</span>)
 
@@ -70,12 +70,10 @@ devtools::<span class="kw">install_github</span>(<span class="st">"ewenme/fplR"<
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<div id="data-analysis-usage-examples-in-vignettes" class="section level3">
+<div id="example-analysis" class="section level3">
 <h3 class="hasAnchor">
-<a href="#data-analysis-usage-examples-in-vignettes" class="anchor"></a>Data Analysis / Usage Examples in Vignettes</h3>
-<p>There are a couple of vignettes, introducing the packages principles and functionality, as well as some data analysis use cases.</p>
-<p>For a complete list of vignettes run:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseVignettes</span>(<span class="dt">package =</span> <span class="st">"fplR"</span>)</code></pre></div>
+<a href="#example-analysis" class="anchor"></a>Example analysis</h3>
+<p><a href="http://ewenme.rbind.io/blog/2017-06-25-fpl_mythbusting/">FPL Mythbusting with fplR</a></p>
 </div>
 <div id="player-data-examples" class="section level3">
 <h3 class="hasAnchor">
@@ -85,16 +83,16 @@ devtools::<span class="kw">install_github</span>(<span class="st">"ewenme/fplR"<
 <a href="#get-summary-data-on-all-players-in-the-current-fpl-season" class="anchor"></a>Get summary data on all players in the current FPL season</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fplR)
 
-<span class="co"># player data for current FPL season (note: this will update to 2017/18 season once underway):</span>
+<span class="co"># player data for current FPL season:</span>
 <span class="kw"><a href="reference/players.html">players</a></span>()
 ?players</code></pre></div>
 </div>
-<div id="get-detailed-data-gameweek-level-on-a-player-in-the-current-fpl-season-still-201617-currently" class="section level4">
+<div id="get-detailed-data-gameweek-level-on-a-player-in-the-current-fpl-season-season-has-to-be-underway" class="section level4">
 <h4 class="hasAnchor">
-<a href="#get-detailed-data-gameweek-level-on-a-player-in-the-current-fpl-season-still-201617-currently" class="anchor"></a>Get detailed data (gameweek-level) on a player in the current FPL season (still 2016/17, currently)</h4>
+<a href="#get-detailed-data-gameweek-level-on-a-player-in-the-current-fpl-season-season-has-to-be-underway" class="anchor"></a>Get detailed data (gameweek-level) on a player in the current FPL season (season has to be underway)</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fplR)
 
-<span class="co"># Gameweek-level data for Alexis Sanchez in the current FPL season (note: this will update to 2017/18 season once underway):</span>
+<span class="co"># Gameweek-level data for a player in the current FPL season:</span>
 <span class="kw"><a href="reference/playerDetailed.html">playerDetailed</a></span>(<span class="dt">player_id =</span> <span class="dv">12</span>)
 ?playerDetailed</code></pre></div>
 </div>
@@ -102,12 +100,12 @@ devtools::<span class="kw">install_github</span>(<span class="st">"ewenme/fplR"<
 <div id="user-data-examples" class="section level3">
 <h3 class="hasAnchor">
 <a href="#user-data-examples" class="anchor"></a>User data examples</h3>
-<div id="get-data-on-a-users-player-picks-for-a-gameweek-in-the-current-fpl-season" class="section level4">
+<div id="get-data-on-a-users-player-picks-for-a-gameweek-in-the-current-fpl-season-season-has-to-be-underway" class="section level4">
 <h4 class="hasAnchor">
-<a href="#get-data-on-a-users-player-picks-for-a-gameweek-in-the-current-fpl-season" class="anchor"></a>Get data on a user’s player picks for a gameweek in the current FPL season</h4>
+<a href="#get-data-on-a-users-player-picks-for-a-gameweek-in-the-current-fpl-season-season-has-to-be-underway" class="anchor"></a>Get data on a user’s player picks for a gameweek in the current FPL season (season has to be underway)</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fplR)
 
-<span class="co"># player data for current FPL season (note: this will update to 2017/18 season once underway):</span>
+<span class="co"># player data for current FPL season:</span>
 <span class="kw"><a href="reference/userPicks.html">userPicks</a></span>(<span class="dt">user_id =</span> <span class="dv">123</span>, <span class="dt">gameweek =</span> <span class="dv">10</span>)
 ?userPicks</code></pre></div>
 </div>
