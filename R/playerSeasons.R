@@ -23,7 +23,7 @@ playerSeasons <- function(player_id) {
     data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/element-summary/", player_id), simplifyVector = TRUE)
 
     # check if player has season history, stop if not
-    if(nrow(data$history_past) == 0)
+    if(length(data$history_past) == 0)
       stop("player_id has no historic data.")
 
     # extract current seasons data ONLY, convert to tibble format
