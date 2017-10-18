@@ -14,5 +14,4 @@ Returns a tibble containing a season history overview for a given player in the 
 }
 \examples{
 playerSeasons(player_id = 1)
-playerSeasons(player_id = 54)
 }
