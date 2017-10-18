@@ -5,7 +5,6 @@
 #' @export
 #' @examples
 #' playerSeasons(player_id = 1)
-#' playerSeasons(player_id = 54)
 
 playerSeasons <- function(player_id) {
 
