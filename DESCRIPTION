@@ -1,4 +1,4 @@
-Package: fplR
+Package: fplr
 Title: Tools for Working with Fantasy Premier League (FPL) data in R
 Version: 0.0.0.9000
 Authors@R: person("Ewen", "Henderson", email = "ewenhenderson@gmail.com", role = c("aut", "cre"))

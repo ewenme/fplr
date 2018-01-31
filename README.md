@@ -1,5 +1,5 @@
 
-fplR <img src="fplHex.png" align="right" height="200" />
+fplr <img src="fplHex.png" align="right" height="200" />
 ========================================================
 
 [![Build Status](https://travis-ci.org/ewenme/fplR.png)](https://travis-ci.org/ewenme/fplR)
@@ -16,7 +16,7 @@ Get the development version from GitHub. Because of the lack of dev support from
 install.packages("devtools")
 
 # install package from github
-devtools::install_github("ewenme/fplR")
+devtools::install_github("ewenme/fplr")
 ```
 
 Usage
@@ -24,14 +24,14 @@ Usage
 
 ### Example analysis
 
-[FPL Mythbusting with fplR](http://ewenme.rbind.io/blog/2017-06-25-fpl_mythbusting/)
+[FPL Mythbusting with fplr](http://ewenme.rbind.io/blog/2017-06-25-fpl_mythbusting/)
 
 ### Player data examples
 
 #### Get summary data on all players in the current FPL season
 
 ``` r
-library(fplR)
+library(fplr)
 
 # player data for current FPL season:
 players()
@@ -41,8 +41,6 @@ players()
 #### Get detailed data (gameweek-level) on a player in the current FPL season (season has to be underway)
 
 ``` r
-library(fplR)
-
 # Gameweek-level data for a player in the current FPL season:
 playerDetailed(player_id = 12)
 ?playerDetailed
@@ -53,8 +51,6 @@ playerDetailed(player_id = 12)
 #### Get data on a user's player picks for a gameweek in the current FPL season (season has to be underway)
 
 ``` r
-library(fplR)
-
 # player data for current FPL season:
 userPicks(user_id = 123, gameweek = 10)
 ?userPicks

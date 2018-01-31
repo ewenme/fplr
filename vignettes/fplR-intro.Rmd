@@ -1,15 +1,15 @@
 ---
-title: "Introduction to `fplR`"
+title: "Introduction to `fplr`"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{fplR intro}
+  %\VignetteIndexEntry{fplr intro}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, echo = FALSE, message = FALSE}
-require(fplR)
+require(fplr)
 
 knitr::opts_chunk$set(
   comment = "#",
@@ -27,9 +27,9 @@ This vignette is an introduction to the principles and functions of the fplR pac
 
 [Fantasy Premier League](https://fantasy.premierleague.com) (FPL) is the official fantasy football game of the [Premier League](https://www.premierleague.com/), the top competitive football division in England. FPL players compete to score the most points come the end of the season (following [these rules](https://fantasy.premierleague.com/a/help)).
 
-### What is fplR?
+### What is fplr?
 
-*fplR* is an R package that provides a set of **tools for working with FPL data in R**. It contains functions for interfacing with FPL user (referred to herein as "users") and footballer (referred to herein as "players") data, in both current and previous seasons of the game. 
+*fplr* is an R package that provides a set of **tools for working with FPL data in R**. It contains functions for interfacing with FPL user (referred to herein as "users") and footballer (referred to herein as "players") data, in both current and previous seasons of the game. 
 
 N.B. The package retrieves this data from the FPL site, and must respond reactively to any game alterations that affect the data structure (there is no formal developer support offered by FPL, at time of writing).
 
