@@ -48,7 +48,7 @@ fpl_get_player_detailed(player_id = 12)
 
 ### User data
 
-#### Get data on a user's gameweek performance in the current FPL season:
+Get data on a user's gameweek performance in the current FPL season:
 
 ``` r
 
