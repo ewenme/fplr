@@ -7,5 +7,6 @@
 ^docs$
 ^CODE_OF_CONDUCT\.md$
 ^README\.md$
-*.png
-*.jpg
+^README\.Rmd$
+^fplHex\.png$
+^Qul9n6x\.jpg$
