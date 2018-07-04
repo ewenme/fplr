@@ -9,14 +9,15 @@ An R package that provides a compendium of tools for working with [Fantasy Premi
 Installation
 ------------
 
-Get the development version from GitHub. Because of the lack of dev support from FPL, I am unlikely to submit this to CRAN in the near future.
+Get the development version from GitHub. Because of the lack of dev support from FPL, the package is unlikely to be submitted to CRAN anytime soon.
 
 ``` r
-# If you haven't installed devtools yet, do so
-install.packages("devtools")
+if (!require(remotes)) {
+  install.packages("remotes") 
+  }
 
 # install package from github
-devtools::install_github("ewenme/fplr")
+remotes::install_github("ewenme/fplr")
 ```
 
 Usage
@@ -24,36 +25,35 @@ Usage
 
 ### Example analysis
 
-[FPL Mythbusting with fplr](http://ewenme.rbind.io/blog/2017-06-25-fpl_mythbusting/)
+[FPL Mythbusting with fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
 
-### Player data examples
+### Player data
 
-#### Get summary data on all players in the current FPL season
+Get summary data on all players in the current FPL season:
 
 ``` r
+# load package
 library(fplr)
 
-# player data for current FPL season:
-players()
-?players
+fpl_get_players()
+?fpl_get_players
 ```
 
-#### Get detailed data (gameweek-level) on a player in the current FPL season (season has to be underway)
+Get detailed (gameweek-level) data on a player in the current FPL season:
 
 ``` r
-# Gameweek-level data for a player in the current FPL season:
-playerDetailed(player_id = 12)
-?playerDetailed
+fpl_get_player_detailed(player_id = 12)
+?fpl_get_player_detailed
 ```
 
-### User data examples
+### User data
 
-#### Get data on a user's player picks for a gameweek in the current FPL season (season has to be underway)
+#### Get data on a user's gameweek performance in the current FPL season:
 
 ``` r
-# player data for current FPL season:
-userPicks(user_id = 123, gameweek = 10)
-?userPicks
+
+fpl_get_user_gameweek(user_id = 123, gameweek = 10)
+?fpl_get_user_gameweek
 ```
 
 Collaborators
@@ -63,3 +63,5 @@ If you want to contribute to the package:
 
 -   I followed the principles in Hadley Wickham's [R packages book](http://r-pkgs.had.co.nz/)
 -   Follow the GitHub fork/pull request [model](https://guides.github.com/introduction/flow/), or contact me directly
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
