@@ -7,7 +7,7 @@
 fpl_get_player_detailed(player_id)
 }
 \arguments{
-\item{player_id}{\code{id} field from \code{\link{fpl_get_players}} tibble for a desired player.}
+\item{player_id}{\code{id} field from \code{\link{fpl_get_players}}.}
 }
 \value{
 a tibble

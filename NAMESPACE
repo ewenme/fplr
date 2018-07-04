@@ -2,8 +2,8 @@
 
 export(fpl_get_fixtures)
 export(fpl_get_player_detailed)
+export(fpl_get_player_seasons)
 export(fpl_get_players)
-export(playerSeasons)
 export(teams)
 export(userCompetition)
 export(userHistory)

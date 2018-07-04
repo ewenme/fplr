@@ -43,7 +43,7 @@ fpl_get_players <- function() {
 #' Retrieve detailed (gameweek-level) data for a player in the current FPL season, obtained via the
 #' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
 #'
-#' @param player_id \code{id} field from \code{\link{fpl_get_players}} tibble for a desired player.
+#' @param player_id \code{id} field from \code{\link{fpl_get_players}}.
 #'
 #' @return a tibble
 #'
@@ -86,50 +86,50 @@ fpl_get_player_detailed <- function(player_id) {
 }
 
 
-#' Historic FPL seasons overview for a player in the current season
+#' Retrieve historic seasons summary data for a player in the current FPL season
 #'
-#' Returns a tibble containing a season history overview for a given player in the current FPL season.
-#' @param player_id \code{id} field from \code{\link{players}} tibble for a desired player.
+#' Retrieve summary (season-level) data for a player in the current FPL season, for all
+#' previous FPL seasons, obtained via the
+#' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#'
+#' @param player_id \code{id} field from \code{\link{fpl_get_players}}.
+#'
+#' @return a tibble
+#'
 #' @export
+#'
 #' @examples
-#' playerSeasons(player_id = 1)
+#' fpl_get_player_seasons(player_id = 54)
 
-playerSeasons <- function(player_id) {
-
-  # check the input is numeric, stop if not
-  player_id <- as.numeric(player_id)
+fpl_get_player_seasons <- function(player_id) {
 
   # get player list
-  players <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static", simplifyVector = TRUE)
+  players <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
 
   # check the input is in range, stop if not
   if (!player_id %in% 1:length(players$elements$id))
-    stop("player_id not in range.")
+    stop("player_id out of range.")
 
   # read in json player data, simplify vectors to make easy transfer to dataframe
-  data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/element-summary/", player_id), simplifyVector = TRUE)
+  player_summary <- jsonlite::read_json(paste0(fpl_player_summary, player_id), simplifyVector = TRUE)
 
   # check if player has season history, stop if not
-  if(length(data$history_past) == 0)
+  if(length(player_summary$history_past) == 0)
     stop("player_id has no historic data.")
 
-  # extract current seasons data ONLY, convert to tibble format
-  data <- tibble::as.tibble(data$history_past)
+  # extract historic seasons data ONLY
+  player_summary <- player_summary$history_past
 
-  # convert var types
-  data$influence <- as.numeric(data$influence)
-  data$creativity <- as.numeric(data$creativity)
-  data$threat <- as.numeric(data$threat)
-  data$ict_index <- as.numeric(data$ict_index)
+  # convert numeric vars to numeric class
+  numeric_vars <- c("influence", "creativity", "threat", "ict_index")
+  player_summary[numeric_vars] <- sapply(player_summary[numeric_vars], as.numeric)
 
-  # convert values to fpl-familiar style
-  data$start_price <- data$start_cost/10
-  data$end_price <- data$end_cost/10
+  # convert prices to fpl-familiar denomination
+  player_summary[c("start_cost", "end_cost")] <- lapply(player_summary[c("start_cost", "end_cost")],
+                                                        function(x) x / 10)
 
   # append player id
-  data$player_id <- player_id
+  player_summary$element <- player_id
 
-  data <- subset(data, select = -c(start_cost, end_cost))
-
-  return(data)
+  return(tibble::as_tibble(player_summary))
 }
