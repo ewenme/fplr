@@ -1,27 +1,30 @@
-#' Summary data for fixtures in the current FPL season
+#' Retrieve fixture data for the current FPL season
 #'
-#' Gives a tibble containing data on all fixtures in the current FPL season.
+#' Retrieve fixture data for the current FPL season, obtained via the
+#' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#'
+#' @return a tibble
+#'
 #' @export
+#'
 #' @examples
-#' fixtures()
+#' fixtures <- fpl_get_fixtures()
 
-fixtures <- function() {
-    
-    # read in json player data, simplify vectors to make easy transfer to dataframe
-    extract <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static", simplifyVector = TRUE)
-    
+fpl_get_fixtures <- function() {
+
+    # read fpl data
+    extract <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
+
+    # get fpl teams
     teams <- extract$teams
-    
-    # get fixtures
-    fixtures <- jsonlite::read_json("https://fantasy.premierleague.com/drf/fixtures/", simplifyVector = TRUE)
-    
-    # replace codes with matching values
+
+    # get fpl fixtures
+    fixtures <- jsonlite::read_json(fpl_fixtures, simplifyVector = TRUE)
+
+    # replace team codes with team names
     fixtures$team_a <- with(teams, name[match(fixtures$team_a, id)])
     fixtures$team_h <- with(teams, name[match(fixtures$team_h, id)])
-    
-    fixtures <- subset(fixtures, select = -c(provisional_start_time, finished_provisional, started, deadline_time, 
-        deadline_time_formatted))
-    
-    return(tibble::as.tibble(fixtures))
-    
+
+    return(tibble::as_tibble(fixtures))
+
 }
