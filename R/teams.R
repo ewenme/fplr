@@ -1,15 +1,20 @@
-#' Summary data for teams in the current FPL season
+#' Retrieve team data for the current FPL season
 #'
-#' Gives a tibble containing summary data for all teams in the current FPL season.
+#' Retrieve team data for the current FPL season, obtained via the
+#' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#'
+#' @return a tibble
+#'
 #' @export
+#'
 #' @examples
-#' teams()
+#' teams <- fpl_get_teams()
 
-teams <- function() {
-    
+fpl_get_teams <- function() {
+
     # read in json player data, simplify vectors to make easy transfer to dataframe
-    extract <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static", simplifyVector = TRUE)
-    
-    return(tibble::as.tibble(extract$teams))
-    
+    extract <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
+
+    return(tibble::as_tibble(extract$teams))
+
 }
