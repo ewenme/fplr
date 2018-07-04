@@ -1,111 +1,87 @@
-#' Summary player data for the current FPL season
+#' Retrieve player data for the current FPL season
 #'
-#' Gives a tibble containing summary data for all players in the current FPL season.
+#' Retrieve player data for the current FPL season, obtained via the
+#' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#'
+#' @return a tibble
+#'
 #' @export
+#'
 #' @examples
-#' players()
+#' players <- fpl_get_players()
 
-players <- function() {
+fpl_get_players <- function() {
 
-    # look-up table of player statuses
-    status <- data.frame(id = c("a", "d", "i", "s", "u"), player_status = c("Available", "Doubtful", "Injured",
-        "Suspended", "Unavailable"))
+    # read fpl data
+    extract <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
 
-    # read in json player data, simplify vectors to make easy transfer to dataframe
-    extract <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static", simplifyVector = TRUE)
-
-    # extract player data ONLY, convert to tibble format
-    data <- tibble::as.tibble(extract$elements)
+    # extract player data
+    players <- extract$elements
 
     # replace codes with matching values
-    data$team_name <- with(extract$teams, name[match(data$team_code, code)])
-    data$position <- with(extract$element_types, singular_name[match(data$element_type, id)])
-    data$status <- with(status, player_status[match(data$status, id)])
+    players$team_name <- with(extract$teams, name[match(players$team_code, code)])
+    players$position <- with(extract$element_types, singular_name[match(players$element_type, id)])
+    players$status <- with(player_statuses, player_status[match(players$status, id)])
 
-    # convert values to fpl-familiar style
-    data$price <- data$now_cost/10
-    data$price_change_abs <- data$cost_change_start/10
-    data$price_change_round <- data$cost_change_event/10
+    # convert price values to be an fpl-familiar denomination
+    price_vars <- c("now_cost", "cost_change_start", "cost_change_event")
+    players[price_vars] <- lapply(players[price_vars], function(x) x / 10)
 
-    # convert var names
-    data$transfers_out_round <- data$transfers_out_event
-    data$transfers_in_round <- data$transfers_in_event
-    data$round_points <- data$event_points
+    # convert numeric vars to numeric class
+    numeric_vars <- c("value_form", "value_season", "selected_by_percent", "form",
+                      "points_per_game", "ep_this", "ep_next", "influence",
+                      "creativity", "threat", "ict_index")
+    players[numeric_vars] <- sapply(players[numeric_vars], as.numeric)
 
-    # convert var types
-    data$value_form <- as.numeric(data$value_form)
-    data$value_season <- as.numeric(data$value_season)
-    data$selected_by_percent <- as.numeric(data$selected_by_percent)
-    data$form <- as.numeric(data$form)
-    data$points_per_game <- as.numeric(data$points_per_game)
-    data$ep_this <- as.numeric(data$ep_this)
-    data$ep_next <- as.numeric(data$ep_next)
-    data$influence <- as.numeric(data$influence)
-    data$creativity <- as.numeric(data$creativity)
-    data$threat <- as.numeric(data$threat)
-    data$ict_index <- as.numeric(data$ict_index)
-
-    # subset columns
-    data <- subset(data, select = c(id, code, first_name, second_name, web_name, team_name, position, status,
-        news, price, price_change_abs, price_change_round, chance_of_playing_this_round, chance_of_playing_next_round,
-        value_form, value_season, in_dreamteam, dreamteam_count, selected_by_percent, form, transfers_out, transfers_in,
-        transfers_out_round, transfers_in_round, total_points, round_points, points_per_game, ep_this, ep_next,
-        minutes, goals_scored, assists, clean_sheets, goals_conceded, own_goals, penalties_saved, penalties_missed,
-        yellow_cards, red_cards, saves, bonus, bps, influence, creativity, threat, ict_index, ea_index))
-
-    return(data)
+    return(players)
 
 }
 
 
-#' Detailed data for a player in the current FPL season
+#' Retrieve detailed data for a player in the current FPL season
 #'
-#' Returns a tibble containing gameweek-level data for a given player in the current FPL season (season has to be in-play).
-#' @param player_id \code{id} field from \code{\link{players}} tibble for a desired player.
+#' Retrieve detailed (gameweek-level) data for a player in the current FPL season, obtained via the
+#' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#'
+#' @param player_id \code{id} field from \code{\link{fpl_get_players}} tibble for a desired player.
+#'
+#' @return a tibble
+#'
 #' @export
+#'
 #' @examples
-#' playerDetailed(player_id = 1)
-#' playerDetailed(player_id = 54)
+#' fpl_get_player_detailed(player_id = 1)
+#' fpl_get_player_detailed(player_id = 54)
 
-playerDetailed <- function(player_id) {
-
-  # make the input numeric
-  player_id <- as.numeric(player_id)
+fpl_get_player_detailed <- function(player_id) {
 
   # get player list
-  players <- jsonlite::read_json("https://fantasy.premierleague.com/drf/bootstrap-static", simplifyVector = TRUE)
+  players <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
 
   # check the input is in range, stop if not
   if (!player_id %in% 1:length(players$elements$id))
     stop("player_id out of range.")
 
   # read in json player data, simplify vectors to make easy transfer to dataframe
-  data <- jsonlite::read_json(paste0("https://fantasy.premierleague.com/drf/element-summary/", player_id), simplifyVector = TRUE)
+  player_summary <- jsonlite::read_json(paste0(fpl_player_summary, player_id), simplifyVector = TRUE)
 
-  # extract current seasons data ONLY, convert to tibble format
-  data <- tibble::as.tibble(data$history)
+  # extract current seasons data
+  player_summary <- player_summary$history
 
-  if (length(data) < 1)
-    stop("No player data for the current season, yet.")
+  if (length(player_summary) < 1)
+    stop("No data for the current season.")
 
   # replace codes with matching values
-  data$opponent_team <- with(players$teams, name[match(data$opponent_team, id)])
+  player_summary$opponent_team <- with(players$teams, name[match(player_summary$opponent_team, id)])
 
-  # convert values to fpl-familiar style
-  data$price <- data$value/10
+  # convert price values to fpl-familiar denomination
+  player_summary$value <- player_summary$value / 10
 
-  # convert var types
-  data$influence <- as.numeric(data$influence)
-  data$creativity <- as.numeric(data$creativity)
-  data$threat <- as.numeric(data$threat)
-  data$ict_index <- as.numeric(data$ict_index)
+  # convert numeric vars to numeric class
+  numeric_vars <- c("influence", "creativity", "threat", "ict_index")
+  player_summary[numeric_vars] <- sapply(player_summary[numeric_vars], as.numeric)
 
-  # append player id
-  data$player_id <- data$element
-
-  data <- subset(data, select = -c(element, value))
-
-  return(data)
+  return(tibble::as_tibble(player_summary))
 
 }
 
