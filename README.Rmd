@@ -3,10 +3,10 @@ output: github_document
 ---
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(collapse = TRUE, eval = FALSE)
+knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-# fplr <img src="fplHex.png" align="right" height="200" />
+# fplr <img alt="fplr Logo" title="fplr" align="right" src="man/figures/fplr_logo.png" width="100" style="float:right;width:100px;"/>
 
 [![Build Status](https://travis-ci.org/ewenme/fplr.png)](https://travis-ci.org/ewenme/fplr) 
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
@@ -17,7 +17,7 @@ An R package that provides a compendium of tools for working with [Fantasy Premi
 
 Get the development version from GitHub. Because of the lack of dev support from FPL, the package is unlikely to be submitted to CRAN anytime soon.
 
-```{r}
+```{r, eval=FALSE}
 if (!require(remotes)) {
   install.packages("remotes") 
   }
@@ -34,32 +34,21 @@ remotes::install_github("ewenme/fplr")
 
 ### Player data
 
-Get summary data on all players in the current FPL season:
+Get data on all players in the current FPL season:
 
 ```{r}
 # load package
 library(fplr)
 
 fpl_get_players()
-?fpl_get_players
-```
-
-Get detailed (gameweek-level) data on a player in the current FPL season:
-
-```{r, eval = FALSE}
-fpl_get_player_detailed(player_id = 12)
-?fpl_get_player_detailed
 ```
 
 ### User data
 
-Get data on a user's gameweek performance in the current FPL season:
+Get data on a user's performance in the current FPL season:
 
-```{r, eval = FALSE}
-
-fpl_get_user_gameweek(user_id = 123, gameweek = 10)
-?fpl_get_user_gameweek
-
+```{r}
+fpl_get_user_performance(user_id = 123)
 ```
 
 ## Collaborators
