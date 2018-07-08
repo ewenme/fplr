@@ -2,14 +2,16 @@
 fplr <img alt="fplr Logo" title="fplr" align="right" src="man/figures/fplr_logo.png" width="100" style="float:right;width:100px;"/>
 ===================================================================================================================================
 
-[![Build Status](https://travis-ci.org/ewenme/fplr.png)](https://travis-ci.org/ewenme/fplr) [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Build Status](https://travis-ci.org/ewenme/fplr.png)](https://travis-ci.org/ewenme/fplr) [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 An R package that provides a compendium of tools for working with [Fantasy Premier League](https://fantasy.premierleague.com) (FPL) data in R.
+
+Because of the lack of dev support from FPL and possible API changes, the package is unlikely to be submitted to CRAN and will stay in an experimental lifecycle for the foreseeable future.
 
 Installation
 ------------
 
-Get the development version from GitHub. Because of the lack of dev support from FPL, the package is unlikely to be submitted to CRAN anytime soon.
+Get the development version from GitHub.
 
 ``` r
 if (!require(remotes)) {
@@ -23,8 +25,6 @@ remotes::install_github("ewenme/fplr")
 Usage
 -----
 
-### Example analysis
-
 [FPL Mythbusting with fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
 
 ### Player data
@@ -32,10 +32,7 @@ Usage
 Get data on all players in the current FPL season:
 
 ``` r
-# load package
-library(fplr)
-
-fpl_get_players()
+fplr::fpl_get_players()
 ## # A tibble: 438 x 60
 ##       id photo   web_name  team_code status    code first_name second_name
 ##  * <int> <chr>   <chr>         <int> <chr>    <int> <chr>      <chr>      
@@ -74,7 +71,7 @@ fpl_get_players()
 Get data on a user's FPL season performances:
 
 ``` r
-fpl_get_user_performance(user_id = 123)$season
+fplr::fpl_get_user_performance(user_id = 123)$season
 ##         id season_name total_points    rank season  player
 ## 1 13210862     2011/12         1788  865160      6 9356614
 ## 2 19303061     2012/13         1590 1837292      7 9356614
