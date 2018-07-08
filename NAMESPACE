@@ -3,7 +3,6 @@
 export(fpl_get_bootstrap)
 export(fpl_get_fixtures)
 export(fpl_get_player_detailed)
-export(fpl_get_player_seasons)
 export(fpl_get_players)
 export(fpl_get_teams)
 export(fpl_get_user_gameweek)

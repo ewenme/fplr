@@ -13,13 +13,11 @@ fpl_get_player_detailed(player_id)
 a tibble
 }
 \description{
-Retrieve detailed (gameweek-level) data for a player in the current FPL season, obtained via the
+Retrieve detailed data for a player in the current FPL season, obtained via the
 \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
-N.B. the current season must have started for this function to return data.
 }
 \examples{
 \dontrun{
-fpl_get_player_detailed(player_id = 1)
-fpl_get_player_detailed(player_id = 54)
+fpl_get_player_detailed(player_id = 2)
 }
 }

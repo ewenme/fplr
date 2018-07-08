@@ -1,5 +1,5 @@
 ---
-title: "Introduction to `fplr`"
+title: "Introduction to fplr"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{fplr intro}
@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
  collapse = TRUE)
 ```
 
-This vignette is an introduction to the principles and functions of the fplR package.
+This vignette is an introduction to the principles and functions of the `fplr` package.
 
 ## 1. Basics {#basics-1}
 
@@ -49,7 +49,7 @@ fpl_get_players()
 * `fpl_get_player_seasons`: Summary data from previous seasons for a player in the current FPL season
 
 ```{r}
-fpl_get_player_seasons(player_id = 3)
+fpl_get_player_detailed(player_id = 3)
 ```
 
 ## 3. Users {#user-3}
