@@ -16,9 +16,11 @@ a list
 }
 \description{
 Retrieve an FPL user's gameweek player picks, obtained via the
-\href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}
-(season has to be in-play).
+\href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+N.B. the current season must have started for this function to return data.
 }
 \examples{
+\dontrun{
 fpl_get_user_gameweek(user_id = 123, gameweek = 1)
+}
 }

@@ -16,7 +16,11 @@ a tibble
 Retrieve summary (season-level) data for a player in the current FPL season, for all
 previous FPL seasons, obtained via the
 \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+N.B. the player must have competed in a previous FPL season for this function to return
+data.
 }
 \examples{
-fpl_get_player_seasons(player_id = 54)
+\dontrun{
+fpl_get_player_seasons(player_id = 3)
+}
 }

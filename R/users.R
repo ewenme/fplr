@@ -25,8 +25,8 @@ fpl_get_user_performance <- function(user_id) {
 #' Retrieve an FPL user's data for a gameweek in the current FPL season
 #'
 #' Retrieve an FPL user's gameweek player picks, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}
-#' (season has to be in-play).
+#' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#' N.B. the current season must have started for this function to return data.
 #'
 #' @param user_id FPL user ID (retrieve from a user's team page on the \href{https://fantasy.premierleague.com}{FPL site}).
 #'
@@ -37,7 +37,9 @@ fpl_get_user_performance <- function(user_id) {
 #' @return a list
 #'
 #' @examples
+#' \dontrun{
 #' fpl_get_user_gameweek(user_id = 123, gameweek = 1)
+#' }
 
 fpl_get_user_gameweek <- function(user_id, gameweek) {
 

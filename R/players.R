@@ -42,6 +42,7 @@ fpl_get_players <- function() {
 #'
 #' Retrieve detailed (gameweek-level) data for a player in the current FPL season, obtained via the
 #' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#' N.B. the current season must have started for this function to return data.
 #'
 #' @param player_id \code{id} field from \code{\link{fpl_get_players}}.
 #'
@@ -50,8 +51,10 @@ fpl_get_players <- function() {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' fpl_get_player_detailed(player_id = 1)
 #' fpl_get_player_detailed(player_id = 54)
+#' }
 
 fpl_get_player_detailed <- function(player_id) {
 
@@ -91,6 +94,8 @@ fpl_get_player_detailed <- function(player_id) {
 #' Retrieve summary (season-level) data for a player in the current FPL season, for all
 #' previous FPL seasons, obtained via the
 #' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#' N.B. the player must have competed in a previous FPL season for this function to return
+#' data.
 #'
 #' @param player_id \code{id} field from \code{\link{fpl_get_players}}.
 #'
@@ -99,7 +104,9 @@ fpl_get_player_detailed <- function(player_id) {
 #' @export
 #'
 #' @examples
-#' fpl_get_player_seasons(player_id = 54)
+#' \dontrun{
+#' fpl_get_player_seasons(player_id = 3)
+#' }
 
 fpl_get_player_seasons <- function(player_id) {
 

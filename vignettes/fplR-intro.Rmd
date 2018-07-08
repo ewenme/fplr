@@ -41,13 +41,7 @@ Functions in the [player data](#player-2) family primarily return information ab
 * `fpl_get_players`: Aggregate (season-level) data for players in the current FPL season
 
 ```{r}
-str(fpl_get_players())
-```
-
-* `fpl_get_player_detailed`: Detailed (Gameweek-level) data for a player in the current FPL season. Note that the `player_id` argument is available in the `id` field from the tibble returned by the `players` function
-
-```{r}
-str(fpl_get_player_detailed(player_id = 12))
+fpl_get_players()
 ```
 
 ### Previous FPL seasons
@@ -55,7 +49,7 @@ str(fpl_get_player_detailed(player_id = 12))
 * `fpl_get_player_seasons`: Summary data from previous seasons for a player in the current FPL season
 
 ```{r}
-str(fpl_get_player_seasons(player_id = 2))
+fpl_get_player_seasons(player_id = 3)
 ```
 
 ## 3. Users {#user-3}
@@ -67,13 +61,7 @@ Functions in the [user data](#user-3) family primarily return information about 
 * `fpl_get_user_performance`: User performance data for the current FPL season
 
 ```{r}
-str(fpl_get_user_performance(user_id = 137633))
-```
-
-* `fpl_get_user_gameweek`: User performance data for a gameweek in the current FPL season
-
-```{r}
-str(fpl_get_user_gameweek(user_id = 137633, gameweek = 1))
+fpl_get_user_performance(user_id = 137633)
 ```
 
 ## 4. Teams {#team-4}
@@ -81,7 +69,7 @@ str(fpl_get_user_gameweek(user_id = 137633, gameweek = 1))
 * `fpl_get_teams`: Summary data for teams in the current FPL season
 
 ```{r}
-head(fpl_get_teams())
+fpl_get_teams()
 ```
 
 ## 5. Fixtures {#fixture-5}
@@ -89,5 +77,5 @@ head(fpl_get_teams())
 * `fpl_get_fixtures`: Summary data for fixtures in the current FPL season
 
 ```{r}
-head(fpl_get_fixtures())
+fpl_get_fixtures()
 ```
