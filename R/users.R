@@ -43,6 +43,14 @@ fpl_get_user_performance <- function(user_id) {
 
 fpl_get_user_gameweek <- function(user_id, gameweek) {
 
+  bootstrap <- fpl_get_bootstrap()
+
+  if (is.null(bootstrap$`current-event`))
+    stop("season hasn't started.")
+
+  if(gameweek > bootstrap$`current-event`)
+    stop("gameweek hasn't taken place yet.")
+
   # check the input is in range, stop if not
   if (!gameweek %in% 1:38)
     stop("gameweek isn't in expected range (1-38).")
