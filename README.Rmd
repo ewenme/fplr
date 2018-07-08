@@ -45,10 +45,10 @@ fpl_get_players()
 
 ### User data
 
-Get data on a user's performance in the current FPL season:
+Get data on a user's FPL season performances:
 
 ```{r}
-fpl_get_user_performance(user_id = 123)
+fpl_get_user_performance(user_id = 123)$season
 ```
 
 ## Collaborators
