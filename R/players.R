@@ -33,7 +33,7 @@ fpl_get_players <- function() {
                       "creativity", "threat", "ict_index")
     players[numeric_vars] <- sapply(players[numeric_vars], as.numeric)
 
-    return(players)
+    return(tibble::as_tibble(players))
 
 }
 
