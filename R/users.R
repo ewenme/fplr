@@ -47,9 +47,6 @@ fpl_get_user_gameweek <- function(user_id, gameweek) {
   if (!gameweek %in% 1:38)
     stop("gameweek isn't in expected range (1-38).")
 
-  # get player/teams list
-  players <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
-
   # get user picks data
   user_gameweek <- jsonlite::read_json(paste0(fpl_user_entry, user_id, "/event/", gameweek,
                                            "/picks"), simplifyVector = TRUE)
@@ -58,7 +55,7 @@ fpl_get_user_gameweek <- function(user_id, gameweek) {
   user_picks <- user_gameweek$picks
 
   # read fpl data
-  extract <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
+  extract <- fpl_get_bootstrap()
 
   # extract player data
   players <- extract$elements

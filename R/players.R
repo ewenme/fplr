@@ -13,7 +13,7 @@
 fpl_get_players <- function() {
 
     # read fpl data
-    extract <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
+    extract <- fpl_get_bootstrap()
 
     # extract player data
     players <- extract$elements
@@ -59,7 +59,7 @@ fpl_get_players <- function() {
 fpl_get_player_detailed <- function(player_id) {
 
   # get player list
-  players <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
+  players <- fpl_get_bootstrap()
 
   # check the input is in range, stop if not
   if (!player_id %in% 1:length(players$elements$id))
@@ -111,7 +111,7 @@ fpl_get_player_detailed <- function(player_id) {
 fpl_get_player_seasons <- function(player_id) {
 
   # get player list
-  players <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
+  players <- fpl_get_bootstrap()
 
   # check the input is in range, stop if not
   if (!player_id %in% 1:length(players$elements$id))

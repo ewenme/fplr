@@ -13,7 +13,7 @@
 fpl_get_teams <- function() {
 
     # read in json player data, simplify vectors to make easy transfer to dataframe
-    extract <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
+    extract <- fpl_get_bootstrap()
 
     return(tibble::as_tibble(extract$teams))
 
