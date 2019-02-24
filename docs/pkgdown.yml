@@ -1,0 +1,9 @@
+pandoc: 2.3.1
+pkgdown: 1.3.0
+pkgdown_sha: ~
+articles:
+  fplr-intro: fplr-intro.html
+urls:
+  reference: https://ewenme.github.io/fplr//reference
+  article: https://ewenme.github.io/fplr//articles
+

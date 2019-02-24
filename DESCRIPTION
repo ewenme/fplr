@@ -1,7 +1,9 @@
 Package: fplr
 Title: Tools for Working with Fantasy Premier League (FPL) Data in R
 Version: 0.1.0.9000
-Authors@R: person("Ewen", "Henderson", email = "ewenhenderson@gmail.com", role = c("aut", "cre"))
+Authors@R: 
+    person("Ewen", "Henderson", email = "ewenhenderson@gmail.com", role = c("aut", "cre"),
+    comment = c(ORCID = "0000-0002-4748-4693"))
 Description: Tools for Fantasy Premier League (FPL, see <https://fantasy.premierleague.com> for info) users to retrieve (current season) FPL data into R, mostly using FPL's bootstrap-static JSON (<https://fantasy.premierleague.com/drf/bootstrap-static>).
 License: MIT + file LICENSE
 Depends: 
@@ -17,4 +19,4 @@ Suggests:
 VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
