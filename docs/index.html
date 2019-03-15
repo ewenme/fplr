@@ -12,6 +12,7 @@
 <script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Tools for Working with Fantasy Premier League (FPL) Data in R">
 <meta property="og:description" content="Tools for Fantasy Premier League (FPL, see &lt;https://fantasy.premierleague.com&gt; for info) users to retrieve (current season) FPL data into R, mostly using FPL's bootstrap-static JSON (&lt;https://fantasy.premierleague.com/drf/bootstrap-static&gt;).">
+<meta property="og:image" content="https://ewenme.github.io/fplr/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -83,7 +84,7 @@
     
 <div id="fplr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#fplr" class="anchor"></a>fplr <img alt="fplr Logo" title="fplr" align="right" src="reference/figures/fplr_logo.png" width="100" style="float:right;width:100px;">
+<a href="#fplr" class="anchor"></a>fplr <img src="reference/figures/logo.png" width="160px" align="right">
 </h1></div>
 
 <p>An R package that provides a compendium of tools for working with <a href="https://fantasy.premierleague.com">Fantasy Premier League</a> (FPL) data in R.</p>
@@ -108,7 +109,7 @@
 <a href="#player-data" class="anchor"></a>Player data</h3>
 <p>Get data on all players in the current FPL season:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">fplr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fplr/topics/fpl_get_players">fpl_get_players</a></span>()</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">## # A tibble: 600 x 60</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">## # A tibble: 608 x 60</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">##       id photo web_name team_code status   code first_name second_name</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">##    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;      </span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">##  1     1 1133… Cech             3 Avail…  11334 Petr       Cech       </span></a>
@@ -120,8 +121,8 @@
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">##  7     7 6914… Mustafi          3 Avail…  69140 Shkodran   Mustafi    </span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">##  8     8 1114… Kolasin…         3 Avail… 111457 Sead       Kolasinac  </span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">##  9    10 2339… Mavropa…         3 Avail… 233963 Konstanti… Mavropanos </span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">## 10    11 2733… Lichtst…         3 Doubt…  27335 Stephan    Lichtstein…</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">## # … with 590 more rows, and 52 more variables: squad_number &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">## 10    11 2733… Lichtst…         3 Avail…  27335 Stephan    Lichtstein…</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">## # … with 598 more rows, and 52 more variables: squad_number &lt;int&gt;,</span></a>
 <a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">## #   news &lt;chr&gt;, now_cost &lt;dbl&gt;, news_added &lt;chr&gt;,</span></a>
 <a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">## #   chance_of_playing_this_round &lt;int&gt;,</span></a>
 <a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">## #   chance_of_playing_next_round &lt;int&gt;, value_form &lt;dbl&gt;,</span></a>
