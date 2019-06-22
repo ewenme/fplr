@@ -5,17 +5,12 @@
 Status](https://travis-ci.org/ewenme/fplr.png)](https://travis-ci.org/ewenme/fplr)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-An R package that provides a compendium of tools for working with
-[Fantasy Premier League](https://fantasy.premierleague.com) (FPL) data
-in R.
-
-Because of the lack of dev support from FPL and possible API changes,
-the package is unlikely to be submitted to CRAN and will stay in an
-experimental lifecycle for the foreseeable future.
+An R package housing a compendium of tools for working with [Fantasy
+Premier League](https://fantasy.premierleague.com) (FPL) data in R.
 
 ## Installation
 
-Get the latest development version from GitHub:
+Get the latest development version of `fplr` from GitHub:
 
 ``` r
 if (!require(remotes)) {
@@ -26,7 +21,17 @@ if (!require(remotes)) {
 remotes::install_github("ewenme/fplr")
 ```
 
+Because of the lack of dev support from FPL and possible API changes,
+the package is unlikely to be submitted to CRAN and will remain in an
+experimental [lifecycle](https://www.tidyverse.org/lifecycle/) for the
+foreseeable future.
+
 ## Usage
+
+Refer to the [quickstart
+guide](https://ewenme.github.io/fplr/articles/fplr-quickstart.html) to
+get started. Here are some very basic examples of the functionality
+inside `fplr`.
 
 Get data on all players in the current FPL season:
 
