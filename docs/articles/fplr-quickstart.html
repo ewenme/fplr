@@ -112,40 +112,38 @@
 <a href="#player-2" class="anchor"></a>2. Players</h2>
 <p>Functions in the <a href="#player-2">player data</a> family primarily return information about <strong>players</strong> in the game, and are mostly for exploring data in the <em>current</em> season (note - when a new season of the game begins, old season data returned from these functions will be overwritten).</p>
 <p>These functions follow the naming convention <code>fpl_get_player_xxx</code>. For example, <code><a href="../reference/fpl_get_player_all.html">fpl_get_player_all()</a></code> returns data for all players in the current season, via a tidy tibble:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_players.html">fpl_get_players</a></span>()</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># Warning in fpl_get_players(): This function is soft-deprecated, and will</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># throw an error in future versions. Please use fpl_get_player_all() instead.</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># # A tibble: 624 x 58</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#       id photo web_name team_code status   code first_name second_name</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;      </span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#  1     1 1133… Cech             3 a       11334 Petr       Cech       </span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#  2     2 8020… Leno             3 a       80201 Bernd      Leno       </span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#  3     3 5150… Kosciel…         3 a       51507 Laurent    Koscielny  </span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#  4     4 9874… Bellerín         3 i       98745 Héctor     Bellerín   </span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#  5     5 3841… Monreal          3 a       38411 Nacho      Monreal    </span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#  6     6 1560… Holding          3 i      156074 Rob        Holding    </span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#  7     7 6914… Mustafi          3 a       69140 Shkodran   Mustafi    </span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#  8     8 1114… Kolasin…         3 a      111457 Sead       Kolasinac  </span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#  9    10 2339… Mavropa…         3 a      233963 Konstanti… Mavropanos </span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co"># 10    11 2733… Lichtst…         3 a       27335 Stephan    Lichtstein…</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co"># # … with 614 more rows, and 50 more variables: squad_number &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co"># #   news &lt;chr&gt;, now_cost &lt;dbl&gt;, news_added &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co"># #   chance_of_playing_this_round &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co"># #   chance_of_playing_next_round &lt;int&gt;, value_form &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co"># #   value_season &lt;dbl&gt;, cost_change_start &lt;dbl&gt;, cost_change_event &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co"># #   cost_change_start_fall &lt;int&gt;, cost_change_event_fall &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co"># #   in_dreamteam &lt;lgl&gt;, dreamteam_count &lt;int&gt;, selected_by_percent &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co"># #   form &lt;dbl&gt;, transfers_out &lt;int&gt;, transfers_in &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co"># #   transfers_out_event &lt;int&gt;, transfers_in_event &lt;int&gt;, loans_in &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co"># #   loans_out &lt;int&gt;, loaned_in &lt;int&gt;, loaned_out &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="co"># #   total_points &lt;int&gt;, event_points &lt;int&gt;, points_per_game &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co"># #   ep_this &lt;dbl&gt;, ep_next &lt;dbl&gt;, special &lt;lgl&gt;, minutes &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co"># #   goals_scored &lt;int&gt;, assists &lt;int&gt;, clean_sheets &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co"># #   goals_conceded &lt;int&gt;, own_goals &lt;int&gt;, penalties_saved &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="co"># #   penalties_missed &lt;int&gt;, yellow_cards &lt;int&gt;, red_cards &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co"># #   saves &lt;int&gt;, bonus &lt;int&gt;, bps &lt;int&gt;, influence &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-33" data-line-number="33"><span class="co"># #   creativity &lt;dbl&gt;, threat &lt;dbl&gt;, ict_index &lt;dbl&gt;, ea_index &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="co"># #   element_type &lt;int&gt;, team &lt;int&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_player_all.html">fpl_get_player_all</a></span>()</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># # A tibble: 624 x 58</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#       id photo web_name team_code status   code first_name second_name</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;      </span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#  1     1 1133… Cech             3 a       11334 Petr       Cech       </span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#  2     2 8020… Leno             3 a       80201 Bernd      Leno       </span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#  3     3 5150… Kosciel…         3 a       51507 Laurent    Koscielny  </span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#  4     4 9874… Bellerín         3 i       98745 Héctor     Bellerín   </span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#  5     5 3841… Monreal          3 a       38411 Nacho      Monreal    </span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#  6     6 1560… Holding          3 i      156074 Rob        Holding    </span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#  7     7 6914… Mustafi          3 a       69140 Shkodran   Mustafi    </span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#  8     8 1114… Kolasin…         3 a      111457 Sead       Kolasinac  </span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#  9    10 2339… Mavropa…         3 a      233963 Konstanti… Mavropanos </span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co"># 10    11 2733… Lichtst…         3 a       27335 Stephan    Lichtstein…</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co"># # … with 614 more rows, and 50 more variables: squad_number &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co"># #   news &lt;chr&gt;, now_cost &lt;dbl&gt;, news_added &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co"># #   chance_of_playing_this_round &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co"># #   chance_of_playing_next_round &lt;int&gt;, value_form &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co"># #   value_season &lt;dbl&gt;, cost_change_start &lt;dbl&gt;, cost_change_event &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co"># #   cost_change_start_fall &lt;int&gt;, cost_change_event_fall &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co"># #   in_dreamteam &lt;lgl&gt;, dreamteam_count &lt;int&gt;, selected_by_percent &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co"># #   form &lt;dbl&gt;, transfers_out &lt;int&gt;, transfers_in &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co"># #   transfers_out_event &lt;int&gt;, transfers_in_event &lt;int&gt;, loans_in &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co"># #   loans_out &lt;int&gt;, loaned_in &lt;int&gt;, loaned_out &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co"># #   total_points &lt;int&gt;, event_points &lt;int&gt;, points_per_game &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co"># #   ep_this &lt;dbl&gt;, ep_next &lt;dbl&gt;, special &lt;lgl&gt;, minutes &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="co"># #   goals_scored &lt;int&gt;, assists &lt;int&gt;, clean_sheets &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co"># #   goals_conceded &lt;int&gt;, own_goals &lt;int&gt;, penalties_saved &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co"># #   penalties_missed &lt;int&gt;, yellow_cards &lt;int&gt;, red_cards &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co"># #   saves &lt;int&gt;, bonus &lt;int&gt;, bps &lt;int&gt;, influence &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="co"># #   creativity &lt;dbl&gt;, threat &lt;dbl&gt;, ict_index &lt;dbl&gt;, ea_index &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co"># #   element_type &lt;int&gt;, team &lt;int&gt;</span></a></code></pre></div>
 <p>Get gameweek-level data for a single player in the current season, using <code><a href="../reference/fpl_get_player_current.html">fpl_get_player_current()</a></code> (supplying a <code>player_id</code> value, possibly gleaned from the <code><a href="../reference/fpl_get_player_all.html">fpl_get_player_all()</a></code> output):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_player_current.html">fpl_get_player_current</a></span>(<span class="dt">player_id =</span> <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co"># # A tibble: 38 x 54</span></a>

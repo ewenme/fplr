@@ -34,7 +34,7 @@ Functions in the [player data](#player-2) family primarily return information ab
 These functions follow the naming convention `fpl_get_player_xxx`. For example, `fpl_get_player_all()` returns data for all players in the current season, via a tidy tibble:
 
 ```{r}
-fpl_get_players()
+fpl_get_player_all()
 ```
 
 Get gameweek-level data for a single player in the current season, using `fpl_get_player_current()` (supplying a `player_id` value, possibly gleaned from the `fpl_get_player_all()` output):
