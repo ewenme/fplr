@@ -15,42 +15,39 @@ experimental lifecycle for the foreseeable future.
 
 ## Installation
 
-Get the development version from GitHub.
+Get the latest development version from GitHub:
 
 ``` r
 if (!require(remotes)) {
   install.packages("remotes") 
   }
 
-# install package from github
+# install package
 remotes::install_github("ewenme/fplr")
 ```
 
 ## Usage
 
-[FPL Mythbusting with
-fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
-
-### Player data
-
 Get data on all players in the current FPL season:
 
 ``` r
-fplr::fpl_get_players()
-## # A tibble: 608 x 60
+library(fplr)
+
+fpl_get_player_all()
+## # A tibble: 624 x 58
 ##       id photo web_name team_code status   code first_name second_name
 ##    <int> <chr> <chr>        <int> <chr>   <int> <chr>      <chr>      
-##  1     1 1133… Cech             3 Avail…  11334 Petr       Cech       
-##  2     2 8020… Leno             3 Avail…  80201 Bernd      Leno       
-##  3     3 5150… Kosciel…         3 Avail…  51507 Laurent    Koscielny  
-##  4     4 9874… Bellerín         3 Injur…  98745 Héctor     Bellerín   
-##  5     5 3841… Monreal          3 Avail…  38411 Nacho      Monreal    
-##  6     6 1560… Holding          3 Injur… 156074 Rob        Holding    
-##  7     7 6914… Mustafi          3 Avail…  69140 Shkodran   Mustafi    
-##  8     8 1114… Kolasin…         3 Avail… 111457 Sead       Kolasinac  
-##  9    10 2339… Mavropa…         3 Avail… 233963 Konstanti… Mavropanos 
-## 10    11 2733… Lichtst…         3 Avail…  27335 Stephan    Lichtstein…
-## # … with 598 more rows, and 52 more variables: squad_number <int>,
+##  1     1 1133… Cech             3 a       11334 Petr       Cech       
+##  2     2 8020… Leno             3 a       80201 Bernd      Leno       
+##  3     3 5150… Kosciel…         3 a       51507 Laurent    Koscielny  
+##  4     4 9874… Bellerín         3 i       98745 Héctor     Bellerín   
+##  5     5 3841… Monreal          3 a       38411 Nacho      Monreal    
+##  6     6 1560… Holding          3 i      156074 Rob        Holding    
+##  7     7 6914… Mustafi          3 a       69140 Shkodran   Mustafi    
+##  8     8 1114… Kolasin…         3 a      111457 Sead       Kolasinac  
+##  9    10 2339… Mavropa…         3 a      233963 Konstanti… Mavropanos 
+## 10    11 2733… Lichtst…         3 a       27335 Stephan    Lichtstein…
+## # … with 614 more rows, and 50 more variables: squad_number <int>,
 ## #   news <chr>, now_cost <dbl>, news_added <chr>,
 ## #   chance_of_playing_this_round <int>,
 ## #   chance_of_playing_next_round <int>, value_form <dbl>,
@@ -67,34 +64,38 @@ fplr::fpl_get_players()
 ## #   penalties_missed <int>, yellow_cards <int>, red_cards <int>,
 ## #   saves <int>, bonus <int>, bps <int>, influence <dbl>,
 ## #   creativity <dbl>, threat <dbl>, ict_index <dbl>, ea_index <int>,
-## #   element_type <int>, team <int>, team_name <chr>, position <chr>
+## #   element_type <int>, team <int>
 ```
-
-### User data
 
 Get data on a user’s FPL season performances:
 
 ``` r
-fplr::fpl_get_user_performance(user_id = 123)$season
+fpl_get_user_season(user_id = 123)
+## # A tibble: 7 x 6
 ##         id season_name total_points    rank season  player
-## 1 13210862     2011/12         1788  865160      6 9356614
-## 2 19303061     2012/13         1590 1837292      7 9356614
-## 3 20622589     2013/14         2135  508248      8 9356614
-## 4 31254280     2014/15         2043  123156      9 9356614
-## 5 34458590     2015/16         2178   64735     10 9356614
-## 6 38105936     2016/17         2313    8699     11 9356614
-## 7 42627235     2017/18         2304   13153     12 9356614
+##      <int> <chr>              <int>   <int>  <int>   <int>
+## 1 13210862 2011/12             1788  865160      6 9356614
+## 2 19303061 2012/13             1590 1837292      7 9356614
+## 3 20622589 2013/14             2135  508248      8 9356614
+## 4 31254280 2014/15             2043  123156      9 9356614
+## 5 34458590 2015/16             2178   64735     10 9356614
+## 6 38105936 2016/17             2313    8699     11 9356614
+## 7 42627235 2017/18             2304   13153     12 9356614
 ```
+
+## In-the-wild
+
+  - [FPL Mythbusting with
+    fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
 
 ## Collaborators
 
-If you want to contribute to the package:
+If you want to contribute to the package, try and follow:
 
-  - I followed the principles in Hadley Wickham’s [R packages
-    book](http://r-pkgs.had.co.nz/)
-  - Follow the GitHub fork/pull request
-    [model](https://guides.github.com/introduction/flow/), or contact me
-    directly
+  - Principles in Hadley Wickham’s [R packages
+    book](https://r-pkgs.org/)
+  - The GitHub fork/pull request
+    [model](https://guides.github.com/introduction/flow/)
 
 Please note that this project is released with a [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree

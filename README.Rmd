@@ -17,42 +17,42 @@ Because of the lack of dev support from FPL and possible API changes, the packag
 
 ## Installation
 
-Get the development version from GitHub.
+Get the latest development version from GitHub: 
 
 ```{r, eval=FALSE}
 if (!require(remotes)) {
   install.packages("remotes") 
   }
 
-# install package from github
+# install package
 remotes::install_github("ewenme/fplr")
 ```
 
 ## Usage
 
-[FPL Mythbusting with fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
-
-### Player data
-
 Get data on all players in the current FPL season:
 
 ```{r}
-fplr::fpl_get_players()
-```
+library(fplr)
 
-### User data
+fpl_get_player_all()
+```
 
 Get data on a user's FPL season performances:
 
 ```{r}
-fplr::fpl_get_user_performance(user_id = 123)$season
+fpl_get_user_season(user_id = 123)
 ```
+
+## In-the-wild
+
+- [FPL Mythbusting with fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
 
 ## Collaborators
 
-If you want to contribute to the package:
+If you want to contribute to the package, try and follow:
 
-* I followed the principles in Hadley Wickham's [R packages book](http://r-pkgs.had.co.nz/)
-* Follow the GitHub fork/pull request [model](https://guides.github.com/introduction/flow/), or contact me directly
+- Principles in Hadley Wickham's [R packages book](https://r-pkgs.org/)
+- The GitHub fork/pull request [model](https://guides.github.com/introduction/flow/)
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.

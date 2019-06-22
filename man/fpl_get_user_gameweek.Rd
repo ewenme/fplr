@@ -23,4 +23,5 @@ N.B. the current season must have started for this function to return data.
 \dontrun{
 fpl_get_user_gameweek(user_id = 123, gameweek = 1)
 }
+
 }

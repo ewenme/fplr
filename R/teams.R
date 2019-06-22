@@ -1,20 +1,23 @@
-#' Retrieve team data for the current FPL season
+#' Get data on teams
 #'
-#' Retrieve team data for the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#' Retrieve data on teams in the current FPL season, obtained via the
+#' \href{https://fantasy.premierleague.com/drf/teams}{teams endpoint}.
 #'
 #' @return a tibble
 #'
 #' @export
 #'
 #' @examples
-#' teams <- fpl_get_teams()
+#' fpl_get_teams()
 
 fpl_get_teams <- function() {
 
-    # read in json player data, simplify vectors to make easy transfer to dataframe
-    extract <- fpl_get_bootstrap()
+  # read in teams data
+  data <- read_lines(fpl_teams_url)
 
-    return(tibble::as_tibble(extract$teams))
+  # parse JSON
+  parsed_data <- fromJSON(data)
+
+  as_tibble(parsed_data)
 
 }

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve detailed data for a player in the current FPL season — fpl_get_player_detailed • fplr</title>
+<title>Get comprehensive data on a player — fpl_get_player_detailed • fplr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,10 +32,10 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Retrieve detailed data for a player in the current FPL season — fpl_get_player_detailed" />
+<meta property="og:title" content="Get comprehensive data on a player — fpl_get_player_detailed" />
 
 <meta property="og:description" content="Retrieve detailed data for a player in the current FPL season, obtained via the
-bootstrap-static JSON." />
+element summary endpoint." />
 
 <meta property="og:image" content="https://ewenme.github.io/fplr/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -68,7 +68,7 @@ bootstrap-static JSON." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fplr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -91,7 +91,7 @@ bootstrap-static JSON." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/fplr-intro.html">Introduction to fplr</a>
+      <a href="../articles/fplr-quickstart.html">fplr quickstart</a>
     </li>
   </ul>
 </li>
@@ -116,7 +116,7 @@ bootstrap-static JSON." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve detailed data for a player in the current FPL season</h1>
+    <h1>Get comprehensive data on a player</h1>
     
     <div class="hidden name"><code>fpl_get_player_detailed.Rd</code></div>
     </div>
@@ -124,30 +124,526 @@ bootstrap-static JSON." />
     <div class="ref-description">
     
     <p>Retrieve detailed data for a player in the current FPL season, obtained via the
-<a href='https://fantasy.premierleague.com/drf/bootstrap-static'>bootstrap-static JSON</a>.</p>
+<a href='https://fantasy.premierleague.com/drf/element-summary/1'>element summary endpoint</a>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>fpl_get_player_detailed</span>(<span class='no'>player_id</span>)</pre>
+    <pre class="usage"><span class='fu'>fpl_get_player_detailed</span>(<span class='no'>player_id</span>, <span class='kw'>convert_prices</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>player_id</th>
-      <td><p><code>id</code> field from <code><a href='fpl_get_players.html'>fpl_get_players</a></code>.</p></td>
+      <td><p>player's ID (<code>id</code> field from <code><a href='fpl_get_player_all.html'>fpl_get_player_all</a></code> output).</p></td>
+    </tr>
+    <tr>
+      <th>convert_prices</th>
+      <td><p>Convert player price-related metrics to familiar denominations
+(TRUE by default)</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a tibble</p>
+    <p>a list</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>fpl_get_player_detailed</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>2</span>)
-<span class='co'># }</span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>fpl_get_player_detailed</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; $history_past
+#&gt;     id season_name element_code start_cost end_cost total_points minutes
+#&gt; 1 2641     2010/11        51507        6.0      5.9           85    2617
+#&gt; 2 3383     2011/12        51507        6.0      5.8          103    2871
+#&gt; 3 4059     2012/13        51507        5.5      5.3           88    1675
+#&gt; 4 4763     2013/14        51507        5.5      5.6          155    2739
+#&gt; 5 5451     2014/15        51507        6.0      6.1          120    2287
+#&gt; 6 6166     2015/16        51507        6.0      6.3          153    2845
+#&gt; 7 6891     2016/17        51507        6.0      6.1          121    2821
+#&gt; 8 7569     2017/18        51507        6.0      6.0          100    2225
+#&gt;   goals_scored assists clean_sheets goals_conceded own_goals penalties_saved
+#&gt; 1            2       0            9             36         0               0
+#&gt; 2            2       1           11             42         2               0
+#&gt; 3            2       1            7             19         0               0
+#&gt; 4            2       0           17             26         0               0
+#&gt; 5            3       0           11             19         0               0
+#&gt; 6            4       0           15             31         0               0
+#&gt; 7            2       1           10             37         0               0
+#&gt; 8            2       0            9             32         0               0
+#&gt;   penalties_missed yellow_cards red_cards saves bonus bps influence creativity
+#&gt; 1                0            5         2     0     0   0       0.0        0.0
+#&gt; 2                0            8         0     0     5   0       0.0        0.0
+#&gt; 3                0            1         1     0    11   0       0.0        0.0
+#&gt; 4                0            1         1     0    24 228       0.0        0.0
+#&gt; 5                0            4         0     0    15 575       0.0        0.0
+#&gt; 6                0            3         0     0    18 790       0.0        0.0
+#&gt; 7                0            4         1     0    19 723     831.2       53.9
+#&gt; 8                0            4         0     0    16 556     692.0      123.8
+#&gt;   threat ict_index ea_index season
+#&gt; 1    0.0       0.0        0      5
+#&gt; 2    0.0       0.0      436      6
+#&gt; 3    0.0       0.0      285      7
+#&gt; 4    0.0       0.0      463      8
+#&gt; 5    0.0       0.0      387      9
+#&gt; 6    0.0       0.0      493     10
+#&gt; 7  239.0     112.7        0     11
+#&gt; 8  137.0      95.5        0     12
+#&gt; 
+#&gt; $fixtures_summary
+#&gt; list()
+#&gt; 
+#&gt; $explain
+#&gt;   explain.minutes.points explain.minutes.name explain.minutes.value fixture.id
+#&gt; 1                      1       Minutes played                    56        372
+#&gt;   fixture.kickoff_time_formatted fixture.started fixture.event_day
+#&gt; 1                   12 May 15:00            TRUE                 1
+#&gt;   fixture.deadline_time fixture.deadline_time_formatted
+#&gt; 1  2019-05-12T13:00:00Z                    12 May 14:00
+#&gt;                                                                                                                                                                                                                                                                                                                       fixture.stats
+#&gt; 1 2, 1, 23, 552, 1, 85, 2, 15, 1, 76, 1, 451, 1, 1, 1, 1, 1, 67, 69, 72, 82, 85, 3, 2, 3, 67, 3, 2, 1, 23, 15, 552, 47, 37, 24, 20, 19, 18, 18, 15, 15, 13, 12, 3, 1, 23, 15, 552, 16, 18, 5, 7, 2, 11, 3, 451, 10, 566, 22, 15, 15, 13, 13, 12, 11, 11, 9, 9, 6, 4, 3, 3, 85, 70, 534, 69, 74, 76, 67, 80, 72, 78, 82, 87, 79, 590
+#&gt;   fixture.code fixture.kickoff_time fixture.team_h_score fixture.team_a_score
+#&gt; 1       987963 2019-05-12T14:00:00Z                    1                    3
+#&gt;   fixture.finished fixture.minutes fixture.provisional_start_time
+#&gt; 1             TRUE              90                          FALSE
+#&gt;   fixture.finished_provisional fixture.event fixture.team_a fixture.team_h
+#&gt; 1                         TRUE            38              1              4
+#&gt; 
+#&gt; $history_summary
+#&gt;      id         kickoff_time kickoff_time_formatted team_h_score team_a_score
+#&gt; 1 19939 2019-04-28T11:00:00Z           28 Apr 12:00            3            0
+#&gt; 2 20554 2019-05-05T15:30:00Z           05 May 16:30            1            1
+#&gt; 3 21170 2019-05-12T14:00:00Z           12 May 15:00            1            3
+#&gt;   was_home round total_points value transfers_balance selected transfers_in
+#&gt; 1    FALSE    36            0    54             -6667    69896         1057
+#&gt; 2     TRUE    37            0    54             -8414    61638          855
+#&gt; 3    FALSE    38            1    54             -4078    57510          992
+#&gt;   transfers_out loaned_in loaned_out minutes goals_scored assists clean_sheets
+#&gt; 1          7724         0          0      45            0       0            0
+#&gt; 2          9269         0          0       0            0       0            0
+#&gt; 3          5070         0          0      56            0       0            0
+#&gt;   goals_conceded own_goals penalties_saved penalties_missed yellow_cards
+#&gt; 1              3         0               0                0            0
+#&gt; 2              0         0               0                0            0
+#&gt; 3              1         0               0                0            0
+#&gt;   red_cards saves bonus bps influence creativity threat ict_index ea_index
+#&gt; 1         0     0     0   9       9.0       10.0    0.0       1.9        0
+#&gt; 2         0     0     0   0       0.0        0.0    0.0       0.0        0
+#&gt; 3         0     0     0  13      16.8        0.2    0.0       1.7        0
+#&gt;   open_play_crosses big_chances_created clearances_blocks_interceptions
+#&gt; 1                 0                   0                               3
+#&gt; 2                 0                   0                               0
+#&gt; 3                 0                   0                               7
+#&gt;   recoveries key_passes tackles winning_goals attempted_passes completed_passes
+#&gt; 1          7          1       1             0               23               19
+#&gt; 2          0          0       0             0                0                0
+#&gt; 3          3          0       0             0               34               33
+#&gt;   penalties_conceded big_chances_missed errors_leading_to_goal
+#&gt; 1                  0                  0                      0
+#&gt; 2                  0                  0                      0
+#&gt; 3                  0                  0                      0
+#&gt;   errors_leading_to_goal_attempt tackled offside target_missed fouls dribbles
+#&gt; 1                              0       0       0             0     0        0
+#&gt; 2                              0       0       0             0     0        0
+#&gt; 3                              0       0       0             0     0        0
+#&gt;   element fixture opponent_team
+#&gt; 1       3     355            11
+#&gt; 2       3     361             3
+#&gt; 3       3     372             4
+#&gt; 
+#&gt; $fixtures
+#&gt; list()
+#&gt; 
+#&gt; $history
+#&gt;       id         kickoff_time kickoff_time_formatted team_h_score team_a_score
+#&gt; 1      3 2018-08-12T15:00:00Z           12 Aug 16:00            0            2
+#&gt; 2    528 2018-08-18T16:30:00Z           18 Aug 17:30            3            2
+#&gt; 3   1055 2018-08-25T14:00:00Z           25 Aug 15:00            3            1
+#&gt; 4   1586 2018-09-02T12:30:00Z           02 Sep 13:30            2            3
+#&gt; 5   2123 2018-09-15T14:00:00Z           15 Sep 15:00            1            2
+#&gt; 6   2660 2018-09-23T15:00:00Z           23 Sep 16:00            2            0
+#&gt; 7   3198 2018-09-29T14:00:00Z           29 Sep 15:00            2            0
+#&gt; 8   3737 2018-10-07T11:00:00Z           07 Oct 12:00            1            5
+#&gt; 9   4279 2018-10-22T19:00:00Z           22 Oct 20:00            3            1
+#&gt; 10  4825 2018-10-28T13:30:00Z           28 Oct 13:30            2            2
+#&gt; 11  5373 2018-11-03T17:30:00Z           03 Nov 17:30            1            1
+#&gt; 12  5923 2018-11-11T16:30:00Z           11 Nov 16:30            1            1
+#&gt; 13  6475 2018-11-25T13:30:00Z           25 Nov 13:30            1            2
+#&gt; 14  7028 2018-12-02T14:05:00Z           02 Dec 14:05            4            2
+#&gt; 15  7584 2018-12-05T20:00:00Z           05 Dec 20:00            2            2
+#&gt; 16  8142 2018-12-08T15:00:00Z           08 Dec 15:00            1            0
+#&gt; 17  8701 2018-12-16T13:30:00Z           16 Dec 13:30            3            2
+#&gt; 18  9263 2018-12-22T12:30:00Z           22 Dec 12:30            3            1
+#&gt; 19  9828 2018-12-26T17:15:00Z           26 Dec 17:15            1            1
+#&gt; 20 10396 2018-12-29T17:30:00Z           29 Dec 17:30            5            1
+#&gt; 21 10964 2019-01-01T15:00:00Z           01 Jan 15:00            4            1
+#&gt; 22 11534 2019-01-12T12:30:00Z           12 Jan 12:30            1            0
+#&gt; 23 12108 2019-01-19T17:30:00Z           19 Jan 17:30            2            0
+#&gt; 24 12687 2019-01-29T19:45:00Z           29 Jan 19:45            2            1
+#&gt; 25 13270 2019-02-03T16:30:00Z           03 Feb 16:30            3            1
+#&gt; 26 13924 2019-02-09T15:00:00Z           09 Feb 15:00            1            2
+#&gt; 27 14524 2019-02-24T14:05:00Z           24 Feb 14:05            2            0
+#&gt; 28 15008 2019-02-27T19:45:00Z           27 Feb 19:45            5            1
+#&gt; 29 15613 2019-03-02T12:30:00Z           02 Mar 12:30            1            1
+#&gt; 30 16219 2019-03-10T16:30:00Z           10 Mar 16:30            2            0
+#&gt; 31 17133 2019-04-01T19:00:00Z           01 Apr 20:00            2            0
+#&gt; 32 18035 2019-04-07T13:05:00Z           07 Apr 14:05            1            0
+#&gt; 33 18408 2019-04-15T19:00:00Z           15 Apr 20:00            0            1
+#&gt; 34 19084 2019-04-21T15:00:00Z           21 Apr 16:00            2            3
+#&gt; 35 19083 2019-04-24T18:45:00Z           24 Apr 19:45            3            1
+#&gt; 36 19939 2019-04-28T11:00:00Z           28 Apr 12:00            3            0
+#&gt; 37 20554 2019-05-05T15:30:00Z           05 May 16:30            1            1
+#&gt; 38 21170 2019-05-12T14:00:00Z           12 May 15:00            1            3
+#&gt;    was_home round total_points value transfers_balance selected transfers_in
+#&gt; 1      TRUE     1            0   5.5                 0     6155            0
+#&gt; 2     FALSE     2            0   5.5             -1179     6682          120
+#&gt; 3      TRUE     3            0   5.5              -900     6226           74
+#&gt; 4     FALSE     4            0   5.5              -508     6016           56
+#&gt; 5     FALSE     5            0   5.5              -340     5961           64
+#&gt; 6      TRUE     6            0   5.4              -155     5935           42
+#&gt; 7      TRUE     7            0   5.4              -139     5909           32
+#&gt; 8     FALSE     8            0   5.4               -94     5869           32
+#&gt; 9      TRUE     9            0   5.4               -97     5882           39
+#&gt; 10    FALSE    10            0   5.4               -41     5890           41
+#&gt; 11     TRUE    11            0   5.4               -60     5900           35
+#&gt; 12     TRUE    12            0   5.4               -42     5911           46
+#&gt; 13    FALSE    13            0   5.4               -34     5928           42
+#&gt; 14     TRUE    14            0   5.4               -22     5944           37
+#&gt; 15    FALSE    15            0   5.4               -13     5977           35
+#&gt; 16     TRUE    16            0   5.4                85     6103          195
+#&gt; 17    FALSE    17            0   5.4              1641     8214         1959
+#&gt; 18     TRUE    18            0   5.4              2718    11425         3415
+#&gt; 19    FALSE    19            2   5.4              -231    11448         1560
+#&gt; 20    FALSE    20            1   5.4             -1944     9579          258
+#&gt; 21     TRUE    21            2   5.4               802    10847         1486
+#&gt; 22    FALSE    22            2   5.4              -909    10271          878
+#&gt; 23     TRUE    23           15   5.4              -168    10432          491
+#&gt; 24     TRUE    24            0   5.4             12643    24684        19490
+#&gt; 25    FALSE    25            7   5.4             -4637    19402          425
+#&gt; 26    FALSE    26            3   5.4             15374    37529        19890
+#&gt; 27     TRUE    27            1   5.4             15398    63200        21621
+#&gt; 28     TRUE    28            9   5.4             -2945    52106         1612
+#&gt; 29    FALSE    29            2   5.4             -3089    49219         2860
+#&gt; 30     TRUE    30            6   5.4             -1064    48844         2519
+#&gt; 31     TRUE    32            0   5.4              6071    58537         9408
+#&gt; 32    FALSE    33            0   5.4             -5465    52891         1180
+#&gt; 33    FALSE    34            9   5.4             -4474    48974         1264
+#&gt; 34     TRUE    35            1   5.4             27142    80862        29053
+#&gt; 35    FALSE    35            1   5.4             27142    80862        29053
+#&gt; 36    FALSE    36            0   5.4             -6667    69896         1057
+#&gt; 37     TRUE    37            0   5.4             -8414    61638          855
+#&gt; 38    FALSE    38            1   5.4             -4078    57510          992
+#&gt;    transfers_out loaned_in loaned_out minutes goals_scored assists clean_sheets
+#&gt; 1              0         0          0       0            0       0            0
+#&gt; 2           1299         0          0       0            0       0            0
+#&gt; 3            974         0          0       0            0       0            0
+#&gt; 4            564         0          0       0            0       0            0
+#&gt; 5            404         0          0       0            0       0            0
+#&gt; 6            197         0          0       0            0       0            0
+#&gt; 7            171         0          0       0            0       0            0
+#&gt; 8            126         0          0       0            0       0            0
+#&gt; 9            136         0          0       0            0       0            0
+#&gt; 10            82         0          0       0            0       0            0
+#&gt; 11            95         0          0       0            0       0            0
+#&gt; 12            88         0          0       0            0       0            0
+#&gt; 13            76         0          0       0            0       0            0
+#&gt; 14            59         0          0       0            0       0            0
+#&gt; 15            48         0          0       0            0       0            0
+#&gt; 16           110         0          0       0            0       0            0
+#&gt; 17           318         0          0      90            0       0            0
+#&gt; 18           697         0          0       0            0       0            0
+#&gt; 19          1791         0          0      69            0       0            0
+#&gt; 20          2202         0          0      45            0       0            0
+#&gt; 21           684         0          0      90            0       0            0
+#&gt; 22          1787         0          0      90            0       0            0
+#&gt; 23           659         0          0      90            1       0            1
+#&gt; 24          6847         0          0       0            0       0            0
+#&gt; 25          5062         0          0      90            1       0            0
+#&gt; 26          4516         0          0      90            0       0            0
+#&gt; 27          6223         0          0      34            0       0            0
+#&gt; 28          4557         0          0      90            1       0            0
+#&gt; 29          5949         0          0      90            0       0            0
+#&gt; 30          3583         0          0      90            0       0            1
+#&gt; 31          3337         0          0       0            0       0            0
+#&gt; 32          6645         0          0       0            0       0            0
+#&gt; 33          5738         0          0      90            0       0            1
+#&gt; 34          1911         0          0      90            0       0            0
+#&gt; 35          1911         0          0      90            0       0            0
+#&gt; 36          7724         0          0      45            0       0            0
+#&gt; 37          9269         0          0       0            0       0            0
+#&gt; 38          5070         0          0      56            0       0            0
+#&gt;    goals_conceded own_goals penalties_saved penalties_missed yellow_cards
+#&gt; 1               0         0               0                0            0
+#&gt; 2               0         0               0                0            0
+#&gt; 3               0         0               0                0            0
+#&gt; 4               0         0               0                0            0
+#&gt; 5               0         0               0                0            0
+#&gt; 6               0         0               0                0            0
+#&gt; 7               0         0               0                0            0
+#&gt; 8               0         0               0                0            0
+#&gt; 9               0         0               0                0            0
+#&gt; 10              0         0               0                0            0
+#&gt; 11              0         0               0                0            0
+#&gt; 12              0         0               0                0            0
+#&gt; 13              0         0               0                0            0
+#&gt; 14              0         0               0                0            0
+#&gt; 15              0         0               0                0            0
+#&gt; 16              0         0               0                0            0
+#&gt; 17              3         0               0                0            1
+#&gt; 18              0         0               0                0            0
+#&gt; 19              1         0               0                0            0
+#&gt; 20              1         0               0                0            0
+#&gt; 21              1         0               0                0            0
+#&gt; 22              1         0               0                0            0
+#&gt; 23              0         0               0                0            0
+#&gt; 24              0         0               0                0            0
+#&gt; 25              3         0               0                0            0
+#&gt; 26              1         0               0                0            0
+#&gt; 27              0         0               0                0            0
+#&gt; 28              1         0               0                0            0
+#&gt; 29              1         0               0                0            0
+#&gt; 30              0         0               0                0            0
+#&gt; 31              0         0               0                0            0
+#&gt; 32              0         0               0                0            0
+#&gt; 33              0         0               0                0            0
+#&gt; 34              3         0               0                0            0
+#&gt; 35              3         0               0                0            0
+#&gt; 36              3         0               0                0            0
+#&gt; 37              0         0               0                0            0
+#&gt; 38              1         0               0                0            0
+#&gt;    red_cards saves bonus bps influence creativity threat ict_index ea_index
+#&gt; 1          0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 2          0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 3          0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 4          0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 5          0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 6          0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 7          0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 8          0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 9          0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 10         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 11         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 12         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 13         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 14         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 15         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 16         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 17         0     0     0  11      26.2        0.7      7       3.4        0
+#&gt; 18         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 19         0     0     0  17      18.4        0.4      2       2.1        0
+#&gt; 20         0     0     0  10       8.6        0.1      0       0.9        0
+#&gt; 21         0     0     0  19      28.8        0.6      2       3.1        0
+#&gt; 22         0     0     0  17      17.6        1.3      0       1.9        0
+#&gt; 23         0     0     3  41      69.8        0.4     34      10.4        0
+#&gt; 24         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 25         0     0     0  26      57.0        0.2     33       9.0        0
+#&gt; 26         0     0     1  25      40.2        0.1      0       4.0        0
+#&gt; 27         0     0     0   3       2.8        0.1      0       0.3        0
+#&gt; 28         0     0     1  30      53.0        1.4     19       7.3        0
+#&gt; 29         0     0     0  11      21.8        0.0      0       2.2        0
+#&gt; 30         0     0     0  24      17.6       10.4      2       3.0        0
+#&gt; 31         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 32         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 33         0     0     3  30      24.4        0.3      0       2.5        0
+#&gt; 34         0     0     0  19      27.8        1.9      2       3.2        0
+#&gt; 35         0     0     0  14      16.6        1.4      4       2.2        0
+#&gt; 36         0     0     0   9       9.0       10.0      0       1.9        0
+#&gt; 37         0     0     0   0       0.0        0.0      0       0.0        0
+#&gt; 38         0     0     0  13      16.8        0.2      0       1.7        0
+#&gt;    open_play_crosses big_chances_created clearances_blocks_interceptions
+#&gt; 1                  0                   0                               0
+#&gt; 2                  0                   0                               0
+#&gt; 3                  0                   0                               0
+#&gt; 4                  0                   0                               0
+#&gt; 5                  0                   0                               0
+#&gt; 6                  0                   0                               0
+#&gt; 7                  0                   0                               0
+#&gt; 8                  0                   0                               0
+#&gt; 9                  0                   0                               0
+#&gt; 10                 0                   0                               0
+#&gt; 11                 0                   0                               0
+#&gt; 12                 0                   0                               0
+#&gt; 13                 0                   0                               0
+#&gt; 14                 0                   0                               0
+#&gt; 15                 0                   0                               0
+#&gt; 16                 0                   0                               0
+#&gt; 17                 0                   0                               6
+#&gt; 18                 0                   0                               0
+#&gt; 19                 0                   0                               4
+#&gt; 20                 0                   0                               2
+#&gt; 21                 0                   0                              10
+#&gt; 22                 0                   0                               2
+#&gt; 23                 0                   0                              17
+#&gt; 24                 0                   0                               0
+#&gt; 25                 0                   0                              10
+#&gt; 26                 0                   0                              14
+#&gt; 27                 0                   0                               2
+#&gt; 28                 0                   0                               8
+#&gt; 29                 0                   0                               9
+#&gt; 30                 0                   0                               4
+#&gt; 31                 0                   0                               0
+#&gt; 32                 0                   0                               0
+#&gt; 33                 0                   0                               8
+#&gt; 34                 0                   0                               4
+#&gt; 35                 0                   0                               2
+#&gt; 36                 0                   0                               3
+#&gt; 37                 0                   0                               0
+#&gt; 38                 0                   0                               7
+#&gt;    recoveries key_passes tackles winning_goals attempted_passes
+#&gt; 1           0          0       0             0                0
+#&gt; 2           0          0       0             0                0
+#&gt; 3           0          0       0             0                0
+#&gt; 4           0          0       0             0                0
+#&gt; 5           0          0       0             0                0
+#&gt; 6           0          0       0             0                0
+#&gt; 7           0          0       0             0                0
+#&gt; 8           0          0       0             0                0
+#&gt; 9           0          0       0             0                0
+#&gt; 10          0          0       0             0                0
+#&gt; 11          0          0       0             0                0
+#&gt; 12          0          0       0             0                0
+#&gt; 13          0          0       0             0                0
+#&gt; 14          0          0       0             0                0
+#&gt; 15          0          0       0             0                0
+#&gt; 16          0          0       0             0                0
+#&gt; 17          8          0       0             0               92
+#&gt; 18          0          0       0             0                0
+#&gt; 19          3          0       1             0               74
+#&gt; 20          4          0       0             0               38
+#&gt; 21          6          0       1             0               64
+#&gt; 22          6          0       1             0               89
+#&gt; 23          3          0       1             0               32
+#&gt; 24          0          0       0             0                0
+#&gt; 25          2          0       0             0               36
+#&gt; 26          7          0       2             0               41
+#&gt; 27          1          0       0             0               17
+#&gt; 28          4          0       1             0               69
+#&gt; 29          3          0       0             0               23
+#&gt; 30          2          1       0             0               39
+#&gt; 31          0          0       0             0                0
+#&gt; 32          0          0       0             0                0
+#&gt; 33          5          0       1             0               57
+#&gt; 34          7          0       2             0               76
+#&gt; 35          8          0       0             0               86
+#&gt; 36          7          1       1             0               23
+#&gt; 37          0          0       0             0                0
+#&gt; 38          3          0       0             0               34
+#&gt;    completed_passes penalties_conceded big_chances_missed
+#&gt; 1                 0                  0                  0
+#&gt; 2                 0                  0                  0
+#&gt; 3                 0                  0                  0
+#&gt; 4                 0                  0                  0
+#&gt; 5                 0                  0                  0
+#&gt; 6                 0                  0                  0
+#&gt; 7                 0                  0                  0
+#&gt; 8                 0                  0                  0
+#&gt; 9                 0                  0                  0
+#&gt; 10                0                  0                  0
+#&gt; 11                0                  0                  0
+#&gt; 12                0                  0                  0
+#&gt; 13                0                  0                  0
+#&gt; 14                0                  0                  0
+#&gt; 15                0                  0                  0
+#&gt; 16                0                  0                  0
+#&gt; 17               85                  0                  0
+#&gt; 18                0                  0                  0
+#&gt; 19               70                  0                  0
+#&gt; 20               36                  0                  0
+#&gt; 21               57                  0                  0
+#&gt; 22               87                  0                  0
+#&gt; 23               27                  0                  1
+#&gt; 24                0                  0                  0
+#&gt; 25               32                  0                  0
+#&gt; 26               37                  0                  0
+#&gt; 27               15                  0                  0
+#&gt; 28               65                  0                  0
+#&gt; 29               15                  0                  0
+#&gt; 30               32                  0                  0
+#&gt; 31                0                  0                  0
+#&gt; 32                0                  0                  0
+#&gt; 33               55                  0                  0
+#&gt; 34               72                  0                  0
+#&gt; 35               82                  0                  0
+#&gt; 36               19                  0                  0
+#&gt; 37                0                  0                  0
+#&gt; 38               33                  0                  0
+#&gt;    errors_leading_to_goal errors_leading_to_goal_attempt tackled offside
+#&gt; 1                       0                              0       0       0
+#&gt; 2                       0                              0       0       0
+#&gt; 3                       0                              0       0       0
+#&gt; 4                       0                              0       0       0
+#&gt; 5                       0                              0       0       0
+#&gt; 6                       0                              0       0       0
+#&gt; 7                       0                              0       0       0
+#&gt; 8                       0                              0       0       0
+#&gt; 9                       0                              0       0       0
+#&gt; 10                      0                              0       0       0
+#&gt; 11                      0                              0       0       0
+#&gt; 12                      0                              0       0       0
+#&gt; 13                      0                              0       0       0
+#&gt; 14                      0                              0       0       0
+#&gt; 15                      0                              0       0       0
+#&gt; 16                      0                              0       0       0
+#&gt; 17                      0                              0       0       0
+#&gt; 18                      0                              0       0       0
+#&gt; 19                      0                              0       0       0
+#&gt; 20                      0                              0       0       0
+#&gt; 21                      0                              0       0       0
+#&gt; 22                      0                              0       0       0
+#&gt; 23                      0                              0       0       0
+#&gt; 24                      0                              0       0       0
+#&gt; 25                      0                              0       0       0
+#&gt; 26                      0                              0       0       0
+#&gt; 27                      0                              0       1       0
+#&gt; 28                      0                              0       0       0
+#&gt; 29                      0                              0       0       0
+#&gt; 30                      0                              0       0       0
+#&gt; 31                      0                              0       0       0
+#&gt; 32                      0                              0       0       0
+#&gt; 33                      0                              0       0       0
+#&gt; 34                      0                              0       2       0
+#&gt; 35                      0                              0       0       0
+#&gt; 36                      0                              0       0       0
+#&gt; 37                      0                              0       0       0
+#&gt; 38                      0                              0       0       0
+#&gt;    target_missed fouls dribbles element fixture opponent_team
+#&gt; 1              0     0        0       3       1            13
+#&gt; 2              0     0        0       3      14             6
+#&gt; 3              0     0        0       3      21            19
+#&gt; 4              0     0        0       3      33             5
+#&gt; 5              0     0        0       3      46            15
+#&gt; 6              0     0        0       3      51             8
+#&gt; 7              0     0        0       3      61            18
+#&gt; 8              0     0        0       3      74             9
+#&gt; 9              0     0        0       3      81            11
+#&gt; 10             0     0        0       3      93             7
+#&gt; 11             0     0        0       3     101            12
+#&gt; 12             0     0        0       3     111            20
+#&gt; 13             0     0        0       3     121             2
+#&gt; 14             0     0        0       3     131            17
+#&gt; 15             0     0        0       3     145            14
+#&gt; 16             0     0        0       3     151            10
+#&gt; 17             1     2        0       3     167            16
+#&gt; 18             0     0        0       3     171             4
+#&gt; 19             0     0        0       3     181             3
+#&gt; 20             0     1        0       3     196            12
+#&gt; 21             0     0        0       3     201             9
+#&gt; 22             0     0        0       3     220            19
+#&gt; 23             0     1        0       3     221             6
+#&gt; 24             0     0        0       3     231             5
+#&gt; 25             0     1        0       3     248            13
+#&gt; 26             0     0        0       3     254            10
+#&gt; 27             0     0        0       3     261            16
+#&gt; 28             0     1        0       3     271             2
+#&gt; 29             0     0        0       3     287            17
+#&gt; 30             0     1        0       3     291            14
+#&gt; 31             0     0        0       3     311            15
+#&gt; 32             0     0        0       3     323             8
+#&gt; 33             0     1        0       3     340            18
+#&gt; 34             0     0        1       3     341             7
+#&gt; 35             0     1        0       3     310            20
+#&gt; 36             0     0        0       3     355            11
+#&gt; 37             0     0        0       3     361             3
+#&gt; 38             0     0        0       3     372             4
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

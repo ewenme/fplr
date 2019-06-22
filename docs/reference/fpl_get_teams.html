@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve team data for the current FPL season — fpl_get_teams • fplr</title>
+<title>Get data on teams — fpl_get_teams • fplr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,10 +32,10 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Retrieve team data for the current FPL season — fpl_get_teams" />
+<meta property="og:title" content="Get data on teams — fpl_get_teams" />
 
-<meta property="og:description" content="Retrieve team data for the current FPL season, obtained via the
-bootstrap-static JSON." />
+<meta property="og:description" content="Retrieve data on teams in the current FPL season, obtained via the
+teams endpoint." />
 
 <meta property="og:image" content="https://ewenme.github.io/fplr/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -68,7 +68,7 @@ bootstrap-static JSON." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fplr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -91,7 +91,7 @@ bootstrap-static JSON." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/fplr-intro.html">Introduction to fplr</a>
+      <a href="../articles/fplr-quickstart.html">fplr quickstart</a>
     </li>
   </ul>
 </li>
@@ -116,15 +116,15 @@ bootstrap-static JSON." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve team data for the current FPL season</h1>
+    <h1>Get data on teams</h1>
     
     <div class="hidden name"><code>fpl_get_teams.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Retrieve team data for the current FPL season, obtained via the
-<a href='https://fantasy.premierleague.com/drf/bootstrap-static'>bootstrap-static JSON</a>.</p>
+    <p>Retrieve data on teams in the current FPL season, obtained via the
+<a href='https://fantasy.premierleague.com/drf/teams'>teams endpoint</a>.</p>
     
     </div>
 
@@ -136,7 +136,35 @@ bootstrap-static JSON." />
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>teams</span> <span class='kw'>&lt;-</span> <span class='fu'>fpl_get_teams</span>()</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>fpl_get_teams</span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 20 x 23</span><span>
+#&gt;       id current_event_f… next_event_fixt… name   code short_name unavailable
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      
+#&gt; </span><span style='color: #555555;'> 1</span><span>     1 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Arse…     3 ARS        FALSE      
+#&gt; </span><span style='color: #555555;'> 2</span><span>     2 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Bour…    91 BOU        FALSE      
+#&gt; </span><span style='color: #555555;'> 3</span><span>     3 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Brig…    36 BHA        FALSE      
+#&gt; </span><span style='color: #555555;'> 4</span><span>     4 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Burn…    90 BUR        FALSE      
+#&gt; </span><span style='color: #555555;'> 5</span><span>     5 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Card…    97 CAR        FALSE      
+#&gt; </span><span style='color: #555555;'> 6</span><span>     6 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Chel…     8 CHE        FALSE      
+#&gt; </span><span style='color: #555555;'> 7</span><span>     7 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Crys…    31 CRY        FALSE      
+#&gt; </span><span style='color: #555555;'> 8</span><span>     8 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Ever…    11 EVE        FALSE      
+#&gt; </span><span style='color: #555555;'> 9</span><span>     9 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Fulh…    54 FUL        FALSE      
+#&gt; </span><span style='color: #555555;'>10</span><span>    10 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Hudd…    38 HUD        FALSE      
+#&gt; </span><span style='color: #555555;'>11</span><span>    11 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Leic…    13 LEI        FALSE      
+#&gt; </span><span style='color: #555555;'>12</span><span>    12 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Live…    14 LIV        FALSE      
+#&gt; </span><span style='color: #555555;'>13</span><span>    13 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Man …    43 MCI        FALSE      
+#&gt; </span><span style='color: #555555;'>14</span><span>    14 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Man …     1 MUN        FALSE      
+#&gt; </span><span style='color: #555555;'>15</span><span>    15 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Newc…     4 NEW        FALSE      
+#&gt; </span><span style='color: #555555;'>16</span><span>    16 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Sout…    20 SOU        FALSE      
+#&gt; </span><span style='color: #555555;'>17</span><span>    17 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Spurs     6 TOT        FALSE      
+#&gt; </span><span style='color: #555555;'>18</span><span>    18 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Watf…    57 WAT        FALSE      
+#&gt; </span><span style='color: #555555;'>19</span><span>    19 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       West…    21 WHU        FALSE      
+#&gt; </span><span style='color: #555555;'>20</span><span>    20 </span><span style='color: #555555;'>&lt;df[,6] [1 × 6]&gt;</span><span> </span><span style='color: #555555;'>&lt;list [0]&gt;</span><span>       Wolv…    39 WOL        FALSE      
+#&gt; </span><span style='color: #555555;'># … with 16 more variables: strength </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, position </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, played </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,
+#&gt; #   win </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, loss </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, draw </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, points </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, form </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>,
+#&gt; #   link_url </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, strength_overall_home </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, strength_overall_away </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,
+#&gt; #   strength_attack_home </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, strength_attack_away </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,
+#&gt; #   strength_defence_home </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, strength_defence_away </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,
+#&gt; #   team_division </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

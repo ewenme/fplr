@@ -1,6 +1,5 @@
-^_pkgdown\.yml$
-^packrat/
-^\.Rprofile$
+^pkgdown$
+.Rprofile
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
@@ -9,5 +8,6 @@
 ^CODE_OF_CONDUCT\.md$
 ^README\.md$
 ^README\.Rmd$
-^fplHex\.png$
-^Qul9n6x\.jpg$
+^logo\.png$
+^doc$
+^Meta$

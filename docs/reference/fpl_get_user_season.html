@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve an FPL user's data for a gameweek in the current FPL season — fpl_get_user_gameweek • fplr</title>
+<title>Get season data on a user — fpl_get_user_season • fplr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,11 +32,10 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Retrieve an FPL user's data for a gameweek in the current FPL season — fpl_get_user_gameweek" />
+<meta property="og:title" content="Get season data on a user — fpl_get_user_season" />
 
-<meta property="og:description" content="Retrieve an FPL user's gameweek player picks, obtained via the
-bootstrap-static JSON.
-N.B. the current season must have started for this function to return data." />
+<meta property="og:description" content="Retrieve an FPL user's season data, obtained via the
+user entry history endpoint." />
 
 <meta property="og:image" content="https://ewenme.github.io/fplr/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -117,44 +116,46 @@ N.B. the current season must have started for this function to return data." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve an FPL user's data for a gameweek in the current FPL season</h1>
+    <h1>Get season data on a user</h1>
     
-    <div class="hidden name"><code>fpl_get_user_gameweek.Rd</code></div>
+    <div class="hidden name"><code>fpl_get_user_season.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Retrieve an FPL user's gameweek player picks, obtained via the
-<a href='https://fantasy.premierleague.com/drf/bootstrap-static'>bootstrap-static JSON</a>.
-N.B. the current season must have started for this function to return data.</p>
+    <p>Retrieve an FPL user's season data, obtained via the
+<a href='https://fantasy.premierleague.com/drf/entry/3808385'>user entry history endpoint</a>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>fpl_get_user_gameweek</span>(<span class='no'>user_id</span>, <span class='no'>gameweek</span>)</pre>
+    <pre class="usage"><span class='fu'>fpl_get_user_season</span>(<span class='no'>user_id</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>user_id</th>
-      <td><p>FPL user ID (retrieve from a user's team page on the <a href='https://fantasy.premierleague.com'>FPL site</a>).</p></td>
-    </tr>
-    <tr>
-      <th>gameweek</th>
-      <td><p>FPL gameweek (1-38).</p></td>
+      <td><p>user ID (found in a user's team page URL on the <a href='https://fantasy.premierleague.com'>main FPL site</a>).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list</p>
+    <p>a tibble</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>fpl_get_user_gameweek</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>123</span>, <span class='kw'>gameweek</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='co'># }</span><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>fpl_get_user_season</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>3808385</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 8 x 6</span><span>
+#&gt;         id season_name total_points    rank season  player
+#&gt;      </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>  7</span><span style='text-decoration: underline;'>408</span><span>636 2010/11             </span><span style='text-decoration: underline;'>1</span><span>726  </span><span style='text-decoration: underline;'>923</span><span>120      5 7</span><span style='text-decoration: underline;'>425</span><span>806
+#&gt; </span><span style='color: #555555;'>2</span><span> 14</span><span style='text-decoration: underline;'>217</span><span>000 2011/12             </span><span style='text-decoration: underline;'>1</span><span>706 1</span><span style='text-decoration: underline;'>219</span><span>063      6 7</span><span style='text-decoration: underline;'>425</span><span>806
+#&gt; </span><span style='color: #555555;'>3</span><span> 19</span><span style='text-decoration: underline;'>982</span><span>494 2012/13             </span><span style='text-decoration: underline;'>1</span><span>745 1</span><span style='text-decoration: underline;'>243</span><span>765      7 7</span><span style='text-decoration: underline;'>425</span><span>806
+#&gt; </span><span style='color: #555555;'>4</span><span> 21</span><span style='text-decoration: underline;'>729</span><span>639 2013/14             </span><span style='text-decoration: underline;'>2</span><span>019  </span><span style='text-decoration: underline;'>965</span><span>336      8 7</span><span style='text-decoration: underline;'>425</span><span>806
+#&gt; </span><span style='color: #555555;'>5</span><span> 32</span><span style='text-decoration: underline;'>730</span><span>885 2014/15             </span><span style='text-decoration: underline;'>2</span><span>016  </span><span style='text-decoration: underline;'>174</span><span>160      9 7</span><span style='text-decoration: underline;'>425</span><span>806
+#&gt; </span><span style='color: #555555;'>6</span><span> 36</span><span style='text-decoration: underline;'>051</span><span>053 2015/16             </span><span style='text-decoration: underline;'>2</span><span>212   </span><span style='text-decoration: underline;'>32</span><span>360     10 7</span><span style='text-decoration: underline;'>425</span><span>806
+#&gt; </span><span style='color: #555555;'>7</span><span> 40</span><span style='text-decoration: underline;'>342</span><span>198 2016/17             </span><span style='text-decoration: underline;'>2</span><span>146  </span><span style='text-decoration: underline;'>140</span><span>367     11 7</span><span style='text-decoration: underline;'>425</span><span>806
+#&gt; </span><span style='color: #555555;'>8</span><span> 46</span><span style='text-decoration: underline;'>149</span><span>067 2017/18             </span><span style='text-decoration: underline;'>2</span><span>272   </span><span style='text-decoration: underline;'>29</span><span>397     12 7</span><span style='text-decoration: underline;'>425</span><span>806</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

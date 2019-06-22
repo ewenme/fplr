@@ -1,31 +1,27 @@
-#' Retrieve fixture data for the current FPL season
+#' Get data on fixtures
 #'
-#' Retrieve fixture data for the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+#' Retrieve data on fixtures for the current FPL season, obtained via the
+#' \href{https://fantasy.premierleague.com/drf/fixtures/}{fixtures endpoint}.
 #'
 #' @return a tibble
 #'
 #' @export
 #'
 #' @examples
-#' fixtures <- fpl_get_fixtures()
+#' fpl_get_fixtures()
 
 fpl_get_fixtures <- function() {
 
-    # read fpl data
-    extract <- jsonlite::read_json(fpl_static, simplifyVector = TRUE)
+    # read in fixtures data
+    data <- read_lines(fpl_fixtures_url)
 
-    # get fpl fixtures
-    fixtures <- jsonlite::read_json(fpl_fixtures, simplifyVector = TRUE)
+    # parse JSON
+    parsed_data <- fromJSON(data)
 
-    # replace team codes with team names
-    fixtures$team_a <- with(extract$teams, name[match(fixtures$team_a, id)])
-    fixtures$team_h <- with(extract$teams, name[match(fixtures$team_h, id)])
+    # # fix date variables
+    parsed_data$deadline_time <- as.POSIXct(parsed_data$deadline_time)
+    parsed_data$kickoff_time <- as.POSIXct(parsed_data$kickoff_time)
 
-    # fix date variables
-    fixtures$deadline_time <- lubridate::ymd_hms(fixtures$deadline_time)
-    fixtures$kickoff_time <- lubridate::ymd_hms(fixtures$kickoff_time)
-
-    return(tibble::as_tibble(fixtures))
+    as_tibble(parsed_data)
 
 }

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve an FPL user's data for a gameweek in the current FPL season — fpl_get_user_gameweek • fplr</title>
+<title>Get league data on a user — fpl_get_user_leagues • fplr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,11 +32,11 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Retrieve an FPL user's data for a gameweek in the current FPL season — fpl_get_user_gameweek" />
+<meta property="og:title" content="Get league data on a user — fpl_get_user_leagues" />
 
-<meta property="og:description" content="Retrieve an FPL user's gameweek player picks, obtained via the
-bootstrap-static JSON.
-N.B. the current season must have started for this function to return data." />
+<meta property="og:description" content="Retrieve league information for a user in the current FPL season,
+obtained via the
+user entry history endpoint." />
 
 <meta property="og:image" content="https://ewenme.github.io/fplr/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -117,31 +117,27 @@ N.B. the current season must have started for this function to return data." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve an FPL user's data for a gameweek in the current FPL season</h1>
+    <h1>Get league data on a user</h1>
     
-    <div class="hidden name"><code>fpl_get_user_gameweek.Rd</code></div>
+    <div class="hidden name"><code>fpl_get_user_leagues.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Retrieve an FPL user's gameweek player picks, obtained via the
-<a href='https://fantasy.premierleague.com/drf/bootstrap-static'>bootstrap-static JSON</a>.
-N.B. the current season must have started for this function to return data.</p>
+    <p>Retrieve league information for a user in the current FPL season,
+obtained via the
+<a href='https://fantasy.premierleague.com/drf/entry/3808385'>user entry history endpoint</a>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>fpl_get_user_gameweek</span>(<span class='no'>user_id</span>, <span class='no'>gameweek</span>)</pre>
+    <pre class="usage"><span class='fu'>fpl_get_user_leagues</span>(<span class='no'>user_id</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>user_id</th>
-      <td><p>FPL user ID (retrieve from a user's team page on the <a href='https://fantasy.premierleague.com'>FPL site</a>).</p></td>
-    </tr>
-    <tr>
-      <th>gameweek</th>
-      <td><p>FPL gameweek (1-38).</p></td>
+      <td><p>user ID (found in a user's team page URL on the <a href='https://fantasy.premierleague.com'>main FPL site</a>).</p></td>
     </tr>
     </table>
     
@@ -151,10 +147,69 @@ N.B. the current season must have started for this function to return data.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>fpl_get_user_gameweek</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>123</span>, <span class='kw'>gameweek</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='co'># }</span><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>fpl_get_user_leagues</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>3808385</span>)</div><div class='output co'>#&gt; $cup
+#&gt; list()
+#&gt; 
+#&gt; $h2h
+#&gt; list()
+#&gt; 
+#&gt; $classic
+#&gt;        id entry_rank entry_last_rank entry_movement entry_change
+#&gt; 1      14        792            1390             up          598
+#&gt; 2     172         24              43             up           19
+#&gt; 3     275       4549            7993             up         3444
+#&gt; 4     313       4552            7998             up         3446
+#&gt; 5    1137        300             488             up          188
+#&gt; 6  171842        970            1572             up          602
+#&gt; 7  202820          1               1           same           NA
+#&gt; 8  489511          6               8             up            2
+#&gt; 9  633353          2               3             up            1
+#&gt; 10 890172          1               1           same           NA
+#&gt;    entry_can_leave entry_can_admin entry_can_invite entry_can_forum entry_code
+#&gt; 1            FALSE           FALSE            FALSE           FALSE         NA
+#&gt; 2            FALSE           FALSE            FALSE           FALSE         NA
+#&gt; 3            FALSE           FALSE            FALSE           FALSE         NA
+#&gt; 4            FALSE           FALSE            FALSE           FALSE         NA
+#&gt; 5             TRUE           FALSE            FALSE            TRUE         NA
+#&gt; 6             TRUE           FALSE            FALSE            TRUE         NA
+#&gt; 7             TRUE           FALSE            FALSE            TRUE         NA
+#&gt; 8             TRUE           FALSE            FALSE            TRUE         NA
+#&gt; 9             TRUE           FALSE            FALSE            TRUE         NA
+#&gt; 10            TRUE           FALSE            FALSE            TRUE         NA
+#&gt;                                    name short_name              created closed
+#&gt; 1                               Man Utd    team-14 2018-07-05T12:12:23Z  FALSE
+#&gt; 2                           Netherlands region-152 2018-07-05T12:12:23Z  FALSE
+#&gt; 3                            Gameweek 1    event-1 2018-07-05T12:12:24Z  FALSE
+#&gt; 4                               Overall    overall 2018-07-05T12:12:24Z  FALSE
+#&gt; 5  Official /r/FantasyPL Classic League       &lt;NA&gt; 2018-07-05T15:01:19Z  FALSE
+#&gt; 6              The League of Doing Bits       &lt;NA&gt; 2018-07-19T20:53:13Z  FALSE
+#&gt; 7                         Elites League       &lt;NA&gt; 2018-07-21T17:00:43Z  FALSE
+#&gt; 8                          /r/reddevils       &lt;NA&gt; 2018-08-03T11:00:36Z  FALSE
+#&gt; 9                  Steem Fantasy League       &lt;NA&gt; 2018-08-07T00:03:18Z  FALSE
+#&gt; 10                          AJ's Angels       &lt;NA&gt; 2018-08-10T08:15:37Z  FALSE
+#&gt;    forum_disabled make_code_public rank size league_type _scoring
+#&gt; 1           FALSE            FALSE   NA   NA           s        c
+#&gt; 2           FALSE            FALSE   NA   NA           s        c
+#&gt; 3           FALSE            FALSE   NA   NA           s        c
+#&gt; 4           FALSE            FALSE   NA   NA           s        c
+#&gt; 5           FALSE            FALSE   NA   NA           x        c
+#&gt; 6           FALSE            FALSE   NA   NA           x        c
+#&gt; 7           FALSE            FALSE   NA   NA           x        c
+#&gt; 8           FALSE            FALSE   NA   NA           x        c
+#&gt; 9           FALSE            FALSE   NA   NA           x        c
+#&gt; 10          FALSE            FALSE   NA   NA           x        c
+#&gt;    reprocess_standings admin_entry start_event
+#&gt; 1                FALSE          NA           1
+#&gt; 2                FALSE          NA           1
+#&gt; 3                FALSE          NA           1
+#&gt; 4                FALSE          NA           1
+#&gt; 5                FALSE        3027           1
+#&gt; 6                FALSE      769483           1
+#&gt; 7                FALSE      903524           1
+#&gt; 8                FALSE     1884352           1
+#&gt; 9                FALSE     2779525           1
+#&gt; 10               FALSE        9346           1
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

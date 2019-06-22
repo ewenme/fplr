@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • fplr</title>
+<title>Get entry data on a user — fpl_get_user_entry • fplr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,11 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Get entry data on a user — fpl_get_user_entry" />
+
+<meta property="og:description" content="Retrieve entry information for a user in the current FPL season,
+obtained via the
+user entry history endpoint." />
 
 <meta property="og:image" content="https://ewenme.github.io/fplr/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -52,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -111,126 +115,139 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Get entry data on a user</h1>
+    
+    <div class="hidden name"><code>fpl_get_user_entry.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Retrieve entry information for a user in the current FPL season,
+obtained via the
+<a href='https://fantasy.premierleague.com/drf/entry/3808385'>user entry history endpoint</a>.</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="fpl_get_bootstrap.html">fpl_get_bootstrap()</a></code> </p>
-        </td>
-        <td><p>Get FPL's bootstrap-static data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_fixtures.html">fpl_get_fixtures()</a></code> </p>
-        </td>
-        <td><p>Get data on fixtures</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_player_all.html">fpl_get_player_all()</a></code> </p>
-        </td>
-        <td><p>Get data on all players</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_player_current.html">fpl_get_player_current()</a></code> </p>
-        </td>
-        <td><p>Get current season data on a player</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_player_detailed.html">fpl_get_player_detailed()</a></code> </p>
-        </td>
-        <td><p>Get comprehensive data on a player</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_player_historic.html">fpl_get_player_historic()</a></code> </p>
-        </td>
-        <td><p>Get historic season data on a player</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_players.html">fpl_get_players()</a></code> </p>
-        </td>
-        <td><p>Get data on all players</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_teams.html">fpl_get_teams()</a></code> </p>
-        </td>
-        <td><p>Get data on teams</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_user.html">fpl_get_user()</a></code> </p>
-        </td>
-        <td><p>Get data on a user</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_user_chips.html">fpl_get_user_chips()</a></code> </p>
-        </td>
-        <td><p>Get chips data on a user</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_user_entry.html">fpl_get_user_entry()</a></code> </p>
-        </td>
-        <td><p>Get entry data on a user</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_user_gameweek.html">fpl_get_user_gameweek()</a></code> </p>
-        </td>
-        <td><p>Retrieve an FPL user's data for a gameweek in the current FPL season</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_user_history.html">fpl_get_user_history()</a></code> </p>
-        </td>
-        <td><p>Get history data on a user</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_user_leagues.html">fpl_get_user_leagues()</a></code> </p>
-        </td>
-        <td><p>Get league data on a user</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fpl_get_user_season.html">fpl_get_user_season()</a></code> </p>
-        </td>
-        <td><p>Get season data on a user</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>fpl_get_user_entry</span>(<span class='no'>user_id</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>user_id</th>
+      <td><p>user ID (found in a user's team page URL on the <a href='https://fantasy.premierleague.com'>main FPL site</a>).</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>a list</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>fpl_get_user_entry</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>3808385</span>)</div><div class='output co'>#&gt; $id
+#&gt; [1] 3808385
+#&gt; 
+#&gt; $player_first_name
+#&gt; [1] "Amos"
+#&gt; 
+#&gt; $player_last_name
+#&gt; [1] "Bastian"
+#&gt; 
+#&gt; $player_region_id
+#&gt; [1] 152
+#&gt; 
+#&gt; $player_region_name
+#&gt; [1] "Netherlands"
+#&gt; 
+#&gt; $player_region_short_iso
+#&gt; [1] "NL"
+#&gt; 
+#&gt; $summary_overall_points
+#&gt; [1] 2414
+#&gt; 
+#&gt; $summary_overall_rank
+#&gt; [1] 4552
+#&gt; 
+#&gt; $summary_event_points
+#&gt; [1] 85
+#&gt; 
+#&gt; $summary_event_rank
+#&gt; [1] 129877
+#&gt; 
+#&gt; $joined_seconds
+#&gt; [1] 79910
+#&gt; 
+#&gt; $current_event
+#&gt; [1] 38
+#&gt; 
+#&gt; $total_transfers
+#&gt; [1] 34
+#&gt; 
+#&gt; $total_loans
+#&gt; [1] 0
+#&gt; 
+#&gt; $total_loans_active
+#&gt; [1] 0
+#&gt; 
+#&gt; $transfers_or_loans
+#&gt; [1] "transfers"
+#&gt; 
+#&gt; $deleted
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $email
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $joined_time
+#&gt; [1] "2018-08-09T22:44:21Z"
+#&gt; 
+#&gt; $name
+#&gt; [1] "( ͡° \u035cʖ ͡°)"
+#&gt; 
+#&gt; $bank
+#&gt; [1] 7
+#&gt; 
+#&gt; $value
+#&gt; [1] 1049
+#&gt; 
+#&gt; $kit
+#&gt; [1] "{\"kit_shirt_type\":\"plain\",\"kit_shirt_base\":\"#ff0000\",\"kit_shirt_sleeves\":\"#ff0000\",\"kit_shirt_secondary\":\"#e1e1e1\",\"kit_shirt_logo\":\"none\",\"kit_shorts\":\"#000000\",\"kit_socks_type\":\"plain\",\"kit_socks_base\":\"#ffffff\",\"kit_socks_secondary\":\"#e1e1e1\"}"
+#&gt; 
+#&gt; $event_transfers
+#&gt; [1] 0
+#&gt; 
+#&gt; $event_transfers_cost
+#&gt; [1] 0
+#&gt; 
+#&gt; $extra_free_transfers
+#&gt; [1] 0
+#&gt; 
+#&gt; $strategy
+#&gt; NULL
+#&gt; 
+#&gt; $favourite_team
+#&gt; [1] 14
+#&gt; 
+#&gt; $started_event
+#&gt; [1] 1
+#&gt; 
+#&gt; $player
+#&gt; [1] 7425806
+#&gt; </div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

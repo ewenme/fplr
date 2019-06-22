@@ -2,7 +2,7 @@
 % Please edit documentation in R/fixtures.R
 \name{fpl_get_fixtures}
 \alias{fpl_get_fixtures}
-\title{Retrieve fixture data for the current FPL season}
+\title{Get data on fixtures}
 \usage{
 fpl_get_fixtures()
 }
@@ -10,9 +10,9 @@ fpl_get_fixtures()
 a tibble
 }
 \description{
-Retrieve fixture data for the current FPL season, obtained via the
-\href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static JSON}.
+Retrieve data on fixtures for the current FPL season, obtained via the
+\href{https://fantasy.premierleague.com/drf/fixtures/}{fixtures endpoint}.
 }
 \examples{
-fixtures <- fpl_get_fixtures()
+fpl_get_fixtures()
 }

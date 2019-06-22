@@ -1,22 +1,28 @@
+# base url
+fpl_base_url <- "https://fantasy.premierleague.com/drf"
 
-# global params -----------------------------------------------------------
+# bootstrap static url
+fpl_bootstrap_static_url <- paste(fpl_base_url, "bootstrap-static", sep = "/")
 
-# fpl bootstrap static
-fpl_static <- "https://fantasy.premierleague.com/drf/bootstrap-static"
+# player url
+fpl_player_url <- paste(fpl_base_url, "elements", sep = "/")
 
-# fpl fixtures
-fpl_fixtures <- "https://fantasy.premierleague.com/drf/fixtures/"
+# player summary url
+fpl_player_summary_url <- paste(fpl_base_url, "element-summary", sep = "/")
 
-# fpl player summary
-fpl_player_summary <- "https://fantasy.premierleague.com/drf/element-summary/"
+# user entry url
+fpl_user_entry_url <- paste(fpl_base_url, "entry", sep = "/")
 
-# fpl user competition entry
-fpl_user_entry <- "https://fantasy.premierleague.com/drf/entry/"
+# teams url
+fpl_teams_url <- paste(fpl_base_url, "teams", sep = "/")
 
-# look-up table of player statuses
-player_statuses <- data.frame(
-  id = c("a", "d", "i", "s", "u"),
-  player_status = c("Available", "Doubtful", "Injured",
-                    "Suspended", "Unavailable"),
-  stringsAsFactors = FALSE
-  )
+# fixtures url
+fpl_fixtures_url <- paste(fpl_base_url, "fixtures", sep = "/")
+
+# # look-up table of player statuses
+# player_statuses <- data.frame(
+#   id = c("a", "d", "i", "s", "u"),
+#   player_status = c("Available", "Doubtful", "Injured",
+#                     "Suspended", "Unavailable"),
+#   stringsAsFactors = FALSE
+#   )

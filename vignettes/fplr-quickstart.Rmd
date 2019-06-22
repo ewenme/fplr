@@ -1,0 +1,86 @@
+---
+title: "fplr quickstart"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{fplr quickstart}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+require(fplr)
+
+knitr::opts_chunk$set(comment = "#", error = FALSE, tidy = FALSE, cache = FALSE, collapse = TRUE)
+```
+
+This vignette is an introduction to the principles and functions of the `fplr` package.
+
+## 1. Basics {#basics-1}
+
+### What is Fantasy Premier League?
+
+[Fantasy Premier League](https://fantasy.premierleague.com) (FPL) is the official fantasy football game of the [Premier League](https://www.premierleague.com/), the top competitive football division in England. FPL players compete to score the most points come the end of the season (following [these rules](https://fantasy.premierleague.com/a/help)).
+
+### What is fplr?
+
+`fplr` is an R package that houses *tools for working with FPL data in R*. This toolset mostly consists of functions to help with FPL managers' (referred to herein as **users**), **players'**, **teams'** and **fixtures** data, for current *and* previous seasons of the game. 
+
+> N.B. The package mostly retrieves this data from endpoints across the FPL site (for example, the [bootstrap-static endpoint](https://fantasy.premierleague.com/drf/bootstrap-static)). At time of writing, there is no formal developer support, and so any sudden game alterations that affect the data structure may cause functionality in this package to break. File any issues over at the [Github repo issue tracker](https://github.com/ewenme/fplR/issues).
+
+## 2. Players {#player-2}
+
+Functions in the [player data](#player-2) family primarily return information about **players** in the game, and are mostly for exploring data in the *current* season (note - when a new season of the game begins, old season data returned from these functions will be overwritten). 
+
+These functions follow the naming convention `fpl_get_player_xxx`. For example, `fpl_get_player_all()` returns data for all players in the current season, via a tidy tibble:
+
+```{r}
+fpl_get_players()
+```
+
+Get gameweek-level data for a single player in the current season, using `fpl_get_player_current()` (supplying a `player_id` value, possibly gleaned from the `fpl_get_player_all()` output):
+
+```{r}
+fpl_get_player_current(player_id = 3)
+```
+
+You can even get historic seasons' data (if it exists) for a player, using `fpl_get_player_historic`:
+
+```{r}
+fpl_get_player_historic(player_id = 3)
+```
+
+## 3. Users {#user-3}
+
+Functions in the [user data](#user-3) family primarily return information about **users**, and like the [players](#player-2) functions already covered, are mostly for exploring data in the *current* season (again - when a new season of the game begins, data from these functions may be overwritten).
+
+These functions follow the naming convention `fpl_get_user_xxx`. Get information on leagues performance of a user by supplying the corresponding `user_id` (taken from the main FPL website) to the `fpl_get_user_leagues()` function:
+
+```{r}
+fpl_get_user_leagues(user_id = 137633)
+```
+
+Or, get historic seasons performance using `fpl_get_user_season()`:
+
+```{r}
+fpl_get_user_season(user_id = 137633)
+```
+
+## 4. Teams {#team-4}
+
+These functions follow the naming convention `fpl_get_teams_xxx`. 
+
+Summary data for teams in the current FPL season is gleaned using `fpl_get_teams()`:
+
+```{r}
+fpl_get_teams()
+```
+
+## 5. Fixtures {#fixture-5}
+
+These functions follow the naming convention `fpl_get_fixtures_xxx`. 
+
+Summary data for teams in the current FPL season is gleaned using `fpl_get_fixtures()`:
+
+```{r}
+fpl_get_fixtures()
+```
