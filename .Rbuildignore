@@ -1,4 +1,5 @@
 ^pkgdown$
+^_pkgdown\.yml$
 .Rprofile
 ^.*\.Rproj$
 ^\.Rproj\.user$
