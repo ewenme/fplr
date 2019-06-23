@@ -35,6 +35,11 @@ reference:
     desc: "Functions for working with teams data."
     contents:
       - starts_with("fpl_get_team")
+  - title: "Gameweek data"
+    desc: "Functions for working with gameweek data."
+    contents:
+      - starts_with("fpl_get_gameweek")
   - title: "Other helpers"
     contents:
       - fpl_get_bootstrap
+      - fpl_get_phases

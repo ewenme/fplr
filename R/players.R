@@ -205,3 +205,25 @@ fpl_get_player_detailed <- function(player_id, convert_prices = TRUE) {
 
   player
 }
+
+#' Get metadata on player types
+#'
+#' Retrieve player type metadata for the current FPL season, obtained via the
+#' \href{https://fantasy.premierleague.com/drf/element-types/}{element types endpoint}.
+#'
+#' @return a tibble
+#'
+#' @export
+#'
+#' @examples
+#' \donttest{
+#' fpl_get_player_types()
+#' }
+fpl_get_player_types <- function() {
+
+  # read data
+  data <- read_lines(fpl_player_types_url)
+
+  # parse JSON
+  as_tibble(fromJSON(data, simplifyVector = TRUE))
+}

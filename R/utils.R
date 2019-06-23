@@ -10,6 +10,9 @@ fpl_player_url <- paste(fpl_base_url, "elements", sep = "/")
 # player summary url
 fpl_player_summary_url <- paste(fpl_base_url, "element-summary", sep = "/")
 
+# player types url
+fpl_player_types_url <- paste(fpl_base_url, "element-types", sep = "/")
+
 # user entry url
 fpl_user_entry_url <- paste(fpl_base_url, "entry", sep = "/")
 
@@ -18,3 +21,11 @@ fpl_teams_url <- paste(fpl_base_url, "teams", sep = "/")
 
 # fixtures url
 fpl_fixtures_url <- paste(fpl_base_url, "fixtures", sep = "/")
+
+# phases url
+fpl_phases_url <- paste(fpl_base_url, "phases", sep = "/")
+
+# events url
+fpl_events_url <- paste(fpl_base_url, "events", sep = "/")
+
+
