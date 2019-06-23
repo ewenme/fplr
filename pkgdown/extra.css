@@ -15,3 +15,9 @@ color:#222324;
 pre, code {
 font-family: "Fira Code", Consolas, Inconsolata, monospace;
 }
+
+.label-default {
+
+    background-color: transparent;
+
+}
