@@ -8,7 +8,9 @@
 #' @return a list
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_bootstrap()
+#' }
 
 fpl_get_bootstrap <- function() {
 

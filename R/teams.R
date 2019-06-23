@@ -8,7 +8,9 @@
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_teams()
+#' }
 
 fpl_get_teams <- function() {
 

@@ -18,11 +18,3 @@ fpl_teams_url <- paste(fpl_base_url, "teams", sep = "/")
 
 # fixtures url
 fpl_fixtures_url <- paste(fpl_base_url, "fixtures", sep = "/")
-
-# # look-up table of player statuses
-# player_statuses <- data.frame(
-#   id = c("a", "d", "i", "s", "u"),
-#   player_status = c("Available", "Doubtful", "Injured",
-#                     "Suspended", "Unavailable"),
-#   stringsAsFactors = FALSE
-#   )

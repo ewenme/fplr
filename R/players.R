@@ -8,7 +8,9 @@
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_player_all()
+#' }
 fpl_get_player_all <- function() {
 
     # read player data
@@ -41,7 +43,9 @@ fpl_get_player_all <- function() {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_player_all()
+#' }
 fpl_get_players <- function() {
 
   warning("This function is soft-deprecated, and will throw an error in future versions. Please use fpl_get_player_all() instead.")
@@ -88,7 +92,9 @@ fpl_get_player <- function(player_id) {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_player_current(player_id = 3)
+#' }
 fpl_get_player_current <- function(player_id, convert_prices = TRUE) {
 
   # get player data
@@ -125,7 +131,9 @@ fpl_get_player_current <- function(player_id, convert_prices = TRUE) {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_player_historic(player_id = 3)
+#' }
 fpl_get_player_historic <- function(player_id, convert_prices = TRUE) {
 
   # get player data
@@ -160,7 +168,9 @@ fpl_get_player_historic <- function(player_id, convert_prices = TRUE) {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_player_detailed(player_id = 3)
+#' }
 fpl_get_player_detailed <- function(player_id, convert_prices = TRUE) {
 
   # get player list

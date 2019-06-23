@@ -8,7 +8,9 @@
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_fixtures()
+#' }
 
 fpl_get_fixtures <- function() {
 

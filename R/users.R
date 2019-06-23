@@ -10,7 +10,9 @@
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_user(user_id = 3808385)
+#' }
 fpl_get_user <- function(user_id) {
 
   # read user data
@@ -31,7 +33,9 @@ fpl_get_user <- function(user_id) {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_user_entry(user_id = 3808385)
+#' }
 fpl_get_user_entry <- function(user_id) {
 
   fpl_get_user(user_id)$entry
@@ -50,7 +54,9 @@ fpl_get_user_entry <- function(user_id) {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_user_leagues(user_id = 3808385)
+#' }
 fpl_get_user_leagues <- function(user_id) {
 
   fpl_get_user(user_id)$leagues
@@ -70,7 +76,9 @@ fpl_get_user_leagues <- function(user_id) {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_user_history(user_id = 3808385)
+#' }
 fpl_get_user_history <- function(user_id) {
 
   as_tibble(fpl_get_user(user_id)$history)
@@ -90,7 +98,9 @@ fpl_get_user_history <- function(user_id) {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_user_chips(user_id = 3808385)
+#' }
 fpl_get_user_chips <- function(user_id) {
 
   as_tibble(fpl_get_user(user_id)$chips)
@@ -110,7 +120,9 @@ fpl_get_user_chips <- function(user_id) {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' fpl_get_user_season(user_id = 3808385)
+#' }
 fpl_get_user_season <- function(user_id) {
 
   as_tibble(fpl_get_user(user_id)$season)
