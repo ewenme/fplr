@@ -6,6 +6,9 @@
 \usage{
 fpl_get_leagues_classic(league_id)
 }
+\arguments{
+\item{league_id}{league id (found in a league's page URL on the \href{https://fantasy.premierleague.com}{main FPL site}).}
+}
 \value{
 a list
 }
