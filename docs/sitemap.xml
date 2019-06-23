@@ -10,6 +10,24 @@
     <loc>https://ewenme.github.io/fplr/reference/fpl_get_fixtures.html</loc>
   </url>
   <url>
+    <loc>https://ewenme.github.io/fplr/reference/fpl_get_gameweek_current.html</loc>
+  </url>
+  <url>
+    <loc>https://ewenme.github.io/fplr/reference/fpl_get_gameweek_next.html</loc>
+  </url>
+  <url>
+    <loc>https://ewenme.github.io/fplr/reference/fpl_get_gameweeks.html</loc>
+  </url>
+  <url>
+    <loc>https://ewenme.github.io/fplr/reference/fpl_get_leagues_classic.html</loc>
+  </url>
+  <url>
+    <loc>https://ewenme.github.io/fplr/reference/fpl_get_leagues_h2h.html</loc>
+  </url>
+  <url>
+    <loc>https://ewenme.github.io/fplr/reference/fpl_get_phases.html</loc>
+  </url>
+  <url>
     <loc>https://ewenme.github.io/fplr/reference/fpl_get_player_all.html</loc>
   </url>
   <url>
@@ -22,7 +40,13 @@
     <loc>https://ewenme.github.io/fplr/reference/fpl_get_player_historic.html</loc>
   </url>
   <url>
+    <loc>https://ewenme.github.io/fplr/reference/fpl_get_player_types.html</loc>
+  </url>
+  <url>
     <loc>https://ewenme.github.io/fplr/reference/fpl_get_players.html</loc>
+  </url>
+  <url>
+    <loc>https://ewenme.github.io/fplr/reference/fpl_get_stats_lookup.html</loc>
   </url>
   <url>
     <loc>https://ewenme.github.io/fplr/reference/fpl_get_teams.html</loc>

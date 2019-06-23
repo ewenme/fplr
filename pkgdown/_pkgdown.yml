@@ -27,6 +27,10 @@ reference:
     desc: "Functions for working with user data."
     contents:
       - starts_with("fpl_get_user")
+  - title: "Leagues data"
+    desc: "Functions for working with leagues data."
+    contents:
+      - starts_with("fpl_get_leagues")
   - title: "Fixtures data"
     desc: "Functions for working with fixtures data."
     contents:

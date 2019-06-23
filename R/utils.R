@@ -28,4 +28,9 @@ fpl_phases_url <- paste(fpl_base_url, "phases", sep = "/")
 # events url
 fpl_events_url <- paste(fpl_base_url, "events", sep = "/")
 
+# classic league url
+fpl_league_classic_url <- paste(fpl_base_url, "leagues-classic-standings", sep = "/")
+
+# h2h league url
+fpl_league_h2h_url <- paste(fpl_base_url, "leagues-h2h-standings", sep = "/")
 
