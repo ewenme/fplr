@@ -4,6 +4,9 @@ language: R
 sudo: false
 cache: packages
 
+r_build_args: "--no-build-vignettes"
+r_check_args: "--no-build-vignettes --no-vignettes"
+
 before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
 after_success:
   - R CMD INSTALL .
