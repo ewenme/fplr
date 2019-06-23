@@ -7,6 +7,8 @@ Authors@R:
 Description: Tools for Fantasy Premier League (FPL, see <https://fantasy.premierleague.com> for info) 
     users to retrieve, and work with, FPL data using R.
 License: MIT + file LICENSE
+URL: https://ewenme.github.io/fplr, https://github.com/ewenme/fplr
+BugReports: https://github.com/ewenme/fplr/issues
 Depends: 
     R (>= 3.3.0)
 Imports: 

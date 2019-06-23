@@ -18,5 +18,7 @@ obtained via the
 \href{https://fantasy.premierleague.com/drf/entry/3808385}{user entry history endpoint}.
 }
 \examples{
+\donttest{
 fpl_get_user_entry(user_id = 3808385)
+}
 }

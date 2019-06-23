@@ -21,5 +21,7 @@ obtained via the
 \href{https://fantasy.premierleague.com/drf/element-summary/1}{element summary endpoint}.
 }
 \examples{
+\donttest{
 fpl_get_player_current(player_id = 3)
+}
 }

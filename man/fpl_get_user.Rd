@@ -17,5 +17,7 @@ Retrieve comprehensive data for a user in the current FPL season, obtained via t
 \href{https://fantasy.premierleague.com/drf/entry/3808385/history}{user entry history endpoint}.
 }
 \examples{
+\donttest{
 fpl_get_user(user_id = 3808385)
+}
 }

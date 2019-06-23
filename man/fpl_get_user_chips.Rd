@@ -17,5 +17,7 @@ Retrieve an FPL user's chips data, obtained via the
 \href{https://fantasy.premierleague.com/drf/entry/3808385}{user entry history endpoint}.
 }
 \examples{
+\donttest{
 fpl_get_user_chips(user_id = 3808385)
+}
 }

@@ -20,5 +20,7 @@ Retrieve historic seasons data for a player in the current FPL season, obtained 
 \href{https://fantasy.premierleague.com/drf/element-summary/1}{element summary endpoint}.
 }
 \examples{
+\donttest{
 fpl_get_player_historic(player_id = 3)
+}
 }

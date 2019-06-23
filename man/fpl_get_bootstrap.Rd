@@ -14,5 +14,7 @@ Retrieve FPL's \href{https://fantasy.premierleague.com/drf/bootstrap-static}{boo
 JSON data in full.
 }
 \examples{
+\donttest{
 fpl_get_bootstrap()
+}
 }

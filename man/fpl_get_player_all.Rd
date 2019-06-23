@@ -14,5 +14,7 @@ Retrieve player data for the current FPL season, obtained via the
 \href{https://fantasy.premierleague.com/drf/elements/}{elements endpoint}.
 }
 \examples{
+\donttest{
 fpl_get_player_all()
+}
 }
