@@ -1,5 +1,5 @@
 
-# fplr <img src="man/figures/logo.png" width="160px" align="right" />
+# fplr <img src="man/figures/logo.png" alt="" width="120" align="right" />
 
 [![Build
 Status](https://travis-ci.org/ewenme/fplr.png)](https://travis-ci.org/ewenme/fplr)
