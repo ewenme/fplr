@@ -1,9 +1,40 @@
 url: https://ewenme.github.io/fplr
 
+template:
+  params:
+    bootswatch: united
+
 authors:
   Ewen Henderson:
     href: https://ewen.io
 navbar:
+  type: inverse
+  left:
+    - text: "Quick Start"
+      href: articles/fplr-quickstart.html
+    - text: "Reference"
+      href: reference/index.html
   right:
   - icon: fa-github fa-lg
     href: https://github.com/ewenme/fplr
+
+reference:
+  - title: "Player data"
+    desc: "Functions for working with player data."
+    contents:
+      - starts_with("fpl_get_player")
+  - title: "User data"
+    desc: "Functions for working with user data."
+    contents:
+      - starts_with("fpl_get_user")
+  - title: "Fixtures data"
+    desc: "Functions for working with fixtures data."
+    contents:
+      - starts_with("fpl_get_fixtures")
+  - title: "Teams data"
+    desc: "Functions for working with teams data."
+    contents:
+      - starts_with("fpl_get_team")
+  - title: "Other helpers"
+    contents:
+      - fpl_get_bootstrap

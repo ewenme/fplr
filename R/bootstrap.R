@@ -21,4 +21,3 @@ fpl_get_bootstrap <- function() {
   fromJSON(data, simplifyVector = TRUE)
 
 }
-
