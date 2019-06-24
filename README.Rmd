@@ -30,24 +30,67 @@ Because of the lack of dev support from FPL and possible API changes, the packag
 
 ## Usage
 
-Refer to the [quickstart guide](https://ewenme.github.io/fplr/articles/fplr-quickstart.html) to get started. Here are some very basic examples of the functionality inside `fplr`.
+Refer to the [quickstart guide](https://ewenme.github.io/fplr/articles/fplr-quickstart.html) to get started. 
+Still, here are some very basic examples of the functionality and practical applications of `fplr`.
 
-Get data on all players in the current FPL season:
+### Get data
+
+...on all players in the current FPL season.
 
 ```{r}
 library(fplr)
 
-fpl_get_player_all()
+players <- fpl_get_player_all()
+
+players
 ```
 
-Get data on a user's FPL season performances:
+...on a user's FPL season performances.
 
 ```{r}
-fpl_get_user_season(user_id = 123)
+user_performance <- fpl_get_user_season(user_id = 123)
+
+user_performance
+```
+
+### Extract insight
+
+Manipulate and visualise this data, in conjunction with [dplyr](https://dplyr.tidyverse.org/) and [ggplot2](https://ggplot2.tidyverse.org/) respectively.
+
+For example, peek at points-per-90 vs player costs...
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+players_filtered <- players %>% 
+  # remove players without many minutes
+  filter(minutes >= 900, !is.na(minutes)) %>% 
+  # calc some metrics
+  mutate(points_per_90 = (total_points / minutes) * 90)
+  
+# scatter plot of points per minute vs cost
+ggplot(data = players_filtered, aes(x = points_per_90, y = now_cost)) +
+  geom_jitter() +
+  geom_text(
+    aes(label = web_name), nudge_y = -0.2, size = 3,
+    data = filter(players_filtered, points_per_90 >= quantile(points_per_90, 0.95) | now_cost >= quantile(now_cost, 0.95))
+    )
+```
+
+...or track your personal performance over the years.
+
+```{r}
+# rank by season
+ggplot(data = user_performance, aes(x = season_name, y = rank, group = 1)) +
+  geom_line() +
+  # reverse the y-axis
+  scale_y_reverse()
 ```
 
 ## In-the-wild
 
+- [...xPoints?](https://ewen.io/2019/03/08/xpoints/)
 - [FPL Mythbusting with fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
 
 ## Collaborators

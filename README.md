@@ -30,15 +30,19 @@ foreseeable future.
 
 Refer to the [quickstart
 guide](https://ewenme.github.io/fplr/articles/fplr-quickstart.html) to
-get started. Here are some very basic examples of the functionality
-inside `fplr`.
+get started. Still, here are some very basic examples of the
+functionality and practical applications of `fplr`.
 
-Get data on all players in the current FPL season:
+### Get data
+
+…on all players in the current FPL season.
 
 ``` r
 library(fplr)
 
-fpl_get_player_all()
+players <- fpl_get_player_all()
+
+players
 ## # A tibble: 624 x 58
 ##       id photo web_name team_code status   code first_name second_name
 ##    <int> <chr> <chr>        <int> <chr>   <int> <chr>      <chr>      
@@ -72,10 +76,12 @@ fpl_get_player_all()
 ## #   element_type <int>, team <int>
 ```
 
-Get data on a user’s FPL season performances:
+…on a user’s FPL season performances.
 
 ``` r
-fpl_get_user_season(user_id = 123)
+user_performance <- fpl_get_user_season(user_id = 123)
+
+user_performance
 ## # A tibble: 7 x 6
 ##         id season_name total_points    rank season  player
 ##      <int> <chr>              <int>   <int>  <int>   <int>
@@ -88,8 +94,58 @@ fpl_get_user_season(user_id = 123)
 ## 7 42627235 2017/18             2304   13153     12 9356614
 ```
 
+### Extract insight
+
+Manipulate and visualise this data, in conjunction with
+[dplyr](https://dplyr.tidyverse.org/) and
+[ggplot2](https://ggplot2.tidyverse.org/) respectively.
+
+For example, peek at points-per-90 vs player costs…
+
+``` r
+library(dplyr)
+## 
+## Attaching package: 'dplyr'
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+library(ggplot2)
+
+players_filtered <- players %>% 
+  # remove players without many minutes
+  filter(minutes >= 900, !is.na(minutes)) %>% 
+  # calc some metrics
+  mutate(points_per_90 = (total_points / minutes) * 90)
+  
+# scatter plot of points per minute vs cost
+ggplot(data = players_filtered, aes(x = points_per_90, y = now_cost)) +
+  geom_jitter() +
+  geom_text(
+    aes(label = web_name), nudge_y = -0.2, size = 3,
+    data = filter(players_filtered, points_per_90 >= quantile(points_per_90, 0.95) | now_cost >= quantile(now_cost, 0.95))
+    )
+```
+
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+…or track your personal performance over the years.
+
+``` r
+# rank by season
+ggplot(data = user_performance, aes(x = season_name, y = rank, group = 1)) +
+  geom_line() +
+  # reverse the y-axis
+  scale_y_reverse()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
 ## In-the-wild
 
+  - […xPoints?](https://ewen.io/2019/03/08/xpoints/)
   - [FPL Mythbusting with
     fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
 
