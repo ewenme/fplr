@@ -2,6 +2,7 @@
 
 export(fpl_get_bootstrap)
 export(fpl_get_fixtures)
+export(fpl_get_fixtures_gameweek)
 export(fpl_get_gameweek_current)
 export(fpl_get_gameweek_next)
 export(fpl_get_gameweeks)
