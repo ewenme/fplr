@@ -9,6 +9,7 @@
 ^CODE_OF_CONDUCT\.md$
 ^README\.md$
 ^README\.Rmd$
+^README_files$
 ^logo\.png$
 ^doc$
 ^Meta$
