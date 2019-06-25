@@ -57,7 +57,7 @@ Now, manipulate and visualise this data, in conjunction with [dplyr](https://dpl
 
 For example, peek at points-per-90 vs player costs...
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(dplyr)
 library(ggplot2)
 
