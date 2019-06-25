@@ -32,6 +32,8 @@ fpl_get_fixtures <- function() {
 #' obtained via the
 #' \href{https://fantasy.premierleague.com/drf/fixtures/?event=1}{fixtures event endpoint}.
 #'
+#' @param gameweek Gameweek no.
+#'
 #' @return a tibble
 #'
 #' @export
@@ -41,6 +43,8 @@ fpl_get_fixtures <- function() {
 #' fpl_get_fixtures_gameweek(gameweek = 8)
 #' }
 fpl_get_fixtures_gameweek <- function(gameweek) {
+
+    if (gameweek > 38) stop("gameweek must be a number between 1 and 38.")
 
     # read in fixtures data
     data <- read_lines(paste0(fpl_fixtures_url, "/?event=", gameweek))

@@ -6,6 +6,9 @@
 \usage{
 fpl_get_fixtures_gameweek(gameweek)
 }
+\arguments{
+\item{gameweek}{Gameweek no.}
+}
 \value{
 a tibble
 }

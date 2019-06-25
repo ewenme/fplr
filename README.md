@@ -129,7 +129,7 @@ ggplot(data = players_filtered, aes(x = points_per_90, y = now_cost)) +
     )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
 
 …or track your personal performance over the years.
 
@@ -141,7 +141,7 @@ ggplot(data = user_performance, aes(x = season_name, y = rank, group = 1)) +
   scale_y_reverse()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
 
 ## In-the-wild
 

@@ -180,14 +180,14 @@
 <a class="sourceLine" id="cb4-22" data-line-number="22">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">label =</span> web_name), <span class="dt">nudge_y =</span> <span class="fl">-0.2</span>, <span class="dt">size =</span> <span class="dv">3</span>,</a>
 <a class="sourceLine" id="cb4-23" data-line-number="23">    <span class="dt">data =</span> <span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(players_filtered, points_per_<span class="dv">90</span> <span class="op">&gt;=</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(points_per_<span class="dv">90</span>, <span class="fl">0.95</span>) <span class="op">|</span><span class="st"> </span>now_cost <span class="op">&gt;=</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(now_cost, <span class="fl">0.95</span>))</a>
 <a class="sourceLine" id="cb4-24" data-line-number="24">    )</a></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="700"></p>
 <p>…or track your personal performance over the years.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># rank by season</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> user_performance, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> season_name, <span class="dt">y =</span> rank, <span class="dt">group =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="co"># reverse the y-axis</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span>()</a></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<p><img src="reference/figures/README-unnamed-chunk-6-1.png" width="700"></p>
 </div>
 </div>
 <div id="in-the-wild" class="section level2">
