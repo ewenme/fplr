@@ -5,20 +5,19 @@
 Status](https://travis-ci.org/ewenme/fplr.png)](https://travis-ci.org/ewenme/fplr)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-An R package housing a compendium of tools for working with [Fantasy
-Premier League](https://fantasy.premierleague.com) (FPL) data in R.
+## Overview
+
+fplr makes it quick ‘n’ easy to retrieve [Fantasy Premier
+League](https://fantasy.premierleague.com) (FPL) data programmatically,
+then work with it, all from R.
 
 ## Installation
 
-Get the latest development version of `fplr` from GitHub:
+Get the latest development version of `fplr` from GitHub.
 
 ``` r
-if (!require(remotes)) {
-  install.packages("remotes") 
-  }
-
-# install package
-remotes::install_github("ewenme/fplr")
+# install.packages("devtools")
+devtools::install_github("ewenme/fplr")
 ```
 
 Because of the lack of dev support from FPL and possible API changes,
@@ -94,9 +93,9 @@ user_performance
 ## 7 42627235 2017/18             2304   13153     12 9356614
 ```
 
-### Extract insight
+### Get some insight
 
-Manipulate and visualise this data, in conjunction with
+Now, manipulate and visualise this data, in conjunction with
 [dplyr](https://dplyr.tidyverse.org/) and
 [ggplot2](https://ggplot2.tidyverse.org/) respectively.
 
@@ -146,8 +145,13 @@ ggplot(data = user_performance, aes(x = season_name, y = rank, group = 1)) +
 ## In-the-wild
 
   - […xPoints?](https://ewen.io/2019/03/08/xpoints/)
+
+![](https://github.com/rbind/ewenme/raw/master/static/blog/2019-03-08-xPoints_files/figure-html/value-calc-1.png)
+
   - [FPL Mythbusting with
     fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
+
+![](https://github.com/rbind/ewenme/raw/master/static/blog/2017-06-25-fpl-mythbusting-with-fplr_files/figure-html/bandwagons-1.png)
 
 ## Collaborators
 

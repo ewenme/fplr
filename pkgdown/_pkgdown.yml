@@ -4,6 +4,9 @@ template:
   params:
     bootswatch: united
 
+home:
+  strip_header: true
+
 authors:
   Ewen Henderson:
     href: https://ewen.io
