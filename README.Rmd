@@ -3,7 +3,8 @@ output: github_document
 ---
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(collapse = TRUE, fig.path = "man/figures/README-")
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", 
+                      fig.path = "man/figures/README-", out.width = "100%")
 ```
 
 # fplr <img src="man/figures/logo.png" alt="" width="120" align="right" />
