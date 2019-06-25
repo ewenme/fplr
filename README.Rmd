@@ -3,7 +3,7 @@ output: github_document
 ---
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(collapse = TRUE, comment = "#>", out.width = "100%")
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", fig.path = "man/figures/README-", out.width = "75%")
 ```
 
 # fplr <img src="man/figures/logo.png" alt="" width="120" align="right" />
@@ -90,11 +90,15 @@ ggplot(data = user_performance, aes(x = season_name, y = rank, group = 1)) +
 
 - [...xPoints?](https://ewen.io/2019/03/08/xpoints/)
 
-![](https://github.com/rbind/ewenme/raw/master/static/blog/2019-03-08-xPoints_files/figure-html/value-calc-1.png)
+```{r, echo=FALSE}
+knitr::include_graphics("https://github.com/rbind/ewenme/raw/master/static/blog/2019-03-08-xPoints_files/figure-html/value-calc-1.png")
+```
 
 - [FPL Mythbusting with fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
 
-![](https://github.com/rbind/ewenme/raw/master/static/blog/2017-06-25-fpl-mythbusting-with-fplr_files/figure-html/bandwagons-1.png)
+```{r, echo=FALSE}
+knitr::include_graphics("https://github.com/rbind/ewenme/raw/master/static/blog/2017-06-25-fpl-mythbusting-with-fplr_files/figure-html/bandwagons-1.png")
+```
 
 ## Collaborators
 

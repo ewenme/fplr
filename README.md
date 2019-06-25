@@ -120,7 +120,7 @@ ggplot(data = players_filtered, aes(x = points_per_90, y = now_cost)) +
     )
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="75%" />
 
 …or track your personal performance over the years.
 
@@ -132,18 +132,18 @@ ggplot(data = user_performance, aes(x = season_name, y = rank, group = 1)) +
   scale_y_reverse()
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="75%" />
 
 ## In-the-wild
 
   - […xPoints?](https://ewen.io/2019/03/08/xpoints/)
 
-![](https://github.com/rbind/ewenme/raw/master/static/blog/2019-03-08-xPoints_files/figure-html/value-calc-1.png)
+<img src="https://github.com/rbind/ewenme/raw/master/static/blog/2019-03-08-xPoints_files/figure-html/value-calc-1.png" width="75%" />
 
   - [FPL Mythbusting with
     fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
 
-![](https://github.com/rbind/ewenme/raw/master/static/blog/2017-06-25-fpl-mythbusting-with-fplr_files/figure-html/bandwagons-1.png)
+<img src="https://github.com/rbind/ewenme/raw/master/static/blog/2017-06-25-fpl-mythbusting-with-fplr_files/figure-html/bandwagons-1.png" width="75%" />
 
 ## Collaborators
 
