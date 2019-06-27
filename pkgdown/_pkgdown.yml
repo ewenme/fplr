@@ -50,3 +50,4 @@ reference:
     contents:
       - fpl_get_bootstrap
       - fpl_get_phases
+      - fpl_get_stats_lookup

@@ -18,7 +18,7 @@ a tibble
 \description{
 Retrieve gameweek-level data for a player in the current FPL season,
 obtained via the
-\href{https://fantasy.premierleague.com/drf/element-summary/1}{element summary endpoint}.
+\href{https://fantasy.premierleague.com/api/element-summary/1}{element summary endpoint}.
 }
 \examples{
 \donttest{

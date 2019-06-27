@@ -14,12 +14,6 @@
 
 fpl_get_teams <- function() {
 
-  # read in teams data
-  data <- read_lines(fpl_teams_url)
-
-  # parse JSON
-  parsed_data <- fromJSON(data)
-
-  as_tibble(parsed_data)
+  as_tibble(fpl_get_bootstrap()$teams)
 
 }

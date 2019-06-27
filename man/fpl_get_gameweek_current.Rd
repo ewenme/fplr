@@ -11,7 +11,7 @@ numeric vector
 }
 \description{
 Retrieve current gameweek via the
- \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static endpoint}.
+ \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static endpoint}.
 }
 \examples{
 \donttest{

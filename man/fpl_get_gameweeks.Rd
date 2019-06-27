@@ -11,7 +11,7 @@ a tibble
 }
 \description{
 Retrieve gameweeks data for the current FPL season, obtained via the
-\href{https://fantasy.premierleague.com/drf/events/}{events endpoint}.
+\href{https://fantasy.premierleague.com/api/events/}{events endpoint}.
 }
 \examples{
 \donttest{

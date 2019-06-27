@@ -11,7 +11,7 @@ a tibble
 }
 \description{
 Retrieve data on fixtures for the current FPL season, obtained via the
-\href{https://fantasy.premierleague.com/drf/fixtures/}{fixtures endpoint}.
+\href{https://fantasy.premierleague.com/api/fixtures/}{fixtures endpoint}.
 }
 \examples{
 \donttest{

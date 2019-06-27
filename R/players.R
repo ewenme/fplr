@@ -35,7 +35,7 @@ fpl_get_player_all <- function() {
 #' Get data on all players
 #'
 #' Retrieve player data for the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/elements/}{elements endpoint}.
+#' \href{https://fantasy.premierleague.com/api/elements/}{elements endpoint}.
 #'
 #' @return a tibble
 #'
@@ -54,7 +54,7 @@ fpl_get_players <- function() {
 #' Get data on a single player
 #'
 #' Retrieve data for a player in the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/element-summary/1}{element summary endpoint}.
+#' \href{https://fantasy.premierleague.com/api/element-summary/1}{element summary endpoint}.
 #'
 #' @param player_id player's ID (\code{id} field from \code{\link{fpl_get_player_all}} output).
 #'
@@ -79,7 +79,7 @@ fpl_get_player <- function(player_id) {
 #'
 #' Retrieve gameweek-level data for a player in the current FPL season,
 #' obtained via the
-#' \href{https://fantasy.premierleague.com/drf/element-summary/1}{element summary endpoint}.
+#' \href{https://fantasy.premierleague.com/api/element-summary/1}{element summary endpoint}.
 #'
 #' @param player_id player's ID (\code{id} field from \code{\link{fpl_get_player_all}} output).
 #'
@@ -121,7 +121,7 @@ fpl_get_player_current <- function(player_id, convert_prices = TRUE) {
 #' Get historic season data on a player
 #'
 #' Retrieve historic seasons data for a player in the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/element-summary/1}{element summary endpoint}.
+#' \href{https://fantasy.premierleague.com/api/element-summary/1}{element summary endpoint}.
 #'
 #' @inheritParams fpl_get_player_current
 #'
@@ -158,7 +158,7 @@ fpl_get_player_historic <- function(player_id, convert_prices = TRUE) {
 #' Get comprehensive data on a player
 #'
 #' Retrieve detailed data for a player in the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/element-summary/1}{element summary endpoint}.
+#' \href{https://fantasy.premierleague.com/api/element-summary/1}{element summary endpoint}.
 #'
 #' @inheritParams fpl_get_player_current
 #'
@@ -208,7 +208,7 @@ fpl_get_player_detailed <- function(player_id, convert_prices = TRUE) {
 #' Get metadata on player types
 #'
 #' Retrieve player type metadata for the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/element-types/}{element types endpoint}.
+#' \href{https://fantasy.premierleague.com/api/element-types/}{element types endpoint}.
 #'
 #' @return a tibble
 #'
@@ -220,9 +220,5 @@ fpl_get_player_detailed <- function(player_id, convert_prices = TRUE) {
 #' }
 fpl_get_player_types <- function() {
 
-  # read data
-  data <- read_lines(fpl_player_types_url)
-
-  # parse JSON
-  as_tibble(fromJSON(data, simplifyVector = TRUE))
+  as_tibble(fpl_get_bootstrap()$element_types)
 }

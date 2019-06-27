@@ -14,7 +14,7 @@ a list
 }
 \description{
 Retrieve a head-to-head league's data for the current FPL season, obtained via the
-\href{https://fantasy.premierleague.com/drf/leagues-h2h-standings/829116}{leagues h2h standings endpoint}.
+\href{https://fantasy.premierleague.com/api/leagues-h2h-standings/829116}{leagues h2h standings endpoint}.
 }
 \examples{
 \donttest{

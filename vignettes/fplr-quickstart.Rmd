@@ -13,7 +13,7 @@ library(fplr)
 knitr::opts_chunk$set(comment = "#", error = FALSE, tidy = FALSE, cache = FALSE, collapse = TRUE)
 ```
 
-This vignette is an introduction to the principles and functions of the `fplr` package.
+This vignette is an introduction to the principles and functions of the `fplr` package. Note that functions that are dependent on the season being live are not actually evaluated.
 
 ## 1. Basics {#basics-1}
 
@@ -39,7 +39,7 @@ fpl_get_player_all()
 
 Get gameweek-level data for a single player in the current season, using `fpl_get_player_current()` (supplying a `player_id` value, possibly gleaned from the `fpl_get_player_all()` output):
 
-```{r}
+```{r, eval=FALSE}
 fpl_get_player_current(player_id = 3)
 ```
 
@@ -55,13 +55,13 @@ Functions in the [user data](#user-3) family primarily return information about 
 
 These functions follow the naming convention `fpl_get_user_xxx`. Get information on leagues performance of a user by supplying the corresponding `user_id` (taken from the main FPL website) to the `fpl_get_user_leagues()` function:
 
-```{r}
+```{r, eval=FALSE}
 fpl_get_user_leagues(user_id = 137633)
 ```
 
 Or, get historic seasons performance using `fpl_get_user_season()`:
 
-```{r}
+```{r, eval=FALSE}
 fpl_get_user_season(user_id = 137633)
 ```
 

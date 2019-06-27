@@ -11,7 +11,7 @@ a tibble
 }
 \description{
 Retrieve player type metadata for the current FPL season, obtained via the
-\href{https://fantasy.premierleague.com/drf/element-types/}{element types endpoint}.
+\href{https://fantasy.premierleague.com/api/element-types/}{element types endpoint}.
 }
 \examples{
 \donttest{

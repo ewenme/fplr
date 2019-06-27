@@ -43,19 +43,11 @@ players <- fpl_get_player_all()
 players
 ```
 
-...on a user's FPL season performances.
-
-```{r}
-user_performance <- fpl_get_user_season(user_id = 123)
-
-user_performance
-```
-
 ### Get some insight
 
 Now, manipulate and visualise this data, in conjunction with [dplyr](https://dplyr.tidyverse.org/) and [ggplot2](https://ggplot2.tidyverse.org/) respectively.
 
-For example, peek at points-per-90 vs player costs...
+For example, peek at points-per-90 vs player costs.
 
 ```{r, message=FALSE, warning=FALSE}
 library(dplyr)
@@ -74,16 +66,6 @@ ggplot(data = players_filtered, aes(x = points_per_90, y = now_cost)) +
     aes(label = web_name), nudge_y = -0.2, size = 3,
     data = filter(players_filtered, points_per_90 >= quantile(points_per_90, 0.95) | now_cost >= quantile(now_cost, 0.95))
     )
-```
-
-...or track your personal performance over the years.
-
-```{r}
-# rank by season
-ggplot(data = user_performance, aes(x = season_name, y = rank, group = 1)) +
-  geom_line() +
-  # reverse the y-axis
-  scale_y_reverse()
 ```
 
 ## In-the-wild

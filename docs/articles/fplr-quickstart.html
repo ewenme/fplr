@@ -80,7 +80,7 @@
 
     
     
-<p>This vignette is an introduction to the principles and functions of the <code>fplr</code> package.</p>
+<p>This vignette is an introduction to the principles and functions of the <code>fplr</code> package. Note that functions that are dependent on the season being live are not actually evaluated.</p>
 <div id="basics-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#basics-1" class="anchor"></a>1. Basics</h2>
@@ -104,165 +104,58 @@
 <p>Functions in the <a href="#player-2">player data</a> family primarily return information about <strong>players</strong> in the game, and are mostly for exploring data in the <em>current</em> season (note - when a new season of the game begins, old season data returned from these functions will be overwritten).</p>
 <p>These functions follow the naming convention <code>fpl_get_player_xxx</code>. For example, <code><a href="../reference/fpl_get_player_all.html">fpl_get_player_all()</a></code> returns data for all players in the current season, via a tidy tibble:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_player_all.html">fpl_get_player_all</a></span>()</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># # A tibble: 624 x 58</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#       id photo web_name team_code status   code first_name second_name</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;      </span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#  1     1 1133… Cech             3 a       11334 Petr       Cech       </span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#  2     2 8020… Leno             3 a       80201 Bernd      Leno       </span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#  3     3 5150… Kosciel…         3 a       51507 Laurent    Koscielny  </span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#  4     4 9874… Bellerín         3 i       98745 Héctor     Bellerín   </span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#  5     5 3841… Monreal          3 a       38411 Nacho      Monreal    </span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#  6     6 1560… Holding          3 i      156074 Rob        Holding    </span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#  7     7 6914… Mustafi          3 a       69140 Shkodran   Mustafi    </span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#  8     8 1114… Kolasin…         3 a      111457 Sead       Kolasinac  </span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#  9    10 2339… Mavropa…         3 a      233963 Konstanti… Mavropanos </span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co"># 10    11 2733… Lichtst…         3 a       27335 Stephan    Lichtstein…</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co"># # … with 614 more rows, and 50 more variables: squad_number &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co"># #   news &lt;chr&gt;, now_cost &lt;dbl&gt;, news_added &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co"># #   chance_of_playing_this_round &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co"># #   chance_of_playing_next_round &lt;int&gt;, value_form &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co"># #   value_season &lt;dbl&gt;, cost_change_start &lt;dbl&gt;, cost_change_event &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co"># #   cost_change_start_fall &lt;int&gt;, cost_change_event_fall &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co"># #   in_dreamteam &lt;lgl&gt;, dreamteam_count &lt;int&gt;, selected_by_percent &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co"># #   form &lt;dbl&gt;, transfers_out &lt;int&gt;, transfers_in &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co"># #   transfers_out_event &lt;int&gt;, transfers_in_event &lt;int&gt;, loans_in &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co"># #   loans_out &lt;int&gt;, loaned_in &lt;int&gt;, loaned_out &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co"># #   total_points &lt;int&gt;, event_points &lt;int&gt;, points_per_game &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co"># #   ep_this &lt;dbl&gt;, ep_next &lt;dbl&gt;, special &lt;lgl&gt;, minutes &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="co"># #   goals_scored &lt;int&gt;, assists &lt;int&gt;, clean_sheets &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co"># #   goals_conceded &lt;int&gt;, own_goals &lt;int&gt;, penalties_saved &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co"># #   penalties_missed &lt;int&gt;, yellow_cards &lt;int&gt;, red_cards &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co"># #   saves &lt;int&gt;, bonus &lt;int&gt;, bps &lt;int&gt;, influence &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="co"># #   creativity &lt;dbl&gt;, threat &lt;dbl&gt;, ict_index &lt;dbl&gt;, ea_index &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co"># #   element_type &lt;int&gt;, team &lt;int&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># # A tibble: 420 x 53</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#    chance_of_playi… chance_of_playi…   code cost_change_eve…</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#               &lt;int&gt; &lt;lgl&gt;             &lt;int&gt;            &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#  1               NA NA                69140                0</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#  2                0 NA                98745                0</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#  3               NA NA               111457                0</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#  4               NA NA               154043                0</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#  5               NA NA                39476                0</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#  6               NA NA                38411                0</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#  7               NA NA                51507                0</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#  8               NA NA               233963                0</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#  9               NA NA                80254                0</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co"># 10                0 NA               156074                0</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co"># # … with 410 more rows, and 49 more variables:</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co"># #   cost_change_event_fall &lt;int&gt;, cost_change_start &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co"># #   cost_change_start_fall &lt;int&gt;, dreamteam_count &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co"># #   element_type &lt;int&gt;, ep_next &lt;dbl&gt;, ep_this &lt;dbl&gt;, event_points &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co"># #   first_name &lt;chr&gt;, form &lt;dbl&gt;, id &lt;int&gt;, in_dreamteam &lt;lgl&gt;,</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co"># #   news &lt;chr&gt;, news_added &lt;chr&gt;, now_cost &lt;dbl&gt;, photo &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co"># #   points_per_game &lt;dbl&gt;, second_name &lt;chr&gt;, selected_by_percent &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co"># #   special &lt;lgl&gt;, squad_number &lt;lgl&gt;, status &lt;chr&gt;, team &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co"># #   team_code &lt;int&gt;, total_points &lt;int&gt;, transfers_in &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co"># #   transfers_in_event &lt;int&gt;, transfers_out &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co"># #   transfers_out_event &lt;int&gt;, value_form &lt;dbl&gt;, value_season &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co"># #   web_name &lt;chr&gt;, minutes &lt;int&gt;, goals_scored &lt;int&gt;, assists &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="co"># #   clean_sheets &lt;int&gt;, goals_conceded &lt;int&gt;, own_goals &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co"># #   penalties_saved &lt;int&gt;, penalties_missed &lt;int&gt;, yellow_cards &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co"># #   red_cards &lt;int&gt;, saves &lt;int&gt;, bonus &lt;int&gt;, bps &lt;int&gt;, influence &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co"># #   creativity &lt;dbl&gt;, threat &lt;dbl&gt;, ict_index &lt;dbl&gt;</span></a></code></pre></div>
 <p>Get gameweek-level data for a single player in the current season, using <code><a href="../reference/fpl_get_player_current.html">fpl_get_player_current()</a></code> (supplying a <code>player_id</code> value, possibly gleaned from the <code><a href="../reference/fpl_get_player_all.html">fpl_get_player_all()</a></code> output):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_player_current.html">fpl_get_player_current</a></span>(<span class="dt">player_id =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co"># # A tibble: 38 x 54</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#       id kickoff_time kickoff_time_fo… team_h_score team_a_score was_home</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                   &lt;int&gt;        &lt;int&gt; &lt;lgl&gt;   </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#  1     3 2018-08-12T… 12 Aug 16:00                0            2 TRUE    </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#  2   528 2018-08-18T… 18 Aug 17:30                3            2 FALSE   </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#  3  1055 2018-08-25T… 25 Aug 15:00                3            1 TRUE    </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#  4  1586 2018-09-02T… 02 Sep 13:30                2            3 FALSE   </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#  5  2123 2018-09-15T… 15 Sep 15:00                1            2 FALSE   </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#  6  2660 2018-09-23T… 23 Sep 16:00                2            0 TRUE    </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#  7  3198 2018-09-29T… 29 Sep 15:00                2            0 TRUE    </span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#  8  3737 2018-10-07T… 07 Oct 12:00                1            5 FALSE   </span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#  9  4279 2018-10-22T… 22 Oct 20:00                3            1 TRUE    </span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co"># 10  4825 2018-10-28T… 28 Oct 13:30                2            2 FALSE   </span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co"># # … with 28 more rows, and 48 more variables: round &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co"># #   total_points &lt;int&gt;, value &lt;dbl&gt;, transfers_balance &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co"># #   selected &lt;int&gt;, transfers_in &lt;int&gt;, transfers_out &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co"># #   loaned_in &lt;int&gt;, loaned_out &lt;int&gt;, minutes &lt;int&gt;, goals_scored &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co"># #   assists &lt;int&gt;, clean_sheets &lt;int&gt;, goals_conceded &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co"># #   own_goals &lt;int&gt;, penalties_saved &lt;int&gt;, penalties_missed &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co"># #   yellow_cards &lt;int&gt;, red_cards &lt;int&gt;, saves &lt;int&gt;, bonus &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co"># #   bps &lt;int&gt;, influence &lt;dbl&gt;, creativity &lt;dbl&gt;, threat &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co"># #   ict_index &lt;dbl&gt;, ea_index &lt;int&gt;, open_play_crosses &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co"># #   big_chances_created &lt;int&gt;, clearances_blocks_interceptions &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co"># #   recoveries &lt;int&gt;, key_passes &lt;int&gt;, tackles &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co"># #   winning_goals &lt;int&gt;, attempted_passes &lt;int&gt;, completed_passes &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co"># #   penalties_conceded &lt;int&gt;, big_chances_missed &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co"># #   errors_leading_to_goal &lt;int&gt;, errors_leading_to_goal_attempt &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co"># #   tackled &lt;int&gt;, offside &lt;int&gt;, target_missed &lt;int&gt;, fouls &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co"># #   dribbles &lt;int&gt;, element &lt;int&gt;, fixture &lt;int&gt;, opponent_team &lt;int&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_player_current.html">fpl_get_player_current</a></span>(<span class="dt">player_id =</span> <span class="dv">3</span>)</a></code></pre></div>
 <p>You can even get historic seasons’ data (if it exists) for a player, using <code>fpl_get_player_historic</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_player_historic.html">fpl_get_player_historic</a></span>(<span class="dt">player_id =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># # A tibble: 8 x 25</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#      id season_name element_code start_cost end_cost total_points minutes</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#   &lt;int&gt; &lt;chr&gt;              &lt;int&gt;      &lt;dbl&gt;    &lt;dbl&gt;        &lt;int&gt;   &lt;int&gt;</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># 1  2641 2010/11            51507        6        5.9           85    2617</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co"># 2  3383 2011/12            51507        6        5.8          103    2871</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co"># 3  4059 2012/13            51507        5.5      5.3           88    1675</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># 4  4763 2013/14            51507        5.5      5.6          155    2739</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># 5  5451 2014/15            51507        6        6.1          120    2287</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co"># 6  6166 2015/16            51507        6        6.3          153    2845</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co"># 7  6891 2016/17            51507        6        6.1          121    2821</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># 8  7569 2017/18            51507        6        6            100    2225</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co"># # … with 18 more variables: goals_scored &lt;int&gt;, assists &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co"># #   clean_sheets &lt;int&gt;, goals_conceded &lt;int&gt;, own_goals &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co"># #   penalties_saved &lt;int&gt;, penalties_missed &lt;int&gt;, yellow_cards &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co"># #   red_cards &lt;int&gt;, saves &lt;int&gt;, bonus &lt;int&gt;, bps &lt;int&gt;, influence &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co"># #   creativity &lt;chr&gt;, threat &lt;chr&gt;, ict_index &lt;chr&gt;, ea_index &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co"># #   season &lt;int&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># # A tibble: 2 x 22</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#   season_name element_code start_cost end_cost total_points minutes</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#   &lt;chr&gt;              &lt;int&gt;      &lt;dbl&gt;    &lt;dbl&gt;        &lt;int&gt;   &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># 1 2017/18           111457          6      5.8          108    2146</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co"># 2 2018/19           111457          5      4.9           81    1886</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co"># # … with 16 more variables: goals_scored &lt;int&gt;, assists &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># #   clean_sheets &lt;int&gt;, goals_conceded &lt;int&gt;, own_goals &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># #   penalties_saved &lt;int&gt;, penalties_missed &lt;int&gt;, yellow_cards &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co"># #   red_cards &lt;int&gt;, saves &lt;int&gt;, bonus &lt;int&gt;, bps &lt;int&gt;, influence &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co"># #   creativity &lt;chr&gt;, threat &lt;chr&gt;, ict_index &lt;chr&gt;</span></a></code></pre></div>
 </div>
 <div id="user-3" class="section level2">
 <h2 class="hasAnchor">
 <a href="#user-3" class="anchor"></a>3. Users</h2>
 <p>Functions in the <a href="#user-3">user data</a> family primarily return information about <strong>users</strong>, and like the <a href="#player-2">players</a> functions already covered, are mostly for exploring data in the <em>current</em> season (again - when a new season of the game begins, data from these functions may be overwritten).</p>
 <p>These functions follow the naming convention <code>fpl_get_user_xxx</code>. Get information on leagues performance of a user by supplying the corresponding <code>user_id</code> (taken from the main FPL website) to the <code><a href="../reference/fpl_get_user_leagues.html">fpl_get_user_leagues()</a></code> function:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_user_leagues.html">fpl_get_user_leagues</a></span>(<span class="dt">user_id =</span> <span class="dv">137633</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># $cup</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#         id entry_1_entry entry_1_name entry_1_player_name entry_2_entry</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># 1 49624029       1402783    Zaghliola        ahmed sallam        137633</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#   entry_2_name entry_2_player_name is_knockout  winner tiebreak own_entry</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co"># 1       Rawyal        Danyal Rawji        TRUE 1402783       NA     FALSE</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#   entry_1_points entry_1_win entry_1_draw entry_1_loss entry_2_points</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># 1             46           0            0            0             39</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#   entry_2_win entry_2_draw entry_2_loss entry_1_total entry_2_total</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co"># 1           0            0            0             0             0</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#   seed_value event</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co"># 1         NA    17</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co"># </span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co"># $h2h</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#    id entry_rank entry_last_rank entry_movement entry_change</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co"># 1 314         NA              NA             NA           NA</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#   entry_can_leave entry_can_admin entry_can_invite entry_can_forum</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co"># 1           FALSE           FALSE            FALSE           FALSE</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#   entry_code name is_cup short_name              created closed</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co"># 1         NA  Cup   TRUE        cup 2018-07-05T12:12:24Z   TRUE</span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#   forum_disabled make_code_public rank size league_type _scoring ko_rounds</span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co"># 1          FALSE            FALSE   NA   NA           s        h        22</span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#   admin_entry start_event</span></a>
-<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co"># 1          NA          17</span></a>
-<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co"># </span></a>
-<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co"># $classic</span></a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">#        id entry_rank entry_last_rank entry_movement entry_change</span></a>
-<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co"># 1       1      70910           75042             up         4132</span></a>
-<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co"># 2     246       5444            5944             up          500</span></a>
-<a class="sourceLine" id="cb4-30" data-line-number="30"><span class="co"># 3     275     862143          932056             up        69913</span></a>
-<a class="sourceLine" id="cb4-31" data-line-number="31"><span class="co"># 4     313     879403          952832             up        73429</span></a>
-<a class="sourceLine" id="cb4-32" data-line-number="32"><span class="co"># 5  745472          1               1           same           NA</span></a>
-<a class="sourceLine" id="cb4-33" data-line-number="33"><span class="co"># 6 1286216          1               1           same           NA</span></a>
-<a class="sourceLine" id="cb4-34" data-line-number="34"><span class="co">#   entry_can_leave entry_can_admin entry_can_invite entry_can_forum</span></a>
-<a class="sourceLine" id="cb4-35" data-line-number="35"><span class="co"># 1           FALSE           FALSE            FALSE           FALSE</span></a>
-<a class="sourceLine" id="cb4-36" data-line-number="36"><span class="co"># 2           FALSE           FALSE            FALSE           FALSE</span></a>
-<a class="sourceLine" id="cb4-37" data-line-number="37"><span class="co"># 3           FALSE           FALSE            FALSE           FALSE</span></a>
-<a class="sourceLine" id="cb4-38" data-line-number="38"><span class="co"># 4           FALSE           FALSE            FALSE           FALSE</span></a>
-<a class="sourceLine" id="cb4-39" data-line-number="39"><span class="co"># 5           FALSE            TRUE             TRUE            TRUE</span></a>
-<a class="sourceLine" id="cb4-40" data-line-number="40"><span class="co"># 6           FALSE            TRUE             TRUE            TRUE</span></a>
-<a class="sourceLine" id="cb4-41" data-line-number="41"><span class="co">#       entry_code                 name short_name              created</span></a>
-<a class="sourceLine" id="cb4-42" data-line-number="42"><span class="co"># 1           &lt;NA&gt;              Arsenal     team-1 2018-07-05T12:12:23Z</span></a>
-<a class="sourceLine" id="cb4-43" data-line-number="43"><span class="co"># 2           &lt;NA&gt; United Arab Emirates region-226 2018-07-05T12:12:24Z</span></a>
-<a class="sourceLine" id="cb4-44" data-line-number="44"><span class="co"># 3           &lt;NA&gt;           Gameweek 1    event-1 2018-07-05T12:12:24Z</span></a>
-<a class="sourceLine" id="cb4-45" data-line-number="45"><span class="co"># 4           &lt;NA&gt;              Overall    overall 2018-07-05T12:12:24Z</span></a>
-<a class="sourceLine" id="cb4-46" data-line-number="46"><span class="co"># 5  137633-745472                Dacki       &lt;NA&gt; 2018-08-08T19:04:46Z</span></a>
-<a class="sourceLine" id="cb4-47" data-line-number="47"><span class="co"># 6 137633-1286216             Team Blu       &lt;NA&gt; 2018-11-26T15:45:42Z</span></a>
-<a class="sourceLine" id="cb4-48" data-line-number="48"><span class="co">#   closed forum_disabled make_code_public rank size league_type _scoring</span></a>
-<a class="sourceLine" id="cb4-49" data-line-number="49"><span class="co"># 1  FALSE          FALSE            FALSE   NA   NA           s        c</span></a>
-<a class="sourceLine" id="cb4-50" data-line-number="50"><span class="co"># 2  FALSE          FALSE            FALSE   NA   NA           s        c</span></a>
-<a class="sourceLine" id="cb4-51" data-line-number="51"><span class="co"># 3  FALSE          FALSE            FALSE   NA   NA           s        c</span></a>
-<a class="sourceLine" id="cb4-52" data-line-number="52"><span class="co"># 4  FALSE          FALSE            FALSE   NA   NA           s        c</span></a>
-<a class="sourceLine" id="cb4-53" data-line-number="53"><span class="co"># 5  FALSE          FALSE            FALSE   NA   NA           x        c</span></a>
-<a class="sourceLine" id="cb4-54" data-line-number="54"><span class="co"># 6  FALSE          FALSE            FALSE   NA   NA           x        c</span></a>
-<a class="sourceLine" id="cb4-55" data-line-number="55"><span class="co">#   reprocess_standings admin_entry start_event</span></a>
-<a class="sourceLine" id="cb4-56" data-line-number="56"><span class="co"># 1               FALSE          NA           1</span></a>
-<a class="sourceLine" id="cb4-57" data-line-number="57"><span class="co"># 2               FALSE          NA           1</span></a>
-<a class="sourceLine" id="cb4-58" data-line-number="58"><span class="co"># 3               FALSE          NA           1</span></a>
-<a class="sourceLine" id="cb4-59" data-line-number="59"><span class="co"># 4               FALSE          NA           1</span></a>
-<a class="sourceLine" id="cb4-60" data-line-number="60"><span class="co"># 5               FALSE      137633           1</span></a>
-<a class="sourceLine" id="cb4-61" data-line-number="61"><span class="co"># 6               FALSE      137633           1</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_user_leagues.html">fpl_get_user_leagues</a></span>(<span class="dt">user_id =</span> <span class="dv">137633</span>)</a></code></pre></div>
 <p>Or, get historic seasons performance using <code><a href="../reference/fpl_get_user_season.html">fpl_get_user_season()</a></code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_user_season.html">fpl_get_user_season</a></span>(<span class="dt">user_id =</span> <span class="dv">137633</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># # A tibble: 6 x 6</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#         id season_name total_points    rank season   player</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#      &lt;int&gt; &lt;chr&gt;              &lt;int&gt;   &lt;int&gt;  &lt;int&gt;    &lt;int&gt;</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co"># 1 20151999 2012/13             1529 2017361      7 14473279</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co"># 2 23312580 2013/14             1843 1593294      8 14473279</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co"># 3 32580497 2014/15             1964  320440      9 14473279</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co"># 4 34874333 2015/16             2177   65330     10 14473279</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co"># 5 38116789 2016/17             2176   94958     11 14473279</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co"># 6 42959279 2017/18             2154  252801     12 14473279</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_user_season.html">fpl_get_user_season</a></span>(<span class="dt">user_id =</span> <span class="dv">137633</span>)</a></code></pre></div>
 </div>
 <div id="team-4" class="section level2">
 <h2 class="hasAnchor">
@@ -270,35 +163,34 @@
 <p>These functions follow the naming convention <code>fpl_get_teams_xxx</code>.</p>
 <p>Summary data for teams in the current FPL season is gleaned using <code><a href="../reference/fpl_get_teams.html">fpl_get_teams()</a></code>:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_teams.html">fpl_get_teams</a></span>()</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co"># # A tibble: 20 x 23</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#       id current_event_f… next_event_fixt… name   code short_name</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#    &lt;int&gt; &lt;list&gt;           &lt;list&gt;           &lt;chr&gt; &lt;int&gt; &lt;chr&gt;     </span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#  1     1 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Arse…     3 ARS       </span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#  2     2 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Bour…    91 BOU       </span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#  3     3 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Brig…    36 BHA       </span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#  4     4 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Burn…    90 BUR       </span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#  5     5 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Card…    97 CAR       </span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#  6     6 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Chel…     8 CHE       </span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#  7     7 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Crys…    31 CRY       </span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#  8     8 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Ever…    11 EVE       </span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#  9     9 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Fulh…    54 FUL       </span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co"># 10    10 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Hudd…    38 HUD       </span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co"># 11    11 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Leic…    13 LEI       </span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co"># 12    12 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Live…    14 LIV       </span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co"># 13    13 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Man …    43 MCI       </span></a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co"># 14    14 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Man …     1 MUN       </span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co"># 15    15 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Newc…     4 NEW       </span></a>
-<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co"># 16    16 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Sout…    20 SOU       </span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co"># 17    17 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Spurs     6 TOT       </span></a>
-<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co"># 18    18 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Watf…    57 WAT       </span></a>
-<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co"># 19    19 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       West…    21 WHU       </span></a>
-<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co"># 20    20 &lt;df[,6] [1 × 6]&gt; &lt;list [0]&gt;       Wolv…    39 WOL       </span></a>
-<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co"># # … with 17 more variables: unavailable &lt;lgl&gt;, strength &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co"># #   position &lt;int&gt;, played &lt;int&gt;, win &lt;int&gt;, loss &lt;int&gt;, draw &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co"># #   points &lt;int&gt;, form &lt;lgl&gt;, link_url &lt;chr&gt;, strength_overall_home &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co"># #   strength_overall_away &lt;int&gt;, strength_attack_home &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co"># #   strength_attack_away &lt;int&gt;, strength_defence_home &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co"># #   strength_defence_away &lt;int&gt;, team_division &lt;int&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co"># # A tibble: 20 x 20</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#     code  draw form     id  loss name  played points position short_name</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#    &lt;int&gt; &lt;int&gt; &lt;lgl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;    &lt;int&gt; &lt;chr&gt;     </span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#  1     3     0 NA        1     0 Arse…      0      0        0 ARS       </span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#  2     7     0 NA        2     0 Asto…      0      0        0 AVL       </span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#  3    91     0 NA        3     0 Bour…      0      0        0 BOU       </span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#  4    36     0 NA        4     0 Brig…      0      0        0 BHA       </span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#  5    90     0 NA        5     0 Burn…      0      0        0 BUR       </span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#  6     8     0 NA        6     0 Chel…      0      0        0 CHE       </span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#  7    31     0 NA        7     0 Crys…      0      0        0 CRY       </span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#  8    11     0 NA        8     0 Ever…      0      0        0 EVE       </span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#  9    13     0 NA        9     0 Leic…      0      0        0 LEI       </span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co"># 10    14     0 NA       10     0 Live…      0      0        0 LIV       </span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co"># 11    43     0 NA       11     0 Man …      0      0        0 MCI       </span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co"># 12     1     0 NA       12     0 Man …      0      0        0 MUN       </span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co"># 13     4     0 NA       13     0 Newc…      0      0        0 NEW       </span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co"># 14    45     0 NA       14     0 Norw…      0      0        0 NOR       </span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co"># 15    49     0 NA       15     0 Shef…      0      0        0 SHU       </span></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co"># 16    20     0 NA       16     0 Sout…      0      0        0 SOU       </span></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co"># 17     6     0 NA       17     0 Spurs      0      0        0 TOT       </span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co"># 18    57     0 NA       18     0 Watf…      0      0        0 WAT       </span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co"># 19    21     0 NA       19     0 West…      0      0        0 WHU       </span></a>
+<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co"># 20    39     0 NA       20     0 Wolv…      0      0        0 WOL       </span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co"># # … with 10 more variables: strength &lt;int&gt;, team_division &lt;lgl&gt;,</span></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co"># #   unavailable &lt;lgl&gt;, win &lt;int&gt;, strength_overall_home &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co"># #   strength_overall_away &lt;int&gt;, strength_attack_home &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co"># #   strength_attack_away &lt;int&gt;, strength_defence_home &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co"># #   strength_defence_away &lt;int&gt;</span></a></code></pre></div>
 </div>
 <div id="fixture-5" class="section level2">
 <h2 class="hasAnchor">
@@ -306,25 +198,23 @@
 <p>These functions follow the naming convention <code>fpl_get_fixtures_xxx</code>.</p>
 <p>Summary data for teams in the current FPL season is gleaned using <code><a href="../reference/fpl_get_fixtures.html">fpl_get_fixtures()</a></code>:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../reference/fpl_get_fixtures.html">fpl_get_fixtures</a></span>()</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co"># # A tibble: 380 x 20</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#       id kickoff_time_fo… started event_day deadline_time      </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#    &lt;int&gt; &lt;chr&gt;            &lt;lgl&gt;       &lt;int&gt; &lt;dttm&gt;             </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#  1     6 10 Aug 20:00     TRUE            1 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#  2     7 11 Aug 12:30     TRUE            2 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#  3     2 11 Aug 15:00     TRUE            2 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#  4     3 11 Aug 15:00     TRUE            2 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#  5     4 11 Aug 15:00     TRUE            2 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#  6     9 11 Aug 15:00     TRUE            2 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#  7    10 11 Aug 17:30     TRUE            2 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#  8     5 12 Aug 13:30     TRUE            3 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#  9     8 12 Aug 13:30     TRUE            3 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co"># 10     1 12 Aug 16:00     TRUE            3 2018-08-10 00:00:00</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co"># # … with 370 more rows, and 15 more variables:</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co"># #   deadline_time_formatted &lt;chr&gt;, stats &lt;list&gt;, team_h_difficulty &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co"># #   team_a_difficulty &lt;int&gt;, code &lt;int&gt;, kickoff_time &lt;dttm&gt;,</span></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="co"># #   team_h_score &lt;int&gt;, team_a_score &lt;int&gt;, finished &lt;lgl&gt;, minutes &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co"># #   provisional_start_time &lt;lgl&gt;, finished_provisional &lt;lgl&gt;, event &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="co"># #   team_a &lt;int&gt;, team_h &lt;int&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co"># # A tibble: 380 x 15</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#      code event finished finished_provis…    id kickoff_time        minutes</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#     &lt;int&gt; &lt;int&gt; &lt;lgl&gt;    &lt;lgl&gt;            &lt;int&gt; &lt;dttm&gt;                &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#  1 1.06e6     1 FALSE    FALSE                1 2019-08-09 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#  2 1.06e6     1 FALSE    FALSE                8 2019-08-10 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#  3 1.06e6     1 FALSE    FALSE                2 2019-08-10 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#  4 1.06e6     1 FALSE    FALSE                3 2019-08-10 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#  5 1.06e6     1 FALSE    FALSE                4 2019-08-10 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#  6 1.06e6     1 FALSE    FALSE                7 2019-08-10 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#  7 1.06e6     1 FALSE    FALSE                6 2019-08-10 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#  8 1.06e6     1 FALSE    FALSE                5 2019-08-11 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#  9 1.06e6     1 FALSE    FALSE               10 2019-08-11 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co"># 10 1.06e6     1 FALSE    FALSE                9 2019-08-11 00:00:00       0</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co"># # … with 370 more rows, and 8 more variables:</span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co"># #   provisional_start_time &lt;lgl&gt;, started &lt;lgl&gt;, team_a &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co"># #   team_a_score &lt;lgl&gt;, team_h &lt;int&gt;, team_h_score &lt;lgl&gt;,</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="co"># #   team_h_difficulty &lt;int&gt;, team_a_difficulty &lt;int&gt;</span></a></code></pre></div>
 </div>
   </div>
 

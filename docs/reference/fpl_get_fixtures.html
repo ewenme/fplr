@@ -116,7 +116,7 @@ fixtures endpoint." />
     <div class="ref-description">
     
     <p>Retrieve data on fixtures for the current FPL season, obtained via the
-<a href='https://fantasy.premierleague.com/drf/fixtures/'>fixtures endpoint</a>.</p>
+<a href='https://fantasy.premierleague.com/api/fixtures/'>fixtures endpoint</a>.</p>
     
     </div>
 
@@ -128,24 +128,22 @@ fixtures endpoint." />
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>fpl_get_fixtures</span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 380 x 20</span><span>
-#&gt;       id kickoff_time_fo… started event_day deadline_time       deadline_time_f…
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           
-#&gt; </span><span style='color: #555555;'> 1</span><span>     6 10 Aug 20:00     TRUE            1 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'> 2</span><span>     7 11 Aug 12:30     TRUE            2 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'> 3</span><span>     2 11 Aug 15:00     TRUE            2 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'> 4</span><span>     3 11 Aug 15:00     TRUE            2 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'> 5</span><span>     4 11 Aug 15:00     TRUE            2 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'> 6</span><span>     9 11 Aug 15:00     TRUE            2 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'> 7</span><span>    10 11 Aug 17:30     TRUE            2 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'> 8</span><span>     5 12 Aug 13:30     TRUE            3 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'> 9</span><span>     8 12 Aug 13:30     TRUE            3 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'>10</span><span>     1 12 Aug 16:00     TRUE            3 2018-08-10 </span><span style='color: #555555;'>00:00:00</span><span> 10 Aug 19:00    
-#&gt; </span><span style='color: #555555;'># … with 370 more rows, and 14 more variables: stats </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span style='color: #555555;'>,
-#&gt; #   team_h_difficulty </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, team_a_difficulty </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, code </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,
-#&gt; #   kickoff_time </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span style='color: #555555;'>, team_h_score </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, team_a_score </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,
-#&gt; #   finished </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, minutes </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, provisional_start_time </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>,
-#&gt; #   finished_provisional </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, event </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, team_a </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, team_h </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>fpl_get_fixtures</span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 380 x 15</span><span>
+#&gt;      code event finished finished_provis…    id kickoff_time        minutes
+#&gt;     </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span>                </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'> 1</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE                1 2019-08-09 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'> 2</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE                8 2019-08-10 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'> 3</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE                2 2019-08-10 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'> 4</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE                3 2019-08-10 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'> 5</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE                4 2019-08-10 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'> 6</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE                7 2019-08-10 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'> 7</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE                6 2019-08-10 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'> 8</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE                5 2019-08-11 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'> 9</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE               10 2019-08-11 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'>10</span><span> 1.06</span><span style='color: #555555;'>e</span><span>6     1 FALSE    FALSE                9 2019-08-11 </span><span style='color: #555555;'>00:00:00</span><span>       0
+#&gt; </span><span style='color: #555555;'># … with 370 more rows, and 8 more variables: provisional_start_time </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>,
+#&gt; #   started </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, team_a </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, team_a_score </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, team_h </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,
+#&gt; #   team_h_score </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, team_h_difficulty </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, team_a_difficulty </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

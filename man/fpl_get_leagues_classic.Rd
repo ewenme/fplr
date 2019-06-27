@@ -14,7 +14,7 @@ a list
 }
 \description{
 Retrieve a classic league's data for the current FPL season, obtained via the
-\href{https://fantasy.premierleague.com/drf/leagues-classic-standings/1137}{leagues classic standings endpoint}.
+\href{https://fantasy.premierleague.com/api/leagues-classic-standings/1137}{leagues classic standings endpoint}.
 }
 \examples{
 \donttest{
