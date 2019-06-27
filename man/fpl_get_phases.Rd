@@ -11,7 +11,7 @@ a tibble
 }
 \description{
 Retrieve phases data for the current FPL season, obtained via the
-\href{https://fantasy.premierleague.com/drf/phases/}{phases endpoint}.
+ \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static API endpoint}.
 }
 \examples{
 \donttest{

@@ -1,7 +1,7 @@
 #' Get data on a classic league
 #'
 #' Retrieve a classic league's data for the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/leagues-classic-standings/1137}{leagues classic standings endpoint}.
+#' \href{https://fantasy.premierleague.com/api/leagues-classic-standings/1137}{leagues classic standings endpoint}.
 #'
 #' @param league_id league id (found in a league's page URL on the \href{https://fantasy.premierleague.com}{main FPL site}).
 #'
@@ -23,7 +23,7 @@ fpl_get_leagues_classic <- function(league_id) {
 #' Get data on a head-to-head league
 #'
 #' Retrieve a head-to-head league's data for the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/leagues-h2h-standings/829116}{leagues h2h standings endpoint}.
+#' \href{https://fantasy.premierleague.com/api/leagues-h2h-standings/829116}{leagues h2h standings endpoint}.
 #'
 #' @inheritParams fpl_get_leagues_classic
 #'

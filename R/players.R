@@ -1,7 +1,7 @@
 #' Get data on all players
 #'
 #' Retrieve player data for the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/elements/}{elements endpoint}.
+#' \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static API endpoint}.
 #'
 #' @return a tibble
 #'
@@ -14,8 +14,7 @@
 fpl_get_player_all <- function() {
 
     # read player data
-    players <- read_lines(fpl_player_url)
-    players <- fromJSON(players)
+    players <- fpl_get_bootstrap()$elements
 
     # convert price vars into familiar denomination
     price_vars <- c("now_cost", "cost_change_start", "cost_change_event")

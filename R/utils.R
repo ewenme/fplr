@@ -1,5 +1,5 @@
 # base url
-fpl_base_url <- "https://fantasy.premierleague.com/drf"
+fpl_base_url <- "https://fantasy.premierleague.com/api"
 
 # bootstrap static url
 fpl_bootstrap_static_url <- paste(fpl_base_url, "bootstrap-static", sep = "/")

@@ -1,7 +1,7 @@
 #' Get data on gameweeks
 #'
 #' Retrieve gameweeks data for the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/events/}{events endpoint}.
+#' \href{https://fantasy.premierleague.com/api/events/}{events endpoint}.
 #'
 #' @return a tibble
 #'
@@ -13,18 +13,14 @@
 #' }
 fpl_get_gameweeks <- function() {
 
-  # read data
-  data <- read_lines(fpl_events_url)
-
-  # parse JSON
-  as_tibble(fromJSON(data, simplifyVector = TRUE))
+  as_tibble(fpl_get_bootstrap()$events)
 
 }
 
 #' Get current gameweek
 #'
 #' Retrieve current gameweek via the
-#'  \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static endpoint}.
+#'  \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static endpoint}.
 #'
 #' @export
 #'
@@ -42,7 +38,7 @@ fpl_get_gameweek_current <- function() {
 #' Get next gameweek
 #'
 #' Retrieve next gameweek via the
-#'  \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static endpoint}.
+#'  \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static endpoint}.
 #'
 #' @export
 #'

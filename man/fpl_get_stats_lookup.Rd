@@ -11,7 +11,7 @@ a tibble
 }
 \description{
 Retrieve statistic variable name and key values via the
- \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static endpoint}.
+ \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static API endpoint}.
 }
 \examples{
 \donttest{

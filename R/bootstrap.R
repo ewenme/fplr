@@ -1,7 +1,7 @@
 #' Get bootstrap-static data
 #'
-#' Retrieve FPL's \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static}
-#' JSON data in full.
+#' Retrieve all available data via the
+#'  \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static API endpoint}.
 #'
 #' @export
 #'
@@ -25,7 +25,7 @@ fpl_get_bootstrap <- function() {
 #' Get stats variable name/key values
 #'
 #' Retrieve statistic variable name and key values via the
-#'  \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static endpoint}.
+#'  \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static API endpoint}.
 #'
 #' @export
 #'
@@ -37,5 +37,5 @@ fpl_get_bootstrap <- function() {
 #' }
 fpl_get_stats_lookup <- function() {
 
-  as_tibble(fpl_get_bootstrap()$stats_options)
+  as_tibble(fpl_get_bootstrap()$element_stats)
 }

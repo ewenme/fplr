@@ -10,8 +10,8 @@ fpl_get_bootstrap()
 a list
 }
 \description{
-Retrieve FPL's \href{https://fantasy.premierleague.com/drf/bootstrap-static}{bootstrap-static}
-JSON data in full.
+Retrieve all available data via the
+ \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static API endpoint}.
 }
 \examples{
 \donttest{

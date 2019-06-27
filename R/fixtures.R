@@ -1,7 +1,7 @@
 #' Get data on fixtures
 #'
 #' Retrieve data on fixtures for the current FPL season, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/fixtures/}{fixtures endpoint}.
+#' \href{https://fantasy.premierleague.com/api/fixtures/}{fixtures endpoint}.
 #'
 #' @return a tibble
 #'
@@ -20,7 +20,6 @@ fpl_get_fixtures <- function() {
     parsed_data <- fromJSON(data)
 
     # fix date variables
-    parsed_data$deadline_time <- as.POSIXct(parsed_data$deadline_time)
     parsed_data$kickoff_time <- as.POSIXct(parsed_data$kickoff_time)
 
     as_tibble(parsed_data)
@@ -30,7 +29,7 @@ fpl_get_fixtures <- function() {
 #'
 #' Retrieve detailed data on a gameweek's fixtures for the current FPL season,
 #' obtained via the
-#' \href{https://fantasy.premierleague.com/drf/fixtures/?event=1}{fixtures event endpoint}.
+#' \href{https://fantasy.premierleague.com/api/fixtures/?event=1}{fixtures event endpoint}.
 #'
 #' @param gameweek Gameweek no.
 #'
@@ -50,23 +49,10 @@ fpl_get_fixtures_gameweek <- function(gameweek) {
     data <- read_lines(paste0(fpl_fixtures_url, "/?event=", gameweek))
 
     # parse JSON
-    parsed <- fromJSON(data, simplifyDataFrame = FALSE)
-
-    # isolate stats
-    stats <- lapply(parsed, "[[", "stats")
-
-    # rm stats from JSON
-    parsed <- lapply(parsed, function(x){x$stats <- NULL; x})
-
-    # convert to df
-    parsed_df <- do.call(rbind.data.frame, c(parsed, stringsAsFactors = FALSE))
-
-    # append stats
-    parsed_df$stats <- stats
+    parsed <- fromJSON(data)
 
     # fix date variables
-    parsed_df$deadline_time <- as.POSIXct(parsed_df$deadline_time)
-    parsed_df$kickoff_time <- as.POSIXct(parsed_df$kickoff_time)
+    parsed$kickoff_time <- as.POSIXct(parsed$kickoff_time)
 
-    as_tibble(parsed_df)
+    as_tibble(parsed)
 }
