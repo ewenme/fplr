@@ -2,7 +2,7 @@
 % Please edit documentation in R/bootstrap.R
 \name{fpl_get_bootstrap}
 \alias{fpl_get_bootstrap}
-\title{Get bootstrap-static data}
+\title{Get all bootstrap-static data}
 \usage{
 fpl_get_bootstrap()
 }

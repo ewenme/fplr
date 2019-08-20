@@ -14,7 +14,7 @@
 fpl_get_fixtures <- function() {
 
     # read in fixtures data
-    data <- read_lines(fpl_fixtures_url)
+    data <- curl(fpl_fixtures_url)
 
     # parse JSON
     parsed_data <- fromJSON(data)
@@ -46,7 +46,7 @@ fpl_get_fixtures_gameweek <- function(gameweek) {
     if (gameweek > 38) stop("gameweek must be a number between 1 and 38.")
 
     # read in fixtures data
-    data <- read_lines(paste0(fpl_fixtures_url, "/?event=", gameweek))
+    data <- curl(paste0(fpl_fixtures_url, "/?event=", gameweek))
 
     # parse JSON
     parsed <- fromJSON(data)

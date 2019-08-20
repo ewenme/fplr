@@ -2,7 +2,7 @@
 % Please edit documentation in R/bootstrap.R
 \name{fpl_get_stats_lookup}
 \alias{fpl_get_stats_lookup}
-\title{Get stats variable name/key values}
+\title{Get statistics variables' label/name values}
 \usage{
 fpl_get_stats_lookup()
 }
@@ -10,7 +10,7 @@ fpl_get_stats_lookup()
 a tibble
 }
 \description{
-Retrieve statistic variable name and key values via the
+Retrieve statistic variable label and name lookup values via the
  \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static API endpoint}.
 }
 \examples{

@@ -71,7 +71,7 @@ fpl_get_player <- function(player_id) {
                                               "and", max(players$id)), call. = FALSE)
 
   # read player data
-  player_summary <- read_lines(paste(fpl_player_summary_url, player_id, sep = "/"))
+  player_summary <- curl(paste(fpl_player_summary_url, player_id, sep = "/"))
   fromJSON(player_summary, simplifyVector = TRUE)
 }
 

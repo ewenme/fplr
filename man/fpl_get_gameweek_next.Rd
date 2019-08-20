@@ -2,12 +2,12 @@
 % Please edit documentation in R/gameweeks.R
 \name{fpl_get_gameweek_next}
 \alias{fpl_get_gameweek_next}
-\title{Get next gameweek}
+\title{Get data on next gameweek}
 \usage{
 fpl_get_gameweek_next()
 }
 \value{
-numeric vector
+a tibble
 }
 \description{
 Retrieve next gameweek via the

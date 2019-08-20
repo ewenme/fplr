@@ -1,4 +1,4 @@
-#' Get bootstrap-static data
+#' Get all bootstrap-static data
 #'
 #' Retrieve all available data via the
 #'  \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static API endpoint}.
@@ -15,16 +15,16 @@
 fpl_get_bootstrap <- function() {
 
   # read data
-  data <- read_lines(fpl_bootstrap_static_url)
+  data <- curl(fpl_bootstrap_static_url)
 
   # parse JSON
   fromJSON(data, simplifyVector = TRUE)
 
 }
 
-#' Get stats variable name/key values
+#' Get statistics variables' label/name values
 #'
-#' Retrieve statistic variable name and key values via the
+#' Retrieve statistic variable label and name lookup values via the
 #'  \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static API endpoint}.
 #'
 #' @export

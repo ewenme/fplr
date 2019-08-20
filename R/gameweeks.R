@@ -17,14 +17,14 @@ fpl_get_gameweeks <- function() {
 
 }
 
-#' Get current gameweek
+#' Get data on current gameweek
 #'
 #' Retrieve current gameweek via the
 #'  \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static endpoint}.
 #'
 #' @export
 #'
-#' @return numeric vector
+#' @return a tibble
 #'
 #' @examples
 #' \donttest{
@@ -32,17 +32,19 @@ fpl_get_gameweeks <- function() {
 #' }
 fpl_get_gameweek_current <- function() {
 
-  fpl_get_bootstrap()$`current-event`
+  gameweeks <- fpl_get_gameweeks()
+
+  gameweeks[gameweeks$is_current, ]
 }
 
-#' Get next gameweek
+#' Get data on next gameweek
 #'
 #' Retrieve next gameweek via the
 #'  \href{https://fantasy.premierleague.com/api/bootstrap-static}{bootstrap-static endpoint}.
 #'
 #' @export
 #'
-#' @return numeric vector
+#' @return a tibble
 #'
 #' @examples
 #' \donttest{
@@ -50,5 +52,7 @@ fpl_get_gameweek_current <- function() {
 #' }
 fpl_get_gameweek_next <- function() {
 
-  fpl_get_bootstrap()$`next-event`
+  gameweeks <- fpl_get_gameweeks()
+
+  gameweeks[gameweeks$is_next, ]
 }

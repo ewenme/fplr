@@ -15,8 +15,37 @@
 #' }
 fpl_get_leagues_classic <- function(league_id) {
 
+  # start new curl handle
+  fpl_league_handle <- new_handle()
+
+  # authorise user
+  handle_setform(
+    fpl_league_handle,
+    login = fpl_auth_email(),
+    password = fpl_auth_pw(),
+    redirect_uri = "https://fantasy.premierleague.com/a/login",
+    app = "plfpl-web"
+    )
+
+  login <- curl_fetch_memory(
+    "https://users.premierleague.com/accounts/login/",
+    handle = fpl_league_handle
+    )
+
+  if(login$url != "https://fantasy.premierleague.com/a/login?state=success")
+    stop("The authentication didn't work. You've most likely entered an incorrect FPL email and/or password.")
+
   # read league data
-  league_data <- read_lines(paste(fpl_league_classic_url, league_id, sep = "/"))
+  league_data <- fromJSON(
+    curl(
+      paste0(
+        fpl_league_url, "-classic/", league_id, "/standings/"
+        ),
+      handle = fpl_league_handle
+      )
+    )
+
+  # parse data
   fromJSON(league_data, simplifyVector = TRUE)
 }
 
@@ -38,6 +67,6 @@ fpl_get_leagues_classic <- function(league_id) {
 fpl_get_leagues_h2h <- function(league_id) {
 
   # read league data
-  league_data <- read_lines(paste(fpl_league_h2h_url, league_id, sep = "/"))
+  league_data <- curl(paste(fpl_league_h2h_url, league_id, sep = "/"))
   fromJSON(league_data, simplifyVector = TRUE)
 }

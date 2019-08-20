@@ -1,5 +1,6 @@
 #' @importFrom jsonlite fromJSON
-#' @importFrom readr read_lines
+#' @importFrom curl curl curl_fetch_memory new_handle handle_setform
+#' @importFrom askpass askpass
 #' @importFrom tibble as_tibble
 #'
 #' @keywords internal

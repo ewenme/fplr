@@ -53,16 +53,16 @@ fpl_get_player_historic(player_id = 3)
 
 Functions in the [user data](#user-3) family primarily return information about **users**, and like the [players](#player-2) functions already covered, are mostly for exploring data in the *current* season (again - when a new season of the game begins, data from these functions may be overwritten).
 
-These functions follow the naming convention `fpl_get_user_xxx`. Get information on leagues performance of a user by supplying the corresponding `user_id` (taken from the main FPL website) to the `fpl_get_user_leagues()` function:
+These functions follow the naming convention `fpl_get_user_xxx`. Get information on current season performance of a user by supplying the corresponding `user_id` (taken from the main FPL website) to the `fpl_get_user_current()` function:
 
 ```{r, eval=FALSE}
-fpl_get_user_leagues(user_id = 137633)
+fpl_get_user_current(user_id = 137633)
 ```
 
-Or, get historic seasons performance using `fpl_get_user_season()`:
+Or, get historic seasons performance using `fpl_get_user_history()`:
 
 ```{r, eval=FALSE}
-fpl_get_user_season(user_id = 137633)
+fpl_get_user_history(user_id = 137633)
 ```
 
 ## 4. Teams {#team-4}

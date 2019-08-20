@@ -16,11 +16,11 @@
 fpl_get_user <- function(user_id) {
 
   # read user data
-  user_data <- read_lines(paste(fpl_user_entry_url, user_id, "history", sep = "/"))
+  user_data <- curl(paste(fpl_user_entry_url, user_id, "history", sep = "/"))
   fromJSON(user_data, simplifyVector = TRUE)
 }
 
-#' Get entry data on a user
+#' Get current season data on a user
 #'
 #' Retrieve entry information for a user in the current FPL season,
 #' obtained via the
@@ -34,11 +34,11 @@ fpl_get_user <- function(user_id) {
 #'
 #' @examples
 #' \donttest{
-#' fpl_get_user_entry(user_id = 3808385)
+#' fpl_get_user_current(user_id = 3808385)
 #' }
-fpl_get_user_entry <- function(user_id) {
+fpl_get_user_current <- function(user_id) {
 
-  fpl_get_user(user_id)$entry
+  fpl_get_user(user_id)$current
 }
 
 #' Get league data on a user
@@ -81,7 +81,7 @@ fpl_get_user_leagues <- function(user_id) {
 #' }
 fpl_get_user_history <- function(user_id) {
 
-  as_tibble(fpl_get_user(user_id)$history)
+  as_tibble(fpl_get_user(user_id)$past)
 }
 
 #' Get chips data on a user
@@ -104,26 +104,4 @@ fpl_get_user_history <- function(user_id) {
 fpl_get_user_chips <- function(user_id) {
 
   as_tibble(fpl_get_user(user_id)$chips)
-}
-
-#' Get season data on a user
-#'
-#' Retrieve an FPL user's season data, obtained via the
-#' \href{https://fantasy.premierleague.com/drf/entry/3808385}{user entry history endpoint}.
-#'
-#' @inheritParams fpl_get_user
-#'
-#' @export
-#'
-#' @return a tibble
-#'
-#' @export
-#'
-#' @examples
-#' \donttest{
-#' fpl_get_user_season(user_id = 3808385)
-#' }
-fpl_get_user_season <- function(user_id) {
-
-  as_tibble(fpl_get_user(user_id)$season)
 }

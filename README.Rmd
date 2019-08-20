@@ -43,31 +43,6 @@ players <- fpl_get_player_all()
 players
 ```
 
-### Get some insight
-
-Now, manipulate and visualise this data, in conjunction with [dplyr](https://dplyr.tidyverse.org/) and [ggplot2](https://ggplot2.tidyverse.org/) respectively.
-
-For example, peek at points-per-90 vs player costs.
-
-```{r, message=FALSE, warning=FALSE}
-library(dplyr)
-library(ggplot2)
-
-players_filtered <- players %>% 
-  # remove players without many minutes
-  filter(minutes >= 900, !is.na(minutes)) %>% 
-  # calc some metrics
-  mutate(points_per_90 = (total_points / minutes) * 90)
-  
-# scatter plot of points per minute vs cost
-ggplot(data = players_filtered, aes(x = points_per_90, y = now_cost)) +
-  geom_jitter() +
-  geom_text(
-    aes(label = web_name), nudge_y = -0.2, size = 3,
-    data = filter(players_filtered, points_per_90 >= quantile(points_per_90, 0.95) | now_cost >= quantile(now_cost, 0.95))
-    )
-```
-
 ## In-the-wild
 
 - [...xPoints?](https://ewen.io/2019/03/08/xpoints/)

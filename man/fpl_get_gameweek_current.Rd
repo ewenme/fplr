@@ -2,12 +2,12 @@
 % Please edit documentation in R/gameweeks.R
 \name{fpl_get_gameweek_current}
 \alias{fpl_get_gameweek_current}
-\title{Get current gameweek}
+\title{Get data on current gameweek}
 \usage{
 fpl_get_gameweek_current()
 }
 \value{
-numeric vector
+a tibble
 }
 \description{
 Retrieve current gameweek via the
