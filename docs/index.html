@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fplr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -103,20 +103,20 @@
 <a class="sourceLine" id="cb2-3" data-line-number="3">players &lt;-<span class="st"> </span><span class="kw"><a href="reference/fpl_get_player_all.html">fpl_get_player_all</a></span>()</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5">players</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; # A tibble: 420 x 53</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; # A tibble: 529 x 53</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;    chance_of_playi… chance_of_playi…   code cost_change_eve…</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;               &lt;int&gt; &lt;lgl&gt;             &lt;int&gt;            &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  1               NA NA                69140                0</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  2                0 NA                98745                0</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  3               NA NA               111457                0</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  4               NA NA               154043                0</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  5               NA NA                39476                0</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  6               NA NA                38411                0</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  7               NA NA                51507                0</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;  8               NA NA               233963                0</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;  9               NA NA                80254                0</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; 10                0 NA               156074                0</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; # … with 410 more rows, and 49 more variables:</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;               &lt;int&gt;            &lt;int&gt;  &lt;int&gt;            &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  1               NA               NA  69140             -0.1</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  2                0                0  98745              0  </span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  3              100               75 111457              0  </span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  4               NA               NA 154043              0  </span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  5               NA               NA  39476              0  </span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  6               NA               NA  38411              0  </span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  7                0                0  51507              0  </span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;  8                0                0 233963             -0.1</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;  9                0                0  80254              0  </span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; 10                0                0 156074              0  </span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; # … with 519 more rows, and 49 more variables:</span></a>
 <a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; #   cost_change_event_fall &lt;int&gt;, cost_change_start &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; #   cost_change_start_fall &lt;int&gt;, dreamteam_count &lt;int&gt;,</span></a>
 <a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; #   element_type &lt;int&gt;, ep_next &lt;dbl&gt;, ep_this &lt;dbl&gt;, event_points &lt;int&gt;,</span></a>
@@ -132,29 +132,6 @@
 <a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt; #   penalties_saved &lt;int&gt;, penalties_missed &lt;int&gt;, yellow_cards &lt;int&gt;,</span></a>
 <a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt; #   red_cards &lt;int&gt;, saves &lt;int&gt;, bonus &lt;int&gt;, bps &lt;int&gt;, influence &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt; #   creativity &lt;dbl&gt;, threat &lt;dbl&gt;, ict_index &lt;dbl&gt;</span></a></code></pre></div>
-</div>
-<div id="get-some-insight" class="section level3">
-<h3 class="hasAnchor">
-<a href="#get-some-insight" class="anchor"></a>Get some insight</h3>
-<p>Now, manipulate and visualise this data, in conjunction with <a href="https://dplyr.tidyverse.org/">dplyr</a> and <a href="https://ggplot2.tidyverse.org/">ggplot2</a> respectively.</p>
-<p>For example, peek at points-per-90 vs player costs.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">players_filtered &lt;-<span class="st"> </span>players <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="co"># remove players without many minutes</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(minutes <span class="op">&gt;=</span><span class="st"> </span><span class="dv">900</span>, <span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/NA">is.na</a></span>(minutes)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="st">  </span><span class="co"># calc some metrics</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">points_per_90 =</span> (total_points <span class="op">/</span><span class="st"> </span>minutes) <span class="op">*</span><span class="st"> </span><span class="dv">90</span>)</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">  </a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co"># scatter plot of points per minute vs cost</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> players_filtered, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> points_per_<span class="dv">90</span>, <span class="dt">y =</span> now_cost)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(</a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">label =</span> web_name), <span class="dt">nudge_y =</span> <span class="fl">-0.2</span>, <span class="dt">size =</span> <span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">    <span class="dt">data =</span> <span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(players_filtered, points_per_<span class="dv">90</span> <span class="op">&gt;=</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(points_per_<span class="dv">90</span>, <span class="fl">0.95</span>) <span class="op">|</span><span class="st"> </span>now_cost <span class="op">&gt;=</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(now_cost, <span class="fl">0.95</span>))</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16">    )</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="75%"></p>
 </div>
 </div>
 <div id="in-the-wild" class="section level2">

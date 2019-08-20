@@ -75,7 +75,7 @@ user entry history endpoint." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fplr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -137,7 +137,21 @@ user entry history endpoint." />
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>fpl_get_user</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>3808385</span>)</div><div class='output co'>#&gt; <span class='error'>Error in open.connection(con, "rb"): HTTP error 404.</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>fpl_get_user</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>3808385</span>)</div><div class='output co'>#&gt; $current
+#&gt;   event points total_points    rank rank_sort overall_rank bank value
+#&gt; 1     1     44           44 4934526   4976588      4934675    0  1000
+#&gt; 2     2     49           93 1280953   1326319      3941781    0  1000
+#&gt;   event_transfers event_transfers_cost points_on_bench
+#&gt; 1               0                    0              14
+#&gt; 2               0                    0              11
+#&gt; 
+#&gt; $past
+#&gt;   season_name total_points    rank
+#&gt; 1     2018/19         1804 4031890
+#&gt; 
+#&gt; $chips
+#&gt; list()
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

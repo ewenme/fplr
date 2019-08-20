@@ -75,7 +75,7 @@ user entry history endpoint." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fplr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -137,7 +137,10 @@ user entry history endpoint." />
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>fpl_get_user_history</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>3808385</span>)</div><div class='output co'>#&gt; <span class='error'>Error in open.connection(con, "rb"): HTTP error 404.</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>fpl_get_user_history</span>(<span class='kw'>user_id</span> <span class='kw'>=</span> <span class='fl'>3808385</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 3</span><span>
+#&gt;   season_name total_points    rank
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> 2018/19             </span><span style='text-decoration: underline;'>1</span><span>804 4</span><span style='text-decoration: underline;'>031</span><span>890</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

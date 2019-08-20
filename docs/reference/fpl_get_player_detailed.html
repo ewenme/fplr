@@ -75,7 +75,7 @@ element summary endpoint." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fplr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -144,86 +144,96 @@ element summary endpoint." />
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>fpl_get_player_detailed</span>(<span class='kw'>player_id</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; $fixtures
 #&gt;       code team_h team_h_score team_a team_a_score event finished minutes
-#&gt; 1  1059711     13           NA      1           NA     1    FALSE       0
-#&gt; 2  1059712      1           NA      5           NA     2    FALSE       0
-#&gt; 3  1059725     10           NA      1           NA     3    FALSE       0
-#&gt; 4  1059732      1           NA     17           NA     4    FALSE       0
-#&gt; 5  1059750     18           NA      1           NA     5    FALSE       0
-#&gt; 6  1059752      1           NA      2           NA     6    FALSE       0
-#&gt; 7  1059768     12           NA      1           NA     7    FALSE       0
-#&gt; 8  1059772      1           NA      3           NA     8    FALSE       0
-#&gt; 9  1059789     15           NA      1           NA     9    FALSE       0
-#&gt; 10 1059792      1           NA      7           NA    10    FALSE       0
-#&gt; 11 1059803      1           NA     20           NA    11    FALSE       0
-#&gt; 12 1059814      9           NA      1           NA    12    FALSE       0
-#&gt; 13 1059823      1           NA     16           NA    13    FALSE       0
-#&gt; 14 1059838     14           NA      1           NA    14    FALSE       0
-#&gt; 15 1059842      1           NA      4           NA    15    FALSE       0
-#&gt; 16 1059861     19           NA      1           NA    16    FALSE       0
-#&gt; 17 1059862      1           NA     11           NA    17    FALSE       0
-#&gt; 18 1059875      8           NA      1           NA    18    FALSE       0
-#&gt; 19 1059882      3           NA      1           NA    19    FALSE       0
-#&gt; 20 1059892      1           NA      6           NA    20    FALSE       0
-#&gt; 21 1059902      1           NA     12           NA    21    FALSE       0
-#&gt; 22 1059915      7           NA      1           NA    22    FALSE       0
-#&gt; 23 1059922      1           NA     15           NA    23    FALSE       0
-#&gt; 24 1059939      6           NA      1           NA    24    FALSE       0
-#&gt; 25 1059943      5           NA      1           NA    25    FALSE       0
-#&gt; 26 1059952      1           NA     13           NA    26    FALSE       0
-#&gt; 27 1059962      1           NA      8           NA    27    FALSE       0
-#&gt; 28 1059976     11           NA      1           NA    28    FALSE       0
-#&gt; 29 1059982      1           NA     19           NA    29    FALSE       0
-#&gt; 30 1059994      4           NA      1           NA    30    FALSE       0
-#&gt; 31 1060009     16           NA      1           NA    31    FALSE       0
-#&gt; 32 1060013      1           NA     14           NA    32    FALSE       0
-#&gt; 33 1060031     20           NA      1           NA    33    FALSE       0
-#&gt; 34 1060033      1           NA      9           NA    34    FALSE       0
-#&gt; 35 1060049     17           NA      1           NA    35    FALSE       0
-#&gt; 36 1060052      1           NA     10           NA    36    FALSE       0
-#&gt; 37 1060063      2           NA      1           NA    37    FALSE       0
-#&gt; 38 1060072      1           NA     18           NA    38    FALSE       0
+#&gt; 1  1059725     10           NA      1           NA     3    FALSE       0
+#&gt; 2  1059732      1           NA     17           NA     4    FALSE       0
+#&gt; 3  1059750     18           NA      1           NA     5    FALSE       0
+#&gt; 4  1059752      1           NA      2           NA     6    FALSE       0
+#&gt; 5  1059768     12           NA      1           NA     7    FALSE       0
+#&gt; 6  1059772      1           NA      3           NA     8    FALSE       0
+#&gt; 7  1059789     15           NA      1           NA     9    FALSE       0
+#&gt; 8  1059792      1           NA      7           NA    10    FALSE       0
+#&gt; 9  1059803      1           NA     20           NA    11    FALSE       0
+#&gt; 10 1059814      9           NA      1           NA    12    FALSE       0
+#&gt; 11 1059823      1           NA     16           NA    13    FALSE       0
+#&gt; 12 1059838     14           NA      1           NA    14    FALSE       0
+#&gt; 13 1059842      1           NA      4           NA    15    FALSE       0
+#&gt; 14 1059861     19           NA      1           NA    16    FALSE       0
+#&gt; 15 1059862      1           NA     11           NA    17    FALSE       0
+#&gt; 16 1059875      8           NA      1           NA    18    FALSE       0
+#&gt; 17 1059882      3           NA      1           NA    19    FALSE       0
+#&gt; 18 1059892      1           NA      6           NA    20    FALSE       0
+#&gt; 19 1059902      1           NA     12           NA    21    FALSE       0
+#&gt; 20 1059915      7           NA      1           NA    22    FALSE       0
+#&gt; 21 1059922      1           NA     15           NA    23    FALSE       0
+#&gt; 22 1059939      6           NA      1           NA    24    FALSE       0
+#&gt; 23 1059943      5           NA      1           NA    25    FALSE       0
+#&gt; 24 1059952      1           NA     13           NA    26    FALSE       0
+#&gt; 25 1059962      1           NA      8           NA    27    FALSE       0
+#&gt; 26 1059976     11           NA      1           NA    28    FALSE       0
+#&gt; 27 1059982      1           NA     19           NA    29    FALSE       0
+#&gt; 28 1059994      4           NA      1           NA    30    FALSE       0
+#&gt; 29 1060009     16           NA      1           NA    31    FALSE       0
+#&gt; 30 1060013      1           NA     14           NA    32    FALSE       0
+#&gt; 31 1060031     20           NA      1           NA    33    FALSE       0
+#&gt; 32 1060033      1           NA      9           NA    34    FALSE       0
+#&gt; 33 1060049     17           NA      1           NA    35    FALSE       0
+#&gt; 34 1060052      1           NA     10           NA    36    FALSE       0
+#&gt; 35 1060063      2           NA      1           NA    37    FALSE       0
+#&gt; 36 1060072      1           NA     18           NA    38    FALSE       0
 #&gt;    provisional_start_time         kickoff_time  event_name is_home difficulty
-#&gt; 1                   FALSE 2019-08-11T13:00:00Z  Gameweek 1   FALSE          3
-#&gt; 2                   FALSE 2019-08-17T14:00:00Z  Gameweek 2    TRUE          2
-#&gt; 3                   FALSE 2019-08-24T14:00:00Z  Gameweek 3   FALSE          5
-#&gt; 4                   FALSE 2019-08-31T14:00:00Z  Gameweek 4    TRUE          4
-#&gt; 5                   FALSE 2019-09-14T14:00:00Z  Gameweek 5   FALSE          3
-#&gt; 6                   FALSE 2019-09-21T14:00:00Z  Gameweek 6    TRUE          2
-#&gt; 7                   FALSE 2019-09-28T14:00:00Z  Gameweek 7   FALSE          4
-#&gt; 8                   FALSE 2019-10-05T14:00:00Z  Gameweek 8    TRUE          2
-#&gt; 9                   FALSE 2019-10-19T14:00:00Z  Gameweek 9   FALSE          2
-#&gt; 10                  FALSE 2019-10-26T14:00:00Z Gameweek 10    TRUE          3
-#&gt; 11                  FALSE 2019-11-02T15:00:00Z Gameweek 11    TRUE          3
-#&gt; 12                  FALSE 2019-11-09T15:00:00Z Gameweek 12   FALSE          3
-#&gt; 13                  FALSE 2019-11-23T15:00:00Z Gameweek 13    TRUE          2
-#&gt; 14                  FALSE 2019-11-30T15:00:00Z Gameweek 14   FALSE          2
-#&gt; 15                  FALSE 2019-12-03T19:45:00Z Gameweek 15    TRUE          2
-#&gt; 16                  FALSE 2019-12-07T15:00:00Z Gameweek 16   FALSE          3
-#&gt; 17                  FALSE 2019-12-14T15:00:00Z Gameweek 17    TRUE          4
-#&gt; 18                  FALSE 2019-12-21T15:00:00Z Gameweek 18   FALSE          4
-#&gt; 19                  FALSE 2019-12-26T15:00:00Z Gameweek 19   FALSE          3
-#&gt; 20                  FALSE 2019-12-28T15:00:00Z Gameweek 20    TRUE          4
-#&gt; 21                  FALSE 2020-01-01T15:00:00Z Gameweek 21    TRUE          4
-#&gt; 22                  FALSE 2020-01-11T15:00:00Z Gameweek 22   FALSE          2
-#&gt; 23                  FALSE 2020-01-18T15:00:00Z Gameweek 23    TRUE          2
-#&gt; 24                  FALSE 2020-01-22T19:45:00Z Gameweek 24   FALSE          4
-#&gt; 25                  FALSE 2020-02-01T15:00:00Z Gameweek 25   FALSE          2
-#&gt; 26                  FALSE 2020-02-08T15:00:00Z Gameweek 26    TRUE          2
-#&gt; 27                  FALSE 2020-02-22T15:00:00Z Gameweek 27    TRUE          2
-#&gt; 28                  FALSE 2020-02-29T15:00:00Z Gameweek 28   FALSE          5
-#&gt; 29                  FALSE 2020-03-07T15:00:00Z Gameweek 29    TRUE          2
-#&gt; 30                  FALSE 2020-03-14T15:00:00Z Gameweek 30   FALSE          2
-#&gt; 31                  FALSE 2020-03-21T15:00:00Z Gameweek 31   FALSE          2
-#&gt; 32                  FALSE 2020-04-04T14:00:00Z Gameweek 32    TRUE          2
-#&gt; 33                  FALSE 2020-04-11T14:00:00Z Gameweek 33   FALSE          3
-#&gt; 34                  FALSE 2020-04-18T14:00:00Z Gameweek 34    TRUE          3
-#&gt; 35                  FALSE 2020-04-25T14:00:00Z Gameweek 35   FALSE          4
-#&gt; 36                  FALSE 2020-05-02T14:00:00Z Gameweek 36    TRUE          4
-#&gt; 37                  FALSE 2020-05-09T14:00:00Z Gameweek 37   FALSE          2
-#&gt; 38                  FALSE 2020-05-17T14:00:00Z Gameweek 38    TRUE          3
+#&gt; 1                   FALSE 2019-08-24T16:30:00Z  Gameweek 3   FALSE          5
+#&gt; 2                   FALSE 2019-09-01T15:30:00Z  Gameweek 4    TRUE          4
+#&gt; 3                   FALSE 2019-09-15T15:30:00Z  Gameweek 5   FALSE          3
+#&gt; 4                   FALSE 2019-09-22T15:30:00Z  Gameweek 6    TRUE          2
+#&gt; 5                   FALSE 2019-09-30T19:00:00Z  Gameweek 7   FALSE          4
+#&gt; 6                   FALSE 2019-10-06T15:30:00Z  Gameweek 8    TRUE          2
+#&gt; 7                   FALSE 2019-10-21T19:00:00Z  Gameweek 9   FALSE          2
+#&gt; 8                   FALSE 2019-10-27T16:30:00Z Gameweek 10    TRUE          3
+#&gt; 9                   FALSE 2019-11-02T15:00:00Z Gameweek 11    TRUE          3
+#&gt; 10                  FALSE 2019-11-10T15:00:00Z Gameweek 12   FALSE          3
+#&gt; 11                  FALSE 2019-11-23T15:00:00Z Gameweek 13    TRUE          2
+#&gt; 12                  FALSE 2019-12-01T15:00:00Z Gameweek 14   FALSE          2
+#&gt; 13                  FALSE 2019-12-03T19:45:00Z Gameweek 15    TRUE          2
+#&gt; 14                  FALSE 2019-12-07T15:00:00Z Gameweek 16   FALSE          3
+#&gt; 15                  FALSE 2019-12-14T15:00:00Z Gameweek 17    TRUE          4
+#&gt; 16                  FALSE 2019-12-21T15:00:00Z Gameweek 18   FALSE          4
+#&gt; 17                  FALSE 2019-12-26T15:00:00Z Gameweek 19   FALSE          3
+#&gt; 18                  FALSE 2019-12-28T15:00:00Z Gameweek 20    TRUE          4
+#&gt; 19                  FALSE 2020-01-01T15:00:00Z Gameweek 21    TRUE          4
+#&gt; 20                  FALSE 2020-01-11T15:00:00Z Gameweek 22   FALSE          2
+#&gt; 21                  FALSE 2020-01-18T15:00:00Z Gameweek 23    TRUE          2
+#&gt; 22                  FALSE 2020-01-22T19:45:00Z Gameweek 24   FALSE          4
+#&gt; 23                  FALSE 2020-02-01T15:00:00Z Gameweek 25   FALSE          2
+#&gt; 24                  FALSE 2020-02-08T15:00:00Z Gameweek 26    TRUE          2
+#&gt; 25                  FALSE 2020-02-22T15:00:00Z Gameweek 27    TRUE          2
+#&gt; 26                  FALSE 2020-02-29T15:00:00Z Gameweek 28   FALSE          5
+#&gt; 27                  FALSE 2020-03-07T15:00:00Z Gameweek 29    TRUE          2
+#&gt; 28                  FALSE 2020-03-14T15:00:00Z Gameweek 30   FALSE          2
+#&gt; 29                  FALSE 2020-03-21T15:00:00Z Gameweek 31   FALSE          2
+#&gt; 30                  FALSE 2020-04-04T14:00:00Z Gameweek 32    TRUE          2
+#&gt; 31                  FALSE 2020-04-11T14:00:00Z Gameweek 33   FALSE          3
+#&gt; 32                  FALSE 2020-04-18T14:00:00Z Gameweek 34    TRUE          3
+#&gt; 33                  FALSE 2020-04-25T14:00:00Z Gameweek 35   FALSE          4
+#&gt; 34                  FALSE 2020-05-02T14:00:00Z Gameweek 36    TRUE          4
+#&gt; 35                  FALSE 2020-05-09T14:00:00Z Gameweek 37   FALSE          2
+#&gt; 36                  FALSE 2020-05-17T14:00:00Z Gameweek 38    TRUE          3
 #&gt; 
 #&gt; $history
-#&gt; list()
+#&gt;   element fixture opponent_team total_points was_home         kickoff_time
+#&gt; 1       3      10            13            0    FALSE 2019-08-11T13:00:00Z
+#&gt; 2       3      11             5            1     TRUE 2019-08-17T11:30:00Z
+#&gt;   team_h_score team_a_score round minutes goals_scored assists clean_sheets
+#&gt; 1            0            1     1       0            0       0            0
+#&gt; 2            2            1     2      19            0       0            0
+#&gt;   goals_conceded own_goals penalties_saved penalties_missed yellow_cards
+#&gt; 1              0         0               0                0            0
+#&gt; 2              0         0               0                0            0
+#&gt;   red_cards saves bonus bps influence creativity threat ict_index value
+#&gt; 1         0     0     0   0       0.0        0.0      0       0.0   5.5
+#&gt; 2         0     0     0   2       2.2        0.3      0       0.3   5.5
+#&gt;   transfers_balance selected transfers_in transfers_out
+#&gt; 1                 0    93903            0             0
+#&gt; 2            -32126    61787          416         32542
 #&gt; 
 #&gt; $history_past
 #&gt;   season_name element_code start_cost end_cost total_points minutes
