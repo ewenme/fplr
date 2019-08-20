@@ -28,7 +28,7 @@ fpl_get_user <- function(user_id) {
 #'
 #' @inheritParams fpl_get_user
 #'
-#' @return a list
+#' @return a tibble
 #'
 #' @export
 #'
@@ -38,7 +38,7 @@ fpl_get_user <- function(user_id) {
 #' }
 fpl_get_user_current <- function(user_id) {
 
-  fpl_get_user(user_id)$current
+  as_tibble(fpl_get_user(user_id)$current)
 }
 
 #' Get league data on a user

@@ -10,7 +10,7 @@ fpl_get_user_current(user_id)
 \item{user_id}{user ID (found in a user's team page URL on the \href{https://fantasy.premierleague.com}{main FPL site}).}
 }
 \value{
-a list
+a tibble
 }
 \description{
 Retrieve entry information for a user in the current FPL season,
