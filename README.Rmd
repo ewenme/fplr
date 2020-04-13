@@ -20,8 +20,8 @@ fplr makes it quick 'n' easy to retrieve [Fantasy Premier League](https://fantas
 Get the latest development version of `fplr` from GitHub.
 
 ```{r, eval=FALSE}
-# install.packages("devtools")
-devtools::install_github("ewenme/fplr")
+# install.packages("remotes")
+remotes::install_github("ewenme/fplr")
 ```
 
 Because of the lack of dev support from FPL and possible API changes, the package is unlikely to be submitted to CRAN and will remain in an experimental [lifecycle](https://www.tidyverse.org/lifecycle/) for the foreseeable future.
@@ -45,16 +45,10 @@ players
 
 ## In-the-wild
 
-- [...xPoints?](https://ewen.io/2019/03/08/xpoints/)
+[...xPoints?](https://ewen.io/2019/03/08/xpoints/)
 
 ```{r, echo=FALSE}
 knitr::include_graphics("https://github.com/rbind/ewenme/raw/master/static/blog/2019-03-08-xPoints_files/figure-html/value-calc-1.png")
-```
-
-- [FPL Mythbusting with fplr](https://ewen.io/2017/06/25/fpl-mythbusting-with-fplr/)
-
-```{r, echo=FALSE}
-knitr::include_graphics("https://github.com/rbind/ewenme/raw/master/static/blog/2017-06-25-fpl-mythbusting-with-fplr_files/figure-html/bandwagons-1.png")
 ```
 
 ## Collaborators
